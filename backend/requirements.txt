@@ -1,0 +1,112 @@
+# GuardFlow Backend - Requirements
+# FastAPI e dependências core
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Banco de dados
+sqlalchemy==1.4.49
+alembic==1.13.1
+psycopg2-binary==2.9.9
+asyncpg==0.29.0
+aiosqlite==0.20.0
+
+# Cache e sessões
+redis==5.0.1
+aioredis==2.0.1
+
+# Autenticação e segurança
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# HTTP client para integrações
+httpx==0.25.2
+aiohttp==3.9.1
+
+# Computer Vision
+google-cloud-vision==3.4.5
+opencv-python==4.8.1.78
+pillow==10.0.1
+
+# Pagamentos
+mercadopago==2.2.1
+
+# Monitoramento e logs
+sentry-sdk[fastapi]==1.38.0
+structlog==23.2.0
+python-json-logger==2.0.7
+psutil==5.9.8
+prometheus-fastapi-instrumentator==7.0.0
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+email-validator==2.0.0.post2
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
+pytest-cov==4.1.0
+
+# Development
+black==23.11.0
+isort==5.12.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Environment
+python-dotenv==1.0.0
+
+# CORS
+fastapi-cors==0.0.6
+
+# File upload
+python-multipart==0.0.6
+
+# UUID
+uuid==1.30
+
+# Async database
+databases[postgresql]==0.8.0
+databases[sqlite]==0.8.0
+
+# Background tasks
+celery==5.3.4
+flower==2.0.1
+
+# Validation
+validators==0.22.0
+
+# Time handling
+pendulum==2.1.2
+
+# Image processing
+imageio==2.31.6
+
+# Barcode processing
+pyzbar==0.1.9
+
+# QR Code generation
+qrcode[pil]==7.4.2
+
+# PDF generation (for receipts)
+reportlab==4.0.7
+
+# Excel/CSV export
+pandas==2.1.4
+openpyxl==3.1.2
+
+# Encryption
+cryptography>=42.0.7,<47
+
+# Rate limiting
+slowapi==0.1.9
+
+# Health checks
+fastapi-health==0.4.0
+
+# API documentation
+fastapi-users==12.1.2
