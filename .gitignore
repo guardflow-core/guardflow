@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+
+# Node
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+
+# Envs
+.env
+.env.*
+.venv/
+venv/
+
+# IDE/OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Builds
+build/
+dist/
+coverage/
+
+# App specific
+backend/logs/
+backend/uploads/
+mobile-app/android/
+mobile-app/ios/
+mobile-app/.expo/
+mobile-app_backup_parent/node_modules/
+backend/guardflow_dev.db
+**/__pycache__/
+*.pyc
