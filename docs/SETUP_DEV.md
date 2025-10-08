@@ -37,3 +37,4 @@
 ## Dicas
 - Mantenha `.env` fora do versionamento; use `.env.example` como referência.
 - Use branches `feature/*` e abra PR para `develop`.
+
