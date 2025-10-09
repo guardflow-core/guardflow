@@ -291,8 +291,74 @@ async def get_scan_stats(
 
 async def _mock_vision_recognition(image_data: bytes, store_id: str, db: AsyncSession) -> dict:
     """
-    Mock da Computer Vision para MVP
-    Simula reconhecimento inteligente baseado em produtos existentes
+    Reconhecimento de produtos usando Google Cloud Vision API
+    Fallback para mock se Google Vision não estiver disponível
+    """
+    try:
+        from app.services.vision_service import vision_service
+        
+        # Tentar usar Google Vision API
+        if vision_service.is_google_vision_available():
+            logger.info("🔍 Usando Google Cloud Vision API")
+            
+            # Detectar produtos na imagem
+            vision_result = await vision_service.detect_products(image_data)
+            
+            if vision_result["success"] and vision_result["products"]:
+                # Buscar produto correspondente no banco
+                product = await _find_matching_product(vision_result["products"], db)
+                
+                if product:
+                    return {
+                        "success": True,
+                        "product": product,
+                        "product_id": str(product.id),
+                        "product_name": product.name,
+                        "product_data": product.to_dict(),
+                        "barcode": product.barcode,
+                        "confidence": vision_result["confidence"],
+                        "duration_ms": vision_result["processing_time_ms"]
+                    }
+        
+        # Fallback para mock se Google Vision não estiver disponível ou não encontrar produto
+        logger.info("🔄 Usando fallback mock")
+        return await _fallback_mock_recognition(image_data, store_id, db)
+        
+    except Exception as e:
+        logger.error(f"❌ Erro no reconhecimento de visão: {str(e)}")
+        return await _fallback_mock_recognition(image_data, store_id, db)
+
+async def _find_matching_product(vision_products: list, db: AsyncSession) -> Optional[Product]:
+    """
+    Encontrar produto correspondente baseado nos resultados da visão
+    """
+    try:
+        from sqlalchemy import select, or_
+        
+        # Criar lista de termos de busca
+        search_terms = []
+        for product in vision_products:
+            search_terms.append(product["name"])
+        
+        # Buscar produtos que correspondem aos termos
+        query = select(Product).where(
+            or_(
+                *[Product.name.ilike(f"%{term}%") for term in search_terms],
+                *[Product.brand.ilike(f"%{term}%") for term in search_terms],
+                *[Product.category.ilike(f"%{term}%") for term in search_terms]
+            )
+        ).where(Product.is_active == True).limit(1)
+        
+        result = await db.execute(query)
+        return result.scalar_one_or_none()
+        
+    except Exception as e:
+        logger.error(f"❌ Erro ao buscar produto correspondente: {str(e)}")
+        return None
+
+async def _fallback_mock_recognition(image_data: bytes, store_id: str, db: AsyncSession) -> dict:
+    """
+    Fallback mock quando Google Vision não está disponível
     """
     try:
         # Simular processamento de imagem
@@ -333,7 +399,7 @@ async def _mock_vision_recognition(image_data: bytes, store_id: str, db: AsyncSe
         }
         
     except Exception as e:
-        logger.error(f"❌ Erro no mock vision: {str(e)}")
+        logger.error(f"❌ Erro no fallback mock: {str(e)}")
         return {
             "success": False,
             "error": str(e),
