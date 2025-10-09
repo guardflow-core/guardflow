@@ -46,3 +46,7 @@ guardflow-web*/node_modules/
 mobile-app/node_modules/
 *.sqlite
 *.db*
+venv/
+__pycache__/
+*.pyc
+*.pyo
