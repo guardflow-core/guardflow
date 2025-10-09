@@ -1,23 +1,35 @@
-# 🛒 GuardFlow - Sistema de Checkout ESG Integrado
+# 🛒 GuardFlow - Sistema de Checkout ESG Integrado                                      
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)
-![React](https://img.shields.io/badge/React-18+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
-![Status](https://img.shields.io/badge/status-Production%20Ready-brightgreen.svg)
+![Python](https://img.shields.io/badge/python-3.11+-blue.svg)                           
+![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)                       
+![React](https://img.shields.io/badge/React-18+-blue.svg)                               
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)
+![React Native](https://img.shields.io/badge/React%20Native-0.72+-61dafb.svg)
+![Docker](https://img.shields.io/badge/Docker-20+-2496ed.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)                          
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)                                
+![Status](https://img.shields.io/badge/status-Production%20Ready-brightgreen.svg)       
 
-**Sistema de Checkout ESG Integrado ao Ecossistema de Tokenização**
+**Sistema de Checkout ESG Integrado ao Ecossistema de Tokenização**                     
 
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [API](#-api) • [SDK](#-sdk) • [Contributing](#-contributing)
+[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [API](#-api) • [SDK](#-sdk) • [Contributing](#-contributing)                                       
 
 </div>
 
 ## 📋 Overview
 
 GuardFlow é um sistema de checkout ESG integrado que agiliza compras sustentáveis e se conecta ao ecossistema de tokenização ESG. Desenvolvido com foco em experiência de usuário e integração com sistemas de tokenização, oferece checkout rápido, inteligente e conectado ao ecossistema ESG.
+
+### 🏷️ **Linguagens e Tecnologias**
+- **Backend**: Python 3.11+, FastAPI, SQLAlchemy, Pydantic
+- **Frontend**: React 18+, TypeScript, Material-UI, Redux Toolkit
+- **Mobile**: React Native, Expo, Web3.js, Ethers.js
+- **AI/ML**: TensorFlow, PyTorch, OpenCV, Transformers
+- **Blockchain**: Solidity, Web3.py, Ethers.js, Smart Contracts
+- **Database**: PostgreSQL, Redis, SQLite
+- **DevOps**: Docker, Kubernetes, Nginx, Prometheus
 
 ### 🌟 Key Features
 
