@@ -1,25 +1,105 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Container, Box, Chip, IconButton, Tooltip } from '@mui/material';
+import { Palette, Info } from '@mui/icons-material';
+import { CustomThemeProvider, useTheme } from './contexts/ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
+// Componente principal da aplicação
+const AppContent: React.FC = () => {
+  const { brand } = useTheme();
+
+  return (
+    <Router>
+      <Box sx={{ flexGrow: 1, minHeight: '100vh' }}>
+        <AppBar 
+          position="static" 
+          sx={{ 
+            background: 'linear-gradient(135deg, #2196f3 0%, #1976d2 100%)',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+            transition: 'all 0.3s ease',
+          }}
+        >
+          <Toolbar>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexGrow: 1 }}>
+              <Typography variant="h5" component="div" sx={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: 1 }}>
+                {brand.logo} {brand.name}
+              </Typography>
+              <Chip 
+                label={brand.slogan}
+                size="small" 
+                sx={{ 
+                  bgcolor: 'rgba(255,255,255,0.2)', 
+                  color: 'white',
+                  fontWeight: 500,
+                  fontSize: '0.75rem',
+                  height: 24,
+                }} 
+              />
+            </Box>
+            
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <ThemeToggle variant="icon" size="medium" />
+              <Tooltip title={`${brand.name} v${brand.version}`}>
+                <IconButton color="inherit" size="small">
+                  <Info />
+                </IconButton>
+              </Tooltip>
+            </Box>
+          </Toolbar>
+        </AppBar>
+          
+        <Container maxWidth="xl" sx={{ mt: 0, mb: 0, p: 0 }}>
+          <Routes>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/scanner" element={
+              <Box sx={{ p: 3, textAlign: 'center' }}>
+                <Typography variant="h4" gutterBottom>📱 Scanner</Typography>
+                <Typography variant="body1" color="text.secondary">
+                  Funcionalidade em desenvolvimento
+                </Typography>
+              </Box>
+            } />
+            <Route path="/cart" element={
+              <Box sx={{ p: 3, textAlign: 'center' }}>
+                <Typography variant="h4" gutterBottom>🛒 Carrinho</Typography>
+                <Typography variant="body1" color="text.secondary">
+                  Funcionalidade em desenvolvimento
+                </Typography>
+              </Box>
+            } />
+            <Route path="/esg" element={
+              <Box sx={{ p: 3, textAlign: 'center' }}>
+                <Typography variant="h4" gutterBottom>🌱 ESG Dashboard</Typography>
+                <Typography variant="body1" color="text.secondary">
+                  Funcionalidade em desenvolvimento
+                </Typography>
+              </Box>
+            } />
+            <Route path="/users" element={
+              <Box sx={{ p: 3, textAlign: 'center' }}>
+                <Typography variant="h4" gutterBottom>👥 Usuários</Typography>
+                <Typography variant="body1" color="text.secondary">
+                  Funcionalidade em desenvolvimento
+                </Typography>
+              </Box>
+            } />
+          </Routes>
+        </Container>
+      </Box>
+    </Router>
+  );
+};
+
+// Componente principal com provider de tema
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CustomThemeProvider>
+      <AppContent />
+    </CustomThemeProvider>
   );
 }
 
