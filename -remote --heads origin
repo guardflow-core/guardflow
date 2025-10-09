@@ -1,0 +1,51 @@
+[33mcommit c6941b303ade6c17fef817a298528c8ca5cf0b61[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: SH1W4 <makunesayto@gmail.com>
+Date:   Thu Oct 9 00:41:46 2025 -0300
+
+    🧹 Remove all __pycache__ files from repository
+    
+    ## 🚨 Critical Cleanup
+    - Remove all __pycache__ directories and .pyc files
+    - Clean up Python cache files that were accidentally committed
+    - Improve repository cleanliness and reduce size
+    
+    ## 📊 Files Removed
+    - backend/app/api/__pycache__/ (7 files)
+    - backend/app/models/__pycache__/ (6 files)
+    - backend/app/schemas/__pycache__/ (7 files)
+    - backend/app/services/__pycache__/ (6 files)
+    - backend/app/utils/__pycache__/ (2 files)
+    
+    ## ✅ Benefits
+    - Repository size reduced
+    - No more Python cache files in Git
+    - Better development experience
+    - Follows Python best practices
+
+backend/app/api/__pycache__/__init__.cpython-311.pyc
+backend/app/api/__pycache__/auth.cpython-311.pyc
+backend/app/api/__pycache__/cart.cpython-311.pyc
+backend/app/api/__pycache__/health.cpython-311.pyc
+backend/app/api/__pycache__/payment.cpython-311.pyc
+backend/app/api/__pycache__/scanner.cpython-311.pyc
+backend/app/api/__pycache__/store.cpython-311.pyc
+backend/app/models/__pycache__/__init__.cpython-311.pyc
+backend/app/models/__pycache__/cart.cpython-311.pyc
+backend/app/models/__pycache__/product.cpython-311.pyc
+backend/app/models/__pycache__/store.cpython-311.pyc
+backend/app/models/__pycache__/transaction.cpython-311.pyc
+backend/app/models/__pycache__/user.cpython-311.pyc
+backend/app/schemas/__pycache__/__init__.cpython-311.pyc
+backend/app/schemas/__pycache__/auth.cpython-311.pyc
+backend/app/schemas/__pycache__/cart.cpython-311.pyc
+backend/app/schemas/__pycache__/payment.cpython-311.pyc
+backend/app/schemas/__pycache__/product.cpython-311.pyc
+backend/app/schemas/__pycache__/store.cpython-311.pyc
+backend/app/services/__pycache__/__init__.cpython-311.pyc
+backend/app/services/__pycache__/auth_service.cpython-311.pyc
+backend/app/services/__pycache__/guardpass_service.cpython-311.pyc
+backend/app/services/__pycache__/notification_service.cpython-311.pyc
+backend/app/services/__pycache__/payment_service.cpython-311.pyc
+backend/app/services/__pycache__/vision_service.cpython-311.pyc
+backend/app/utils/__pycache__/logging.cpython-311.pyc
+backend/app/utils/__pycache__/security.cpython-311.pyc
