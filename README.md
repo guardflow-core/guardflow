@@ -1,4 +1,4 @@
-# 🌱 GuardFlow - Sistema de Tokenização ESG e Monetização Governamental
+# 🛒 GuardFlow - Sistema de Checkout ESG Integrado
 
 <div align="center">
 
@@ -9,7 +9,7 @@
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
 ![Status](https://img.shields.io/badge/status-Production%20Ready-brightgreen.svg)
 
-**Sistema de Tokenização ESG e Monetização Governamental**
+**Sistema de Checkout ESG Integrado ao Ecossistema de Tokenização**
 
 [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [API](#-api) • [SDK](#-sdk) • [Contributing](#-contributing)
 
@@ -17,20 +17,20 @@
 
 ## 📋 Overview
 
-GuardFlow é um sistema inovador de tokenização ESG e monetização governamental que transforma compras sustentáveis em tokens digitais e receita através de créditos fiscais. Desenvolvido com foco em sustentabilidade e monetização estratégica, oferece uma experiência única para consumidores e mercados.
+GuardFlow é um sistema de checkout ESG integrado que agiliza compras sustentáveis e se conecta ao ecossistema de tokenização ESG. Desenvolvido com foco em experiência de usuário e integração com sistemas de tokenização, oferece checkout rápido, inteligente e conectado ao ecossistema ESG.
 
 ### 🌟 Key Features
 
-- **🌱 Tokenização ESG**: Conversão de compras sustentáveis em tokens ESG com bônus de sustentabilidade e carbono
-- **💰 Monetização Governamental**: Créditos fiscais (ICMS, IPI, PIS/COFINS, Lei do Bem, Lei da Informática)
-- **🏆 Gamificação ESG**: Sistema de badges, desafios e rankings para engajamento sustentável
-- **📊 Dashboard ESG**: Métricas avançadas de impacto ambiental e histórico de transações
-- **🤖 Serviços de IA**: Personalização de ofertas e analytics de comportamento sustentável
-- **🔄 Ecossistema de Tokens**: Sistema GST para transferências e recompensas
+- **🛒 Checkout Inteligente**: Scanner de produtos com computer vision e reconhecimento automático
+- **⚡ Pagamento Rápido**: PIX instantâneo e integração com GuardPass
+- **🌱 Integração ESG**: Conexão automática com ecossistema de tokenização ESG
 - **📱 Multi-Platform**: Web, mobile e APIs RESTful completas
-- **🎨 NFT System**: Conversão de notas fiscais em NFTs colecionáveis
-- **🧠 ESG Asset Token**: Estratégia inteligente com staking e governança
-- **⛓️ Blockchain Integration**: Smart contracts ESG e DeFi
+- **🤖 IA Personalizada**: Ofertas personalizadas baseadas em comportamento sustentável
+- **🔗 Integração ERP**: Sincronização com sistemas de mercado (SAP, Oracle, Dynamics)
+- **📊 Analytics ESG**: Métricas de impacto ambiental e histórico de compras
+- **🏆 Gamificação**: Sistema de badges e recompensas por compras sustentáveis
+- **🔄 Ecossistema Conectado**: Integração com tokens GST e monetização governamental
+- **📱 Interface Intuitiva**: Qualquer pessoa usa na primeira vez
 
 ## 🛠️ Technology Stack
 
@@ -119,62 +119,63 @@ docker-compose up -d
 
 ## 🚀 Usage
 
-### ESG Tokenization
+### Checkout Inteligente
 
-Transform sustainable purchases into ESG tokens:
+Sistema de checkout com scanner automático:
 
 ```python
-# Example: Convert purchase to ESG tokens
+# Example: Processar checkout com scanner
 response = requests.post(
-    "http://localhost:8002/api/v1/monetization/invoice/convert-to-esg",
+    "http://localhost:8002/api/v1/checkout/process",
     json={
-        "invoice_id": "INV-12345",
         "user_id": "user-123",
-        "sustainability_score": 85,
-        "carbon_footprint_kg": 2.5
+        "products": [
+            {"barcode": "123456789", "quantity": 2},
+            {"barcode": "987654321", "quantity": 1}
+        ],
+        "payment_method": "pix"
     }
 )
 result = response.json()
-# Returns: ESG tokens earned, sustainability bonus, carbon bonus
+# Returns: Checkout processado, produtos identificados, total calculado
 ```
 
-### Government Monetization
+### Integração ESG
 
-Convert invoices to government tax credits:
+Conectar checkout ao ecossistema ESG:
 
 ```python
-# Example: Government monetization
+# Example: Integrar com tokenização ESG
 response = requests.post(
-    "http://localhost:8002/api/v1/government/invoice/authorize-government-monetization",
+    "http://localhost:8002/api/v1/esg/integrate-checkout",
     json={
-        "invoice_id": "INV-12345",
+        "checkout_id": "CHECKOUT-12345",
         "user_id": "user-123",
-        "invoice_amount": 1000.00,
-        "tax_credits": ["ICMS", "IPI", "PIS_COFINS"]
+        "esg_preferences": ["organic", "sustainable"]
     }
 )
 result = response.json()
-# Returns: Tax credits earned, monetization status
+# Returns: Conexão com ecossistema ESG, tokens disponíveis
 ```
 
-### ESG Dashboard
+### Analytics ESG
 
-Access comprehensive ESG metrics:
+Métricas de impacto das compras:
 
 ```python
-# Example: Get ESG dashboard
+# Example: Obter analytics ESG
 response = requests.get(
-    "http://localhost:8002/api/v1/esg/dashboard/user-123"
+    "http://localhost:8002/api/v1/analytics/esg/user-123"
 )
-dashboard = response.json()
-# Returns: ESG tokens, assets, ranking, challenges, impact metrics
+analytics = response.json()
+# Returns: Impacto ambiental, produtos sustentáveis, histórico ESG
 ```
 
 ## 🎯 GuardFlow SDK
 
-### Autosuficiente e Independente
+### Ecossistema de Tokenização ESG
 
-O **GuardFlow SDK** é um produto autosuficiente da GuardDrive que implementa toda a estratégia ESG de forma independente:
+O **GuardFlow SDK** é um produto autosuficiente da GuardDrive que implementa o ecossistema completo de tokenização ESG, ao qual o GuardFlow se conecta:
 
 ```python
 from guardflow_sdk import GuardFlowSDK
@@ -218,7 +219,7 @@ pool_result = sdk.liquidity_pools.create_esg_pool({
 })
 ```
 
-### Módulos do SDK
+### Módulos do SDK (Ecossistema ESG)
 
 - **🌱 ESG Engine** - Tokenização ESG autônoma
 - **🏛️ Government Monetization** - Créditos fiscais automáticos
@@ -230,6 +231,15 @@ pool_result = sdk.liquidity_pools.create_esg_pool({
 - **🧠 ESG Asset Token** - Estratégia inteligente
 - **📜 Smart Contracts** - Deploy automático
 - **💧 Liquidity Pools** - DeFi ESG
+
+### Integração GuardFlow ↔ SDK
+
+O GuardFlow se conecta ao SDK para:
+- **Tokenização automática** de compras ESG
+- **Monetização governamental** de notas fiscais
+- **Analytics ESG** personalizados
+- **Gamificação** com tokens GST
+- **Blockchain integration** para registros imutáveis
 
 ## 📖 Documentation
 
