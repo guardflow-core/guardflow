@@ -362,3 +362,4 @@ npm run deploy:mainnet
 <div align="center">
 Made with 🌱 by SH1W4 | Transformando sustentabilidade em valor digital!
 </div>
+
