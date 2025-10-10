@@ -1,0 +1,59 @@
+{
+  "name": "@esg-token/ecosystem",
+  "version": "1.0.0",
+  "description": "SDK oficial do ESG Token Ecosystem para tokenização de métricas ESG",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint . --ext .ts,.js",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SH1W4/guardflow-gst-ecosystem.git"
+  },
+  "keywords": [
+    "guardflow",
+    "gst",
+    "ecosystem",
+    "esg",
+    "sustainability",
+    "blockchain",
+    "nft",
+    "tokenization",
+    "defi",
+    "gamification",
+    "governance"
+  ],
+  "author": "SH1W4",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SH1W4/guardflow-gst-ecosystem/issues"
+  },
+  "homepage": "https://github.com/SH1W4/guardflow-gst-ecosystem#readme",
+  "dependencies": {
+    "ethers": "^6.8.0",
+    "axios": "^1.6.2",
+    "web3": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

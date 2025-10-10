@@ -1,0 +1,134 @@
+{
+  "name": "GuardFlow GST Ecosystem",
+  "version": "1.0.0",
+  "description": "Ecossistema de Tokenização ESG para GuardFlow",
+  "type": "blockchain-ecosystem",
+  "main": "index.js",
+  "contracts": {
+    "networks": {
+      "mainnet": {
+        "gstToken": "0x0000000000000000000000000000000000000000",
+        "invoiceNFT": "0x0000000000000000000000000000000000000000",
+        "marketplace": "0x0000000000000000000000000000000000000000",
+        "gamification": "0x0000000000000000000000000000000000000000",
+        "governance": "0x0000000000000000000000000000000000000000",
+        "nfeConverter": "0x0000000000000000000000000000000000000000",
+        "smartCart": "0x0000000000000000000000000000000000000000"
+      },
+      "testnet": {
+        "gstToken": "0x0000000000000000000000000000000000000000",
+        "invoiceNFT": "0x0000000000000000000000000000000000000000",
+        "marketplace": "0x0000000000000000000000000000000000000000",
+        "gamification": "0x0000000000000000000000000000000000000000",
+        "governance": "0x0000000000000000000000000000000000000000",
+        "nfeConverter": "0x0000000000000000000000000000000000000000",
+        "smartCart": "0x0000000000000000000000000000000000000000"
+      },
+      "localhost": {
+        "gstToken": "0x0000000000000000000000000000000000000000",
+        "invoiceNFT": "0x0000000000000000000000000000000000000000",
+        "marketplace": "0x0000000000000000000000000000000000000000",
+        "gamification": "0x0000000000000000000000000000000000000000",
+        "governance": "0x0000000000000000000000000000000000000000",
+        "nfeConverter": "0x0000000000000000000000000000000000000000",
+        "smartCart": "0x0000000000000000000000000000000000000000"
+      }
+    }
+  },
+  "apis": {
+    "rest": {
+      "baseUrl": "https://api.guardflow.com/gst",
+      "version": "v1",
+      "endpoints": {
+        "convertNFe": "/convert-nfe",
+        "getUserNFTs": "/user/{address}/nfts",
+        "getMarketplace": "/marketplace",
+        "getGamification": "/gamification/{address}",
+        "getGovernance": "/governance"
+      }
+    },
+    "web3": {
+      "networks": ["ethereum", "polygon", "bsc"],
+      "rpc": {
+        "ethereum": "https://mainnet.infura.io/v3/YOUR_PROJECT_ID",
+        "polygon": "https://polygon-rpc.com",
+        "bsc": "https://bsc-dataseed.binance.org"
+      }
+    }
+  },
+  "features": {
+    "nfeToNFT": {
+      "enabled": true,
+      "autoConversion": true,
+      "validation": true,
+      "auditTrail": true
+    },
+    "smartCart": {
+      "enabled": true,
+      "esp32Integration": true,
+      "realTimeScanning": true,
+      "sustainabilityCalculation": true
+    },
+    "marketplace": {
+      "enabled": true,
+      "productTrading": true,
+      "nftAuctions": true,
+      "gstExchange": true
+    },
+    "gamification": {
+      "enabled": true,
+      "levels": true,
+      "achievements": true,
+      "missions": true,
+      "ranking": true
+    },
+    "governance": {
+      "enabled": true,
+      "voting": true,
+      "proposals": true,
+      "delegation": true
+    }
+  },
+  "integrations": {
+    "guardflowCore": {
+      "enabled": true,
+      "apiEndpoint": "https://api.guardflow.com/core",
+      "authentication": "oauth2"
+    },
+    "guardflowSaaS": {
+      "enabled": true,
+      "apiEndpoint": "https://api.guardflow.com/saas",
+      "authentication": "api-key"
+    },
+    "guardflowWeb": {
+      "enabled": true,
+      "sdk": "@guardflow/gst-ecosystem",
+      "version": "^1.0.0"
+    },
+    "guardflowMobile": {
+      "enabled": true,
+      "sdk": "@guardflow/gst-ecosystem",
+      "version": "^1.0.0"
+    }
+  },
+  "security": {
+    "audit": {
+      "completed": true,
+      "date": "2024-01-01",
+      "firm": "GuardFlow Security Team"
+    },
+    "compliance": {
+      "gdpr": true,
+      "lgpd": true,
+      "sox": true
+    }
+  },
+  "monitoring": {
+    "healthCheck": "/health",
+    "metrics": "/metrics",
+    "alerts": {
+      "email": "alerts@guardflow.com",
+      "webhook": "https://hooks.guardflow.com/alerts"
+    }
+  }
+}
