@@ -1,0 +1,13 @@
+{
+  "processed_at": "2025-10-10T22:54:49.776850",
+  "section": "ESG_CONFIGURATION",
+  "file_type": "configuration",
+  "esg_config_found": true,
+  "config_keys": [
+    "name",
+    "version",
+    "lockfileVersion",
+    "requires",
+    "packages"
+  ]
+}
