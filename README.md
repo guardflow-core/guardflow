@@ -1,141 +1,96 @@
-# 🌱 **ESG TOKEN ECOSYSTEM**
-## **Plataforma Universal de Tokenização ESG**
+# 🛡️ **GUARDFLOW**
+## **Sistema de Segurança e Mobilidade Inteligente**
 
-[![Rust](https://img.shields.io/badge/Rust-1.87.0-orange.svg)](https://www.rust-lang.org/)
-[![Axum](https://img.shields.io/badge/Axum-0.7-blue.svg)](https://github.com/tokio-rs/axum)
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green.svg)](https://fastapi.tiangolo.com/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-green.svg)](https://www.postgresql.org/)
-[![Blockchain](https://img.shields.io/badge/Blockchain-Hybrid-purple.svg)](https://ethereum.org/)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)](https://github.com/SH1W4/ecosystem-degov)
+[![Docker](https://img.shields.io/badge/Docker-24.0-blue.svg)](https://www.docker.com/)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)](https://github.com/SH1W4/GuardFlow)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-2.0.0-green.svg)](https://github.com/SH1W4/GuardFlow/releases)
 
 ---
 
 ## 🎯 **VISÃO GERAL**
 
-O **ESG Token Ecosystem** é uma plataforma universal e modular para tokenização de métricas ESG (Environmental, Social, and Governance), projetada para integração com qualquer projeto ou ecossistema que precise de tokenização de métricas sustentáveis.
+O **GuardFlow** é um sistema abrangente de segurança e mobilidade inteligente, projetado para proteger pessoas, veículos e infraestruturas através de tecnologias avançadas de monitoramento, análise e resposta em tempo real.
 
 ### **Características Principais:**
-- 🪙 **6 Tokens Interconectados** - EcoToken, EcoScore, CarbonCredit, EcoCertificate, EcoStake, EcoGem
-- 🏗️ **Backend Rust** - Performance e segurança de nível empresarial
-- 🔗 **Blockchain Híbrida** - Privada (Hyperledger Besu) + Pública (Polygon, Celo, XRPL)
-- 🤖 **AI/ML Integrado** - Análise inteligente de dados ESG
-- 🔗 **Integração Universal** - APIs padronizadas para qualquer projeto
-- 🧾 **NFe to NFT** - Conversão de notas fiscais em NFTs únicos
-- 🎮 **Gamificação** - Sistema de recompensas e missões
-- ⚖️ **Governança** - Sistema de governança tokenizada
-- 🌐 **Cross-Platform** - Sincronização entre diferentes plataformas
+- 🛡️ **Sistema de Segurança** - Monitoramento 24/7 com IA
+- 🚗 **Mobilidade Inteligente** - Telemetria e análise de veículos
+- 📱 **Apps Multiplataforma** - iOS, Android e Web
+- 🔗 **Integração Universal** - APIs para qualquer sistema
+- 🤖 **IA/ML Avançado** - Análise preditiva e detecção de anomalias
+- 🌐 **Cloud Native** - Escalabilidade e alta disponibilidade
+- 📊 **Analytics** - Dashboards e relatórios em tempo real
+- 🔒 **Segurança** - Criptografia end-to-end e compliance
 
 ---
 
 ## 🏗️ **ARQUITETURA**
 
-### **ESG Token Ecosystem Architecture:**
+### **GuardFlow System Architecture:**
 
 ```mermaid
 graph TB
-    subgraph "🪙 Token Layer"
-        A[EcoToken ECT] --> B[EcoScore ECS]
-        B --> C[CarbonCredit CCR]
-        C --> D[EcoCertificate ECR]
-        D --> E[EcoStake EST]
-        E --> F[EcoGem EGM]
+    subgraph "📱 Client Layer"
+        A[Web App] --> B[Mobile App]
+        B --> C[Admin Dashboard]
     end
     
-    subgraph "🔗 Blockchain Layer"
-        G[Private Chain<br/>Hyperledger Besu] --> H[Public Chain<br/>Polygon/Celo]
+    subgraph "🔌 API Layer"
+        D[FastAPI Backend] --> E[Authentication]
+        E --> F[Authorization]
     end
     
-    subgraph "🔌 Integration Layer"
-        I[Any Project] --> J[GuardFlow]
-        J --> K[ERP Systems]
-        K --> L[IoT Sensors]
-        L --> M[External APIs]
+    subgraph "🧠 AI/ML Layer"
+        G[Computer Vision] --> H[NLP Processing]
+        H --> I[Predictive Analytics]
     end
     
-    subgraph "📊 Platform Layer"
-        N[Analytics] --> O[Reporting]
-        O --> P[Marketplace]
-        P --> Q[Governance]
+    subgraph "📊 Data Layer"
+        J[PostgreSQL] --> K[Redis Cache]
+        K --> L[File Storage]
     end
     
-    A --> G
-    G --> H
-    I --> N
-    N --> Q
+    subgraph "🔗 Integration Layer"
+        M[IoT Sensors] --> N[Vehicle Telemetry]
+        N --> O[External APIs]
+    end
+    
+    A --> D
+    D --> G
+    G --> J
+    M --> D
 ```
-
----
-
-## 🪙 **TOKENS DO ECOSISTEMA**
-
-### **1. EcoToken (ECT) - Token Principal**
-- **Tipo**: ERC-20 (Fungível)
-- **Blockchain**: Pública (Polygon, Celo)
-- **Função**: Token principal para transações e recompensas
-- **Supply**: 1 bilhão de tokens
-- **Utilização**: Pagamentos, staking, governança
-
-### **2. EcoScore (ECS) - Score de Sustentabilidade**
-- **Tipo**: ERC-1155 (Semi-fungível)
-- **Blockchain**: Privada (Hyperledger Besu)
-- **Função**: Representa performance ESG do usuário
-- **Supply**: Ilimitado (baseado em performance)
-- **Utilização**: Desbloqueio de benefícios, gamificação
-
-### **3. CarbonCredit (CCR) - Créditos de Carbono**
-- **Tipo**: ERC-1155 (Semi-fungível)
-- **Blockchain**: Privada (Hyperledger Besu)
-- **Função**: Representa créditos de carbono verificados
-- **Supply**: Baseado em reduções reais de CO₂
-- **Utilização**: Compensação de emissões, trading
-
-### **4. EcoCertificate (ECR) - Certificados ESG**
-- **Tipo**: ERC-721 (Não-fungível)
-- **Blockchain**: Pública (Polygon, Celo)
-- **Função**: Certificados únicos de conquistas ESG
-- **Supply**: Limitado por conquista
-- **Utilização**: Prova de conquistas, colecionáveis
-
-### **5. EcoStake (EST) - Staking e Governança**
-- **Tipo**: ERC-20 (Fungível)
-- **Blockchain**: Pública (Polygon, Celo)
-- **Função**: Token para staking e governança
-- **Supply**: 100 milhões de tokens
-- **Utilização**: Staking, votação, recompensas
-
-### **6. EcoGem (EGM) - Token Premium**
-- **Tipo**: ERC-20 (Fungível)
-- **Blockchain**: Pública (Polygon, Celo)
-- **Função**: Token premium para benefícios exclusivos
-- **Supply**: 10 milhões de tokens
-- **Utilização**: Acesso VIP, recursos exclusivos
 
 ---
 
 ## 🚀 **INSTALAÇÃO E CONFIGURAÇÃO**
 
 ### **Pré-requisitos:**
-- Rust 1.87.0+
+- Python 3.11+
 - PostgreSQL 15+
-- Node.js 18+ (para frontend)
+- Redis 7+
 - Docker (opcional)
 
 ### **Quick Start:**
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/SH1W4/ecosystem-degov.git
-   cd ecosystem-degov/rust-backend
+   git clone https://github.com/SH1W4/GuardFlow.git
+   cd GuardFlow
    ```
 
 2. **Instalar dependências**
    ```bash
-   cargo build
+   pip install -r requirements.txt
    ```
 
 3. **Configurar banco de dados**
    ```bash
    # PostgreSQL
-   createdb esg_token_ecosystem
+   createdb guardflow
    ```
 
 4. **Configurar variáveis de ambiente**
@@ -146,109 +101,91 @@ graph TB
 
 5. **Executar o servidor**
    ```bash
-   cargo run
+   uvicorn main:app --reload
    ```
 
 6. **Testar endpoints**
    ```bash
-   # Testar todos os endpoints
-   .\test_ecotoken_ecosystem.bat
+   # Health check
+   curl http://localhost:8000/health
    
-   # Testar integração GuardDrive
-   .\test_guardrive_integration.bat
-   
-   # Testar endpoints GST
-   .\test_gst_endpoints.bat
+   # API documentation
+   http://localhost:8000/docs
    ```
 
 ---
 
 ## 🔌 **INTEGRAÇÃO**
 
-### **Integração com Projetos Existentes:**
+### **Integração com Sistemas de Segurança:**
 
-```rust
-// Exemplo de integração com qualquer projeto
-use esg_token_ecosystem::EcoTokenService;
+```python
+# Exemplo de integração com sistema de segurança
+from guardflow import GuardFlowClient
 
-let eco_token = EcoTokenService::new().await?;
+client = GuardFlowClient(api_key="your-api-key")
 
-// Tokenizar métricas de qualquer sistema
-let result = eco_token.tokenize_system_metrics(SystemMetrics {
-    project_id: "PROJECT-123".to_string(),
-    metric_type: "carbon_footprint".to_string(),
-    value: 100.0, // kg CO2
-    unit: "kg".to_string(),
-    timestamp: chrono::Utc::now(),
-}).await?;
+# Monitorar área
+result = client.monitor_area({
+    "area_id": "AREA-123",
+    "sensors": ["camera", "motion", "audio"],
+    "duration": 3600  # 1 hora
+})
 ```
 
-### **Integração com Sistemas Corporativos:**
+### **Integração com Telemetria de Veículos:**
 
-```rust
-// Exemplo de integração com sistema corporativo
-let result = eco_token.tokenize_corporate_metrics(CorporateMetrics {
-    company_id: "COMP-456".to_string(),
-    scope1_emissions: 1000.0, // tCO2
-    scope2_emissions: 500.0,   // tCO2
-    scope3_emissions: 2000.0,  // tCO2
-    energy_consumption: 5000.0, // MWh
-    renewable_energy: 0.3,      // 30%
-}).await?;
+```python
+# Exemplo de integração com telemetria
+result = client.process_telemetry({
+    "vehicle_id": "VEH-123",
+    "location": {"lat": -23.5505, "lng": -46.6333},
+    "speed": 60.0,
+    "fuel_level": 0.8,
+    "timestamp": "2024-01-01T12:00:00Z"
+})
 ```
 
-### **Integração com GuardDrive (Exemplo):**
+### **Integração com IoT:**
 
-```rust
-// Exemplo de integração com GuardDrive
-let result = eco_token.tokenize_telemetry_data(TelemetryData {
-    vehicle_id: "VEH-123".to_string(),
-    distance: 100.0, // km
-    fuel_efficiency: 15.0, // km/l
-    emissions: 6.5, // kg CO2
-    timestamp: chrono::Utc::now(),
-}).await?;
+```python
+# Exemplo de integração com sensores IoT
+result = client.process_sensor_data({
+    "sensor_id": "SENSOR-456",
+    "type": "temperature",
+    "value": 25.5,
+    "unit": "celsius",
+    "location": "building-a-floor-1"
+})
 ```
 
 ---
 
 ## 📊 **API ENDPOINTS**
 
-### **EcoToken (ECT) Endpoints:**
-- `GET /api/v1/ect/balance/{user_id}` - Saldo do usuário
-- `POST /api/v1/ect/transfer` - Transferir tokens
-- `POST /api/v1/ect/mint` - Mintar novos tokens
-- `POST /api/v1/ect/burn` - Queimar tokens
+### **Security Endpoints:**
+- `GET /api/v1/security/status` - Status do sistema de segurança
+- `POST /api/v1/security/alert` - Enviar alerta de segurança
+- `GET /api/v1/security/events` - Listar eventos de segurança
+- `POST /api/v1/security/response` - Responder a incidente
 
-### **EcoScore (ECS) Endpoints:**
-- `GET /api/v1/ecs/score/{user_id}` - Score do usuário
-- `POST /api/v1/ecs/update` - Atualizar score
-- `GET /api/v1/ecs/levels` - Níveis disponíveis
-- `POST /api/v1/ecs/achievement` - Adicionar conquista
+### **Mobility Endpoints:**
+- `GET /api/v1/mobility/vehicles` - Listar veículos
+- `POST /api/v1/mobility/telemetry` - Enviar dados de telemetria
+- `GET /api/v1/mobility/routes` - Obter rotas otimizadas
+- `POST /api/v1/mobility/maintenance` - Agendar manutenção
 
-### **CarbonCredit (CCR) Endpoints:**
-- `GET /api/v1/ccr/credits/{user_id}` - Créditos do usuário
-- `POST /api/v1/ccr/purchase` - Comprar créditos
-- `POST /api/v1/ccr/retire` - Aposentar créditos
-- `GET /api/v1/ccr/marketplace` - Marketplace de créditos
+### **AI/ML Endpoints:**
+- `POST /api/v1/ai/analyze` - Analisar dados com IA
+- `GET /api/v1/ai/predictions` - Obter previsões
+- `POST /api/v1/ai/anomaly` - Detectar anomalias
+- `GET /api/v1/ai/insights` - Obter insights
 
-### **EcoCertificate (ECR) Endpoints:**
-- `GET /api/v1/ecr/certificates/{user_id}` - Certificados do usuário
-- `POST /api/v1/ecr/mint` - Mintar certificado
-- `GET /api/v1/ecr/verify/{certificate_id}` - Verificar certificado
-- `GET /api/v1/ecr/types` - Tipos de certificado
-
-### **EcoStake (EST) Endpoints:**
-- `POST /api/v1/est/stake` - Fazer stake
-- `POST /api/v1/est/unstake` - Remover stake
-- `GET /api/v1/est/rewards/{user_id}` - Recompensas do usuário
-- `GET /api/v1/est/tiers` - Níveis de staking
-
-### **EcoGem (EGM) Endpoints:**
-- `GET /api/v1/egm/balance/{user_id}` - Saldo EGM
-- `POST /api/v1/egm/transfer` - Transferir EGM
-- `GET /api/v1/egm/benefits` - Benefícios disponíveis
-- `POST /api/v1/egm/access` - Acessar recurso premium
+### **Integration Endpoints:**
+- `POST /api/v1/integration/webhook` - Webhook para integração
+- `GET /api/v1/integration/status` - Status das integrações
+- `POST /api/v1/integration/sync` - Sincronizar dados
+- `GET /api/v1/integration/logs` - Logs de integração
 
 ---
 
@@ -256,29 +193,31 @@ let result = eco_token.tokenize_telemetry_data(TelemetryData {
 
 ### **Testes Automatizados:**
 ```bash
-# Testar todos os endpoints
-.\test_ecotoken_ecosystem.bat
+# Executar todos os testes
+pytest
 
-# Testar integração GuardDrive
-.\test_guardrive_integration.bat
+# Testes com cobertura
+pytest --cov=guardflow
 
-# Testar endpoints GST
-.\test_gst_endpoints.bat
+# Testes de integração
+pytest tests/integration/
 
-# Testar backend completo
-.\test_curl.bat
+# Testes de performance
+pytest tests/performance/
 ```
 
 ### **Testes Manuais:**
 ```bash
 # Health check
-curl http://localhost:3000/health
+curl http://localhost:8000/health
 
-# ESG metrics
-curl http://localhost:3000/api/v1/esg/metrics
+# Security status
+curl http://localhost:8000/api/v1/security/status
 
-# Token balance
-curl http://localhost:3000/api/v1/ect/balance/user123
+# Vehicle telemetry
+curl -X POST http://localhost:8000/api/v1/mobility/telemetry \
+  -H "Content-Type: application/json" \
+  -d '{"vehicle_id": "VEH-123", "speed": 60, "location": {"lat": -23.5505, "lng": -46.6333}}'
 ```
 
 ---
@@ -286,36 +225,32 @@ curl http://localhost:3000/api/v1/ect/balance/user123
 ## 🛣️ **ROADMAP**
 
 ### **Fase 1: Fundação (✅ Concluída)**
-- [x] Backend Rust com Axum
-- [x] 6 tokens implementados
-- [x] API REST completa
-- [x] Integração GuardDrive
-- [x] Sistema GST
-- [x] NFe to NFT conversion
-- [x] Gamificação básica
-- [x] Governança tokenizada
+- [x] Backend FastAPI
+- [x] Sistema de autenticação
+- [x] APIs básicas de segurança
+- [x] Integração com banco de dados
+- [x] Documentação básica
 
-### **Fase 2: Integração (🔄 Em Progresso)**
-- [ ] Frontend React/TypeScript
-- [ ] Mobile app React Native
-- [ ] Integração com ERPs
-- [ ] Smart contracts deployment
-- [ ] Marketplace completo
-- [ ] Analytics avançado
+### **Fase 2: Inteligência (🔄 Em Progresso)**
+- [ ] IA/ML para detecção de anomalias
+- [ ] Análise preditiva de segurança
+- [ ] Otimização de rotas
+- [ ] Dashboard avançado
+- [ ] Mobile app completo
 
 ### **Fase 3: Expansão (📋 Planejado)**
-- [ ] Multi-blockchain support
-- [ ] AI/ML services
-- [ ] Global partnerships
-- [ ] Regulatory compliance
-- [ ] Enterprise solutions
-- [ ] Carbon markets integration
+- [ ] Integração com ERPs
+- [ ] Compliance e auditoria
+- [ ] Multi-tenant
+- [ ] Global deployment
+- [ ] Partnerships estratégicas
 
 ---
 
 ## 🔗 **PROJETOS INTEGRADOS**
 
-- **[GuardFlow](https://github.com/SH1W4/GuardFlow)** - Sistema de mobilidade inteligente
+- **[ecosystem-degov](https://github.com/SH1W4/ecosystem-degov)** - Backend Rust para ESG Token Ecosystem
+- **[ecosystem-gst](https://github.com/SH1W4/ecosystem-gst)** - Smart contracts e tokens GST
 - **[Selfbelt](https://github.com/SH1W4/selfbelt)** - Plataforma de telemetria
 - **[Manus Framework](https://github.com/SH1W4/manus)** - Framework de desenvolvimento
 - **[EON Framework](https://github.com/SH1W4/eon)** - Framework de integração
@@ -336,16 +271,16 @@ Agradecemos contribuições! Por favor, veja nosso [Guia de Contribuição](CONT
 
 ```bash
 # Instalar dependências
-cargo build
+pip install -r requirements.txt
 
 # Executar testes
-cargo test
+pytest
 
 # Executar linting
-cargo clippy
+flake8
 
 # Executar formatação
-cargo fmt
+black .
 ```
 
 ---
@@ -364,22 +299,23 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ## 🙏 **ACKNOWLEDGMENTS**
 
-- Comunidade Rust e Axum
-- Comunidade Ethereum e Solidity
-- OpenZeppelin por contratos seguros
-- Frameworks ESG (GRI, SASB, TCFD)
+- Comunidade Python e FastAPI
+- Comunidade de segurança cibernética
+- Frameworks de IA/ML
 - Todos os contribuidores e testadores
 
 ---
 
 ## 📞 **SUPPORT**
 
-- **Documentação**: [docs.esg-token.com](https://docs.esg-token.com)
-- **Issues**: [GitHub Issues](https://github.com/SH1W4/ecosystem-degov/issues)
-- **Email**: support@esg-token.com
+- **Documentação**: [docs.guardflow.com](https://docs.guardflow.com)
+- **Issues**: [GitHub Issues](https://github.com/SH1W4/GuardFlow/issues)
+- **Email**: support@guardflow.com
+- **Discord**: [GuardFlow Community](https://discord.gg/guardflow)
 
 ---
 
 <div align="center">
-Made with 🌱 by SH1W4 | Transformando métricas ESG em valor digital!
+Made with 🛡️ by SH1W4 | Protegendo o que mais importa!<br/>
+Sistema de Segurança e Mobilidade Inteligente
 </div>
