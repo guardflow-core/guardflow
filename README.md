@@ -1,5 +1,5 @@
-# 🛡️ **GUARDFLOW**
-## **Sistema de Segurança e Mobilidade Inteligente**
+# 🛒 **GUARDFLOW**
+## **Sistema Inteligente para Varejo**
 
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green.svg)](https://fastapi.tiangolo.com/)
@@ -13,23 +13,23 @@
 
 ## 🎯 **VISÃO GERAL**
 
-O **GuardFlow** é um sistema abrangente de segurança e mobilidade inteligente, projetado para proteger pessoas, veículos e infraestruturas através de tecnologias avançadas de monitoramento, análise e resposta em tempo real.
+O **GuardFlow** é um sistema inteligente para varejo, projetado para otimizar operações comerciais, melhorar a experiência do cliente e aumentar a eficiência através de tecnologias avançadas de análise, automação e inteligência artificial.
 
 ### **Características Principais:**
-- 🛡️ **Sistema de Segurança** - Monitoramento 24/7 com IA
-- 🚗 **Mobilidade Inteligente** - Telemetria e análise de veículos
-- 📱 **Apps Multiplataforma** - iOS, Android e Web
-- 🔗 **Integração Universal** - APIs para qualquer sistema
-- 🤖 **IA/ML Avançado** - Análise preditiva e detecção de anomalias
-- 🌐 **Cloud Native** - Escalabilidade e alta disponibilidade
-- 📊 **Analytics** - Dashboards e relatórios em tempo real
-- 🔒 **Segurança** - Criptografia end-to-end e compliance
+- 🛒 **Gestão de Varejo** - Controle completo de estoque e vendas
+- 📊 **Analytics Avançado** - Insights de vendas e comportamento do cliente
+- 🤖 **IA/ML para Varejo** - Previsão de demanda e otimização de preços
+- 📱 **Apps Multiplataforma** - iOS, Android e Web para varejistas
+- 🔗 **Integração ERP** - Conecta com sistemas de gestão existentes
+- 💳 **Pagamentos** - Soluções de pagamento integradas
+- 🎯 **Marketing** - Campanhas personalizadas e CRM
+- 📈 **Relatórios** - Dashboards e métricas de performance
 
 ---
 
 ## 🏗️ **ARQUITETURA**
 
-### **GuardFlow System Architecture:**
+### **GuardFlow Retail System Architecture:**
 
 ```mermaid
 graph TB
@@ -44,8 +44,8 @@ graph TB
     end
     
     subgraph "🧠 AI/ML Layer"
-        G[Computer Vision] --> H[NLP Processing]
-        H --> I[Predictive Analytics]
+        G[Demand Forecasting] --> H[Price Optimization]
+        H --> I[Customer Analytics]
     end
     
     subgraph "📊 Data Layer"
@@ -53,9 +53,9 @@ graph TB
         K --> L[File Storage]
     end
     
-    subgraph "🔗 Integration Layer"
-        M[IoT Sensors] --> N[Vehicle Telemetry]
-        N --> O[External APIs]
+    subgraph "🛒 Retail Layer"
+        M[Inventory Management] --> N[Sales Analytics]
+        N --> O[Payment Processing]
     end
     
     A --> D
@@ -117,45 +117,46 @@ graph TB
 
 ## 🔌 **INTEGRAÇÃO**
 
-### **Integração com Sistemas de Segurança:**
+### **Integração com Sistemas de Varejo:**
 
 ```python
-# Exemplo de integração com sistema de segurança
+# Exemplo de integração com sistema de varejo
 from guardflow import GuardFlowClient
 
 client = GuardFlowClient(api_key="your-api-key")
 
-# Monitorar área
-result = client.monitor_area({
-    "area_id": "AREA-123",
-    "sensors": ["camera", "motion", "audio"],
-    "duration": 3600  # 1 hora
+# Gerenciar estoque
+result = client.manage_inventory({
+    "product_id": "PROD-123",
+    "quantity": 100,
+    "location": "warehouse-a",
+    "action": "update"
 })
 ```
 
-### **Integração com Telemetria de Veículos:**
+### **Integração com Vendas:**
 
 ```python
-# Exemplo de integração com telemetria
-result = client.process_telemetry({
-    "vehicle_id": "VEH-123",
-    "location": {"lat": -23.5505, "lng": -46.6333},
-    "speed": 60.0,
-    "fuel_level": 0.8,
+# Exemplo de integração com vendas
+result = client.process_sale({
+    "sale_id": "SALE-456",
+    "customer_id": "CUST-789",
+    "products": [
+        {"id": "PROD-123", "quantity": 2, "price": 29.99}
+    ],
+    "payment_method": "credit_card",
     "timestamp": "2024-01-01T12:00:00Z"
 })
 ```
 
-### **Integração com IoT:**
+### **Integração com Analytics:**
 
 ```python
-# Exemplo de integração com sensores IoT
-result = client.process_sensor_data({
-    "sensor_id": "SENSOR-456",
-    "type": "temperature",
-    "value": 25.5,
-    "unit": "celsius",
-    "location": "building-a-floor-1"
+# Exemplo de integração com analytics
+result = client.get_sales_analytics({
+    "period": "last_30_days",
+    "metrics": ["revenue", "units_sold", "top_products"],
+    "filters": {"category": "electronics"}
 })
 ```
 
@@ -163,23 +164,23 @@ result = client.process_sensor_data({
 
 ## 📊 **API ENDPOINTS**
 
-### **Security Endpoints:**
-- `GET /api/v1/security/status` - Status do sistema de segurança
-- `POST /api/v1/security/alert` - Enviar alerta de segurança
-- `GET /api/v1/security/events` - Listar eventos de segurança
-- `POST /api/v1/security/response` - Responder a incidente
+### **Retail Endpoints:**
+- `GET /api/v1/retail/inventory` - Listar estoque
+- `POST /api/v1/retail/sale` - Processar venda
+- `GET /api/v1/retail/products` - Listar produtos
+- `POST /api/v1/retail/order` - Criar pedido
 
-### **Mobility Endpoints:**
-- `GET /api/v1/mobility/vehicles` - Listar veículos
-- `POST /api/v1/mobility/telemetry` - Enviar dados de telemetria
-- `GET /api/v1/mobility/routes` - Obter rotas otimizadas
-- `POST /api/v1/mobility/maintenance` - Agendar manutenção
+### **Analytics Endpoints:**
+- `GET /api/v1/analytics/sales` - Analytics de vendas
+- `GET /api/v1/analytics/customers` - Analytics de clientes
+- `GET /api/v1/analytics/inventory` - Analytics de estoque
+- `POST /api/v1/analytics/report` - Gerar relatório
 
 ### **AI/ML Endpoints:**
-- `POST /api/v1/ai/analyze` - Analisar dados com IA
-- `GET /api/v1/ai/predictions` - Obter previsões
-- `POST /api/v1/ai/anomaly` - Detectar anomalias
-- `GET /api/v1/ai/insights` - Obter insights
+- `POST /api/v1/ai/forecast` - Previsão de demanda
+- `POST /api/v1/ai/optimize` - Otimização de preços
+- `GET /api/v1/ai/recommendations` - Recomendações de produtos
+- `POST /api/v1/ai/insights` - Obter insights de IA
 
 ### **Integration Endpoints:**
 - `POST /api/v1/integration/webhook` - Webhook para integração
@@ -227,23 +228,23 @@ curl -X POST http://localhost:8000/api/v1/mobility/telemetry \
 ### **Fase 1: Fundação (✅ Concluída)**
 - [x] Backend FastAPI
 - [x] Sistema de autenticação
-- [x] APIs básicas de segurança
+- [x] APIs básicas de varejo
 - [x] Integração com banco de dados
 - [x] Documentação básica
 
 ### **Fase 2: Inteligência (🔄 Em Progresso)**
-- [ ] IA/ML para detecção de anomalias
-- [ ] Análise preditiva de segurança
-- [ ] Otimização de rotas
+- [ ] IA/ML para previsão de demanda
+- [ ] Análise preditiva de vendas
+- [ ] Otimização de preços
 - [ ] Dashboard avançado
 - [ ] Mobile app completo
 
 ### **Fase 3: Expansão (📋 Planejado)**
 - [ ] Integração com ERPs
-- [ ] Compliance e auditoria
 - [ ] Multi-tenant
 - [ ] Global deployment
 - [ ] Partnerships estratégicas
+- [ ] Marketplace de produtos
 
 ---
 
@@ -316,6 +317,6 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ---
 
 <div align="center">
-Made with 🛡️ by SH1W4 | Protegendo o que mais importa!<br/>
-Sistema de Segurança e Mobilidade Inteligente
+Made with 🛒 by SH1W4 | Transformando o varejo com inteligência!<br/>
+Sistema Inteligente para Varejo
 </div>
