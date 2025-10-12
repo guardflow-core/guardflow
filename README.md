@@ -1,67 +1,69 @@
 # 🛒 **GUARDFLOW**
-## **Sistema Inteligente para Varejo**
+## **Sistema de Checkout Inteligente para Varejo**
 
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green.svg)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18.2-blue.svg)](https://reactjs.org/)
+[![React Native](https://img.shields.io/badge/React%20Native-0.72.6-blue.svg)](https://reactnative.dev/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-green.svg)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-24.0-blue.svg)](https://www.docker.com/)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)](https://github.com/SH1W4/GuardFlow)
+[![Status](https://img.shields.io/badge/Status-85%25%20Implemented-orange.svg)](https://github.com/SH1W4/GuardFlow)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.0.0-green.svg)](https://github.com/SH1W4/GuardFlow/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/SH1W4/GuardFlow/releases)
 
 ---
 
 ## 🎯 **VISÃO GERAL**
 
-O **GuardFlow** é um sistema inteligente para varejo, projetado para otimizar operações comerciais, melhorar a experiência do cliente e aumentar a eficiência através de tecnologias avançadas de análise, automação e inteligência artificial.
+O **GuardFlow** é um sistema de checkout inteligente para varejo que transforma a experiência de compras através de scanner de produtos com IA, pagamentos PIX instantâneos, sistema ESG integrado e tokenização de transações. Projetado para "agilizar suas compras!" com tecnologia de ponta.
 
 ### **Características Principais:**
-- 🛒 **Gestão de Varejo** - Controle completo de estoque e vendas
-- 📊 **Analytics Avançado** - Insights de vendas e comportamento do cliente
-- 🤖 **IA/ML para Varejo** - Previsão de demanda e otimização de preços
-- 📱 **Apps Multiplataforma** - iOS, Android e Web para varejistas
-- 🔗 **Integração ERP** - Conecta com sistemas de gestão existentes
-- 💳 **Pagamentos** - Soluções de pagamento integradas
-- 🎯 **Marketing** - Campanhas personalizadas e CRM
-- 📈 **Relatórios** - Dashboards e métricas de performance
+- 📱 **Scanner com IA** - Reconhecimento de produtos via Google Vision API
+- 💳 **Pagamentos PIX** - Processamento instantâneo e seguro
+- 🌱 **Sistema ESG** - Integração de métricas de sustentabilidade
+- 🪙 **Tokenização** - Conversão de transações em tokens digitais
+- 📊 **Analytics em Tempo Real** - Dashboards e insights avançados
+- 🔐 **Segurança Enterprise** - Autenticação biométrica e JWT
+- 🚀 **Multiplataforma** - Web, Mobile (iOS/Android) e API
+- 🏪 **Integração GuardPass** - Sistema de monetização governamental
 
 ---
 
 ## 🏗️ **ARQUITETURA**
 
-### **GuardFlow Retail System Architecture:**
+### **GuardFlow Checkout System Architecture:**
 
 ```mermaid
 graph TB
     subgraph "📱 Client Layer"
-        A[Web App] --> B[Mobile App]
-        B --> C[Admin Dashboard]
+        A[Web Dashboard] --> B[Mobile App]
+        B --> C[Scanner Interface]
     end
     
     subgraph "🔌 API Layer"
-        D[FastAPI Backend] --> E[Authentication]
-        E --> F[Authorization]
+        D[FastAPI Backend] --> E[JWT Authentication]
+        E --> F[GuardPass Integration]
     end
     
     subgraph "🧠 AI/ML Layer"
-        G[Demand Forecasting] --> H[Price Optimization]
-        H --> I[Customer Analytics]
+        G[Google Vision API] --> H[Product Recognition]
+        H --> I[ESG Analytics]
+    end
+    
+    subgraph "💳 Payment Layer"
+        J[PIX Processing] --> K[Mercado Pago]
+        K --> L[Tokenization]
     end
     
     subgraph "📊 Data Layer"
-        J[PostgreSQL] --> K[Redis Cache]
-        K --> L[File Storage]
-    end
-    
-    subgraph "🛒 Retail Layer"
-        M[Inventory Management] --> N[Sales Analytics]
-        N --> O[Payment Processing]
+        M[PostgreSQL] --> N[Redis Cache]
+        N --> O[Blockchain Storage]
     end
     
     A --> D
     D --> G
     G --> J
-    M --> D
+    J --> M
 ```
 
 ---
@@ -70,6 +72,7 @@ graph TB
 
 ### **Pré-requisitos:**
 - Python 3.11+
+- Node.js 18+
 - PostgreSQL 15+
 - Redis 7+
 - Docker (opcional)
@@ -82,81 +85,83 @@ graph TB
    cd GuardFlow
    ```
 
-2. **Instalar dependências**
+2. **Backend (FastAPI)**
    ```bash
+   cd backend
    pip install -r requirements.txt
+   uvicorn app.main:app --host 127.0.0.1 --port 8002 --reload
    ```
 
-3. **Configurar banco de dados**
+3. **Frontend (React)**
    ```bash
-   # PostgreSQL
-   createdb guardflow
+   cd guardflow-web
+   npm install
+   npm start
    ```
 
-4. **Configurar variáveis de ambiente**
+4. **Mobile (React Native)**
    ```bash
-   cp .env.example .env
-   # Editar .env com suas configurações
+   cd mobile-app
+   npm install
+   npx react-native run-android
+   # ou
+   npx react-native run-ios
    ```
 
-5. **Executar o servidor**
+5. **Testar sistema**
    ```bash
-   uvicorn main:app --reload
-   ```
-
-6. **Testar endpoints**
-   ```bash
-   # Health check
-   curl http://localhost:8000/health
+   # Backend API
+   curl http://localhost:8002/health
    
-   # API documentation
-   http://localhost:8000/docs
+   # Frontend Web
+   http://localhost:3000
+   
+   # API Documentation
+   http://localhost:8002/docs
    ```
 
 ---
 
 ## 🔌 **INTEGRAÇÃO**
 
-### **Integração com Sistemas de Varejo:**
+### **Integração com Scanner de Produtos:**
 
 ```python
-# Exemplo de integração com sistema de varejo
+# Exemplo de integração com scanner
 from guardflow import GuardFlowClient
 
 client = GuardFlowClient(api_key="your-api-key")
 
-# Gerenciar estoque
-result = client.manage_inventory({
-    "product_id": "PROD-123",
-    "quantity": 100,
-    "location": "warehouse-a",
-    "action": "update"
+# Escanear produto
+result = client.scan_product({
+    "image": "base64_encoded_image",
+    "store_id": "STORE-123",
+    "user_id": "USER-456"
 })
 ```
 
-### **Integração com Vendas:**
+### **Integração com Pagamentos PIX:**
 
 ```python
-# Exemplo de integração com vendas
-result = client.process_sale({
-    "sale_id": "SALE-456",
-    "customer_id": "CUST-789",
+# Exemplo de integração com PIX
+result = client.create_pix_payment({
+    "cart_id": "CART-789",
+    "amount": 150.00,
+    "customer_id": "CUST-123",
+    "store_id": "STORE-456"
+})
+```
+
+### **Integração com Sistema ESG:**
+
+```python
+# Exemplo de integração ESG
+result = client.calculate_esg_score({
+    "transaction_id": "TXN-123",
     "products": [
-        {"id": "PROD-123", "quantity": 2, "price": 29.99}
+        {"id": "PROD-123", "esg_rating": 8.5}
     ],
-    "payment_method": "credit_card",
-    "timestamp": "2024-01-01T12:00:00Z"
-})
-```
-
-### **Integração com Analytics:**
-
-```python
-# Exemplo de integração com analytics
-result = client.get_sales_analytics({
-    "period": "last_30_days",
-    "metrics": ["revenue", "units_sold", "top_products"],
-    "filters": {"category": "electronics"}
+    "store_id": "STORE-456"
 })
 ```
 
@@ -164,29 +169,30 @@ result = client.get_sales_analytics({
 
 ## 📊 **API ENDPOINTS**
 
-### **Retail Endpoints:**
-- `GET /api/v1/retail/inventory` - Listar estoque
-- `POST /api/v1/retail/sale` - Processar venda
-- `GET /api/v1/retail/products` - Listar produtos
-- `POST /api/v1/retail/order` - Criar pedido
+### **Scanner Endpoints:**
+- `POST /api/v1/scanner/scan` - Escanear produto
+- `GET /api/v1/scanner/products` - Listar produtos escaneados
+- `POST /api/v1/scanner/populate-products` - Popular dados de teste
 
-### **Analytics Endpoints:**
-- `GET /api/v1/analytics/sales` - Analytics de vendas
-- `GET /api/v1/analytics/customers` - Analytics de clientes
-- `GET /api/v1/analytics/inventory` - Analytics de estoque
-- `POST /api/v1/analytics/report` - Gerar relatório
+### **Payment Endpoints:**
+- `POST /api/v1/payment/create-pix` - Criar pagamento PIX
+- `GET /api/v1/payment/status/{id}` - Status do pagamento
+- `POST /api/v1/payment/confirm/{id}` - Confirmar pagamento
 
-### **AI/ML Endpoints:**
-- `POST /api/v1/ai/forecast` - Previsão de demanda
-- `POST /api/v1/ai/optimize` - Otimização de preços
-- `GET /api/v1/ai/recommendations` - Recomendações de produtos
-- `POST /api/v1/ai/insights` - Obter insights de IA
+### **Cart Endpoints:**
+- `GET /api/v1/cart/` - Obter carrinho
+- `POST /api/v1/cart/add` - Adicionar item ao carrinho
+- `DELETE /api/v1/cart/remove` - Remover item do carrinho
 
-### **Integration Endpoints:**
-- `POST /api/v1/integration/webhook` - Webhook para integração
-- `GET /api/v1/integration/status` - Status das integrações
-- `POST /api/v1/integration/sync` - Sincronizar dados
-- `GET /api/v1/integration/logs` - Logs de integração
+### **ESG Endpoints:**
+- `GET /api/v1/esg/dashboard` - Dashboard ESG
+- `POST /api/v1/esg/calculate` - Calcular score ESG
+- `GET /api/v1/esg/gamification` - Sistema de gamificação
+
+### **Store Endpoints:**
+- `GET /api/v1/stores/` - Listar lojas
+- `GET /api/v1/stores/{id}/products` - Produtos da loja
+- `POST /api/v1/stores/populate-stores` - Popular lojas de teste
 
 ---
 
@@ -225,26 +231,29 @@ curl -X POST http://localhost:8000/api/v1/mobility/telemetry \
 
 ## 🛣️ **ROADMAP**
 
-### **Fase 1: Fundação (✅ Concluída)**
-- [x] Backend FastAPI
-- [x] Sistema de autenticação
-- [x] APIs básicas de varejo
-- [x] Integração com banco de dados
-- [x] Documentação básica
+### **Fase 1: MVP (✅ 85% Concluída)**
+- [x] Backend FastAPI (90% funcional)
+- [x] Mobile React Native (85% funcional)
+- [x] Frontend React (70% funcional)
+- [x] Sistema de autenticação JWT
+- [x] Scanner com Google Vision API
+- [x] Pagamentos PIX integrados
+- [x] Sistema ESG implementado
+- [x] Documentação completa
 
-### **Fase 2: Inteligência (🔄 Em Progresso)**
-- [ ] IA/ML para previsão de demanda
-- [ ] Análise preditiva de vendas
-- [ ] Otimização de preços
-- [ ] Dashboard avançado
-- [ ] Mobile app completo
+### **Fase 2: Finalização (🔄 Em Progresso)**
+- [ ] Conectar mobile ao backend
+- [ ] Completar frontend web
+- [ ] Testes E2E completos
+- [ ] Deploy em produção
+- [ ] Demo funcional
 
 ### **Fase 3: Expansão (📋 Planejado)**
+- [ ] 10 mercados ativos
+- [ ] 1.000 usuários ativos
 - [ ] Integração com ERPs
-- [ ] Multi-tenant
-- [ ] Global deployment
-- [ ] Partnerships estratégicas
-- [ ] Marketplace de produtos
+- [ ] Ecossistema GST completo
+- [ ] IA avançada
 
 ---
 
@@ -317,6 +326,6 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ---
 
 <div align="center">
-Made with 🛒 by SH1W4 | Transformando o varejo com inteligência!<br/>
-Sistema Inteligente para Varejo
+Made with 🛒 by SH1W4 | Agiliza aí suas compras!<br/>
+Sistema de Checkout Inteligente para Varejo
 </div>
