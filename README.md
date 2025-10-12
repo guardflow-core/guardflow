@@ -1,7 +1,7 @@
 # 🛒 **GUARDFLOW**
 ## **Sistema de Checkout Inteligente para Varejo**
 
-[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python-lang.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green.svg)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-18.2-blue.svg)](https://reactjs.org/)
 [![React Native](https://img.shields.io/badge/React%20Native-0.72.6-blue.svg)](https://reactnative.dev/)
@@ -205,31 +205,18 @@ result = client.calculate_esg_score({
 
 ### **Testes Automatizados:**
 ```bash
-# Executar todos os testes
+# Executar todos os testes do backend
+cd backend
 pytest
-
-# Testes com cobertura
-pytest --cov=guardflow
-
-# Testes de integração
-pytest tests/integration/
-
-# Testes de performance
-pytest tests/performance/
 ```
 
 ### **Testes Manuais:**
 ```bash
 # Health check
-curl http://localhost:8000/health
+curl http://localhost:8002/health
 
-# Security status
-curl http://localhost:8000/api/v1/security/status
-
-# Vehicle telemetry
-curl -X POST http://localhost:8000/api/v1/mobility/telemetry \
-  -H "Content-Type: application/json" \
-  -d '{"vehicle_id": "VEH-123", "speed": 60, "location": {"lat": -23.5505, "lng": -46.6333}}'
+# Listar produtos
+curl http://localhost:8002/api/v1/retail/products
 ```
 
 ---
@@ -324,17 +311,17 @@ Agradecemos contribuições! Por favor, veja nosso [Guia de Contribuição](CONT
 ### **Development Setup:**
 
 ```bash
-# Instalar dependências
+# Instalar dependências do backend
+cd backend
 pip install -r requirements.txt
 
-# Executar testes
-pytest
+# Instalar dependências do frontend
+cd ../guardflow-web
+npm install
 
-# Executar linting
-flake8
-
-# Executar formatação
-black .
+# Instalar dependências do mobile
+cd ../mobile-app
+npm install
 ```
 
 ---
@@ -354,8 +341,8 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ## 🙏 **ACKNOWLEDGMENTS**
 
 - Comunidade Python e FastAPI
-- Comunidade de segurança cibernética
-- Frameworks de IA/ML
+- Comunidade React e React Native
+- Desenvolvedores de código aberto
 - Todos os contribuidores e testadores
 
 ---
