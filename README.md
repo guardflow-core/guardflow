@@ -19,13 +19,13 @@ O **GuardFlow** é um sistema de checkout inteligente para varejo que transforma
 
 ### **Características Principais:**
 - 📱 **Scanner com IA** - Reconhecimento de produtos via Google Vision API
-- 💳 **Pagamentos PIX** - Processamento instantâneo e seguro
+- 💳 **Checkout Inteligente** - Processamento rápido e sem filas
 - 🌱 **Sistema ESG** - Integração de métricas de sustentabilidade
 - 🪙 **Tokenização** - Conversão de transações em tokens digitais
-- 📊 **Analytics em Tempo Real** - Dashboards e insights avançados
+- 📊 **Analytics ESG** - Dashboards e insights de sustentabilidade
 - 🔐 **Segurança Enterprise** - Autenticação biométrica e JWT
 - 🚀 **Multiplataforma** - Web, Mobile (iOS/Android) e API
-- 🏪 **Integração GuardPass** - Sistema de monetização governamental
+- 🏛️ **Monetização Governamental** - Créditos fiscais e incentivos
 
 ---
 
@@ -140,15 +140,15 @@ result = client.scan_product({
 })
 ```
 
-### **Integração com Pagamentos PIX:**
+### **Integração com Monetização Governamental:**
 
 ```python
-# Exemplo de integração com PIX
-result = client.create_pix_payment({
-    "cart_id": "CART-789",
-    "amount": 150.00,
+# Exemplo de integração com monetização governamental
+result = client.authorize_government_monetization({
+    "invoice_id": "INV-789",
     "customer_id": "CUST-123",
-    "store_id": "STORE-456"
+    "store_id": "STORE-456",
+    "incentives": ["ICMS", "IPI", "PIS_COFINS"]
 })
 ```
 
@@ -174,10 +174,11 @@ result = client.calculate_esg_score({
 - `GET /api/v1/scanner/products` - Listar produtos escaneados
 - `POST /api/v1/scanner/populate-products` - Popular dados de teste
 
-### **Payment Endpoints:**
-- `POST /api/v1/payment/create-pix` - Criar pagamento PIX
-- `GET /api/v1/payment/status/{id}` - Status do pagamento
-- `POST /api/v1/payment/confirm/{id}` - Confirmar pagamento
+### **Monetization Endpoints:**
+- `POST /api/v1/monetization/authorize-government-monetization` - Autorizar monetização governamental
+- `GET /api/v1/monetization/available-incentives` - Incentivos fiscais disponíveis
+- `POST /api/v1/monetization/authorize-service-payment` - Pagamento por serviço
+- `GET /api/v1/monetization/monetization-potential` - Potencial de monetização
 
 ### **Cart Endpoints:**
 - `GET /api/v1/cart/` - Obter carrinho
@@ -251,9 +252,36 @@ curl -X POST http://localhost:8000/api/v1/mobility/telemetry \
 ### **Fase 3: Expansão (📋 Planejado)**
 - [ ] 10 mercados ativos
 - [ ] 1.000 usuários ativos
-- [ ] Integração com ERPs
-- [ ] Ecossistema GST completo
-- [ ] IA avançada
+- [ ] Monetização governamental ativa
+- [ ] Ecossistema ESG completo
+- [ ] IA avançada para ESG
+
+---
+
+## 💰 **MODELO DE MONETIZAÇÃO**
+
+### **🏛️ Monetização Governamental (Principal)**
+- **Créditos fiscais** das notas fiscais (ICMS, IPI, PIS/COFINS)
+- **Incentivos tributários** do governo (Lei do Bem, Lei de Informática)
+- **Cliente recebe 30%** do valor gerado
+- **GuardFlow recebe 70%** como taxa de serviço
+
+### **🛒 Pagamento por Serviço**
+- **Plano Básico (10%)**: Escaneamento + cálculo básico
+- **Plano Padrão (15%)**: Serviço completo + ESG (RECOMENDADO)
+- **Plano Premium (20%)**: Tudo + GuardPass + prioridade
+
+### **📊 Licenciamento de Tecnologia**
+- **Licença base**: R$ 2.000/mês por mercado
+- **Volume**: R$ 0,50 por transação processada
+- **ESG Bonus**: R$ 0,20 por transação ESG
+- **Analytics**: R$ 500/mês por dashboard avançado
+
+### **🎯 Princípio Não-Invasivo**
+- **NUNCA interferimos** no fluxo de caixa dos mercados
+- **Tecnologia como serviço** (SaaS)
+- **Valor agregado** sem interferência financeira
+- **Compliance** total com LGPD e regulamentações
 
 ---
 
