@@ -140,15 +140,17 @@ result = client.scan_product({
 })
 ```
 
-### **Integração com Monetização Governamental:**
+### **Integração com Monetização Governamental + GST:**
 
 ```python
-# Exemplo de integração com monetização governamental
+# Exemplo de integração com monetização governamental + tokens GST
 result = client.authorize_government_monetization({
     "invoice_id": "INV-789",
     "customer_id": "CUST-123",
     "store_id": "STORE-456",
-    "incentives": ["ICMS", "IPI", "PIS_COFINS"]
+    "incentives": ["ICMS", "IPI", "PIS_COFINS"],
+    "gst_tokens": True,  # Cliente recebe 30% em tokens GST
+    "token_conversion": "automatic"  # Conversão automática
 })
 ```
 
@@ -179,6 +181,8 @@ result = client.calculate_esg_score({
 - `GET /api/v1/monetization/available-incentives` - Incentivos fiscais disponíveis
 - `POST /api/v1/monetization/authorize-service-payment` - Pagamento por serviço
 - `GET /api/v1/monetization/monetization-potential` - Potencial de monetização
+- `POST /api/v1/gst/convert-to-tokens` - Converter valor em tokens GST
+- `GET /api/v1/gst/token-balance/{user_id}` - Saldo de tokens GST do usuário
 
 ### **Cart Endpoints:**
 - `GET /api/v1/cart/` - Obter carrinho
@@ -263,8 +267,9 @@ curl -X POST http://localhost:8000/api/v1/mobility/telemetry \
 ### **🏛️ Monetização Governamental (Principal)**
 - **Créditos fiscais** das notas fiscais (ICMS, IPI, PIS/COFINS)
 - **Incentivos tributários** do governo (Lei do Bem, Lei de Informática)
-- **Cliente recebe 30%** do valor gerado
+- **Cliente recebe 30%** do valor gerado **em tokens GST**
 - **GuardFlow recebe 70%** como taxa de serviço
+- **Integração GST** - Conversão automática em tokens do ecossistema
 
 ### **🛒 Pagamento por Serviço**
 - **Plano Básico (10%)**: Escaneamento + cálculo básico
@@ -277,6 +282,13 @@ curl -X POST http://localhost:8000/api/v1/mobility/telemetry \
 - **ESG Bonus**: R$ 0,20 por transação ESG
 - **Analytics**: R$ 500/mês por dashboard avançado
 
+### **🪙 Integração GST (Governance & Sustainability Tokens)**
+- **30% do valor** convertido automaticamente em tokens GST
+- **Tokens utilizáveis** no ecossistema ESG
+- **Gamificação** com recompensas sustentáveis
+- **Governança** tokenizada do sistema
+- **Marketplace** de tokens ESG
+
 ### **🎯 Princípio Não-Invasivo**
 - **NUNCA interferimos** no fluxo de caixa dos mercados
 - **Tecnologia como serviço** (SaaS)
@@ -287,8 +299,12 @@ curl -X POST http://localhost:8000/api/v1/mobility/telemetry \
 
 ## 🔗 **PROJETOS INTEGRADOS**
 
-- **[ecosystem-degov](https://github.com/SH1W4/ecosystem-degov)** - Backend Rust para ESG Token Ecosystem
+### **🪙 Ecossistema GST (Governance & Sustainability Tokens)**
 - **[ecosystem-gst](https://github.com/SH1W4/ecosystem-gst)** - Smart contracts e tokens GST
+- **[ecosystem-degov](https://github.com/SH1W4/ecosystem-degov)** - Backend Rust para ESG Token Ecosystem
+- **Integração completa** - 30% do valor em tokens GST automáticos
+
+### **🔧 Frameworks de Desenvolvimento**
 - **[Selfbelt](https://github.com/SH1W4/selfbelt)** - Plataforma de telemetria
 - **[Manus Framework](https://github.com/SH1W4/manus)** - Framework de desenvolvimento
 - **[EON Framework](https://github.com/SH1W4/eon)** - Framework de integração
