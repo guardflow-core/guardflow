@@ -329,11 +329,14 @@ curl http://localhost:8000/metrics
 - **Governança** tokenizada do sistema
 - **Marketplace** de tokens ESG
 
-### **🎯 Princípio Não-Invasivo**
-- **NUNCA interferimos** no fluxo de caixa dos mercados
-- **Tecnologia como serviço** (SaaS)
-- **Valor agregado** sem interferência financeira
-- **Compliance** total com LGPD e regulamentações
+### **🚨 Princípio Não-Invasivo - NOSSA GARANTIA FUNDAMENTAL**
+- **❌ NUNCA interferimos** no fluxo de caixa dos mercados
+- **❌ NUNCA tocamos** no dinheiro das vendas
+- **❌ NUNCA afetamos** o processo de pagamento
+- **✅ APENAS agregamos valor** através de tecnologia
+- **✅ APENAS monetizamos** através de nossas linhas específicas
+- **✅ Tecnologia como serviço** (SaaS) 100% aditiva
+- **✅ Compliance** total com LGPD e regulamentações
 
 ---
 
@@ -358,6 +361,7 @@ curl http://localhost:8000/metrics
 - **[OPERACAO_REPO.md](docs/OPERACAO_REPO.md)** - Guia completo de operação do repositório
 - **[SETUP_DEV.md](docs/SETUP_DEV.md)** - Setup de desenvolvimento
 - **[GUIA_MIGRACAO_ESTRUTURA.md](GUIA_MIGRACAO_ESTRUTURA.md)** - Guia de migração da estrutura
+- **[PRINCIPIO_NAO_INVASIVO.md](docs/PRINCIPIO_NAO_INVASIVO.md)** - Princípio fundamental de não interferência
 
 ### **Documentação Técnica:**
 - **API Reference**: http://localhost:8000/docs
