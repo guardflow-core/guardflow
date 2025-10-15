@@ -348,3 +348,8 @@ O **DocSync Adaptativo** está agora instalado e configurado para o **ESG Token 
 ---
 
 **Desenvolvido com ❤️ e 🧠 para o ESG Token Ecosystem**
+
+
+
+
+

@@ -1,0 +1,111 @@
+{
+  "mcpServers": {
+    "guardflow-backend": {
+      "command": "python",
+      "args": ["-m", "guardflow.mcp.backend_server"],
+      "env": {
+        "GUARDFLOW_ENV": "development",
+        "GUARDFLOW_PROJECT": "backend"
+      }
+    },
+    "guardflow-saas": {
+      "command": "python", 
+      "args": ["-m", "guardflow.mcp.saas_server"],
+      "env": {
+        "GUARDFLOW_ENV": "development",
+        "GUARDFLOW_PROJECT": "saas"
+      }
+    },
+    "guardflow-sdk": {
+      "command": "python",
+      "args": ["-m", "guardflow.mcp.sdk_server"], 
+      "env": {
+        "GUARDFLOW_ENV": "development",
+        "GUARDFLOW_PROJECT": "sdk"
+      }
+    },
+    "guardflow-mobile": {
+      "command": "node",
+      "args": ["-m", "guardflow.mcp.mobile_server"],
+      "env": {
+        "GUARDFLOW_ENV": "development", 
+        "GUARDFLOW_PROJECT": "mobile"
+      }
+    },
+    "guardflow-web": {
+      "command": "node",
+      "args": ["-m", "guardflow.mcp.web_server"],
+      "env": {
+        "GUARDFLOW_ENV": "development",
+        "GUARDFLOW_PROJECT": "web"
+      }
+    },
+    "arkitect-orchestrator": {
+      "command": "python",
+      "args": ["-m", "arkitect.mcp.orchestrator"],
+      "env": {
+        "ARKITECT_ENV": "development",
+        "ARKITECT_PROJECT": "guardflow"
+      }
+    }
+  },
+  "tools": {
+    "guardflow-scanner": {
+      "description": "Scanner de produtos com IA para GuardFlow",
+      "parameters": {
+        "image": "string",
+        "store_id": "string", 
+        "user_id": "string"
+      }
+    },
+    "guardflow-esg": {
+      "description": "Cálculo de métricas ESG",
+      "parameters": {
+        "transaction_id": "string",
+        "products": "array",
+        "store_id": "string"
+      }
+    },
+    "guardflow-monetization": {
+      "description": "Monetização governamental e tokens GST",
+      "parameters": {
+        "invoice_id": "string",
+        "customer_id": "string", 
+        "store_id": "string",
+        "incentives": "array"
+      }
+    },
+    "guardflow-deploy": {
+      "description": "Deploy automatizado de componentes",
+      "parameters": {
+        "component": "string",
+        "environment": "string",
+        "version": "string"
+      }
+    }
+  },
+  "workflows": {
+    "backend-development": {
+      "triggers": ["file_change", "git_push"],
+      "actions": ["lint", "test", "build", "deploy"],
+      "components": ["backend"]
+    },
+    "saas-development": {
+      "triggers": ["file_change", "git_push"], 
+      "actions": ["lint", "test", "build", "deploy"],
+      "components": ["guardflow-saas"]
+    },
+    "mobile-development": {
+      "triggers": ["file_change", "git_push"],
+      "actions": ["lint", "test", "build", "deploy"],
+      "components": ["mobile-app"]
+    },
+    "web-development": {
+      "triggers": ["file_change", "git_push"],
+      "actions": ["lint", "test", "build", "deploy"], 
+      "components": ["guardflow-web"]
+    }
+  }
+}
+
+

@@ -50,8 +50,14 @@ else:
     )
 
 # Engine assíncrono (para aplicação)
+# Usar asyncpg para PostgreSQL async
+if DATABASE_URL.startswith("postgresql"):
+    async_database_url = DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://")
+else:
+    async_database_url = DATABASE_URL
+
 async_engine = create_async_engine(
-    DATABASE_URL,
+    async_database_url,
     echo=settings.DEBUG,
     pool_pre_ping=True,
 )

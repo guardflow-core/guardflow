@@ -321,3 +321,8 @@ graph TB
 ---
 
 **ESG Token Ecosystem** - Arquitetura Enterprise
+
+
+
+
+
