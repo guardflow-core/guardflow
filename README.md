@@ -7,9 +7,9 @@
 [![React Native](https://img.shields.io/badge/React%20Native-0.72.6-blue.svg)](https://reactnative.dev/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-green.svg)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-24.0-blue.svg)](https://www.docker.com/)
-[![Status](https://img.shields.io/badge/Status-85%25%20Implemented-orange.svg)](https://github.com/SH1W4/GuardFlow)
+[![Status](https://img.shields.io/badge/Status-100%25%20Operational-green.svg)](https://github.com/SH1W4/guardflow)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/SH1W4/GuardFlow/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/SH1W4/guardflow/releases)
 
 ---
 
@@ -23,15 +23,17 @@ O **GuardFlow** é um sistema de checkout inteligente para varejo que transforma
 - 🌱 **Sistema ESG** - Integração de métricas de sustentabilidade
 - 🪙 **Tokenização** - Conversão de transações em tokens digitais
 - 📊 **Analytics ESG** - Dashboards e insights de sustentabilidade
-- 🔐 **Segurança Enterprise** - Autenticação biométrica e JWT
+- 🔐 **Segurança Enterprise** - Autenticação OAuth2/JWT e RBAC
 - 🚀 **Multiplataforma** - Web, Mobile (iOS/Android) e API
 - 🏛️ **Monetização Governamental** - Créditos fiscais e incentivos
+- 🐳 **Docker Ready** - Infraestrutura containerizada
+- 📈 **Observabilidade** - Prometheus, Grafana e métricas
 
 ---
 
 ## 🏗️ **ARQUITETURA**
 
-### **GuardFlow Checkout System Architecture:**
+### **GuardFlow System Architecture:**
 
 ```mermaid
 graph TB
@@ -41,29 +43,36 @@ graph TB
     end
     
     subgraph "🔌 API Layer"
-        D[FastAPI Backend] --> E[JWT Authentication]
-        E --> F[GuardPass Integration]
+        D[FastAPI Backend] --> E[OAuth2/JWT Auth]
+        E --> F[RBAC Security]
+        F --> G[GuardPass Integration]
     end
     
     subgraph "🧠 AI/ML Layer"
-        G[Google Vision API] --> H[Product Recognition]
-        H --> I[ESG Analytics]
+        H[Google Vision API] --> I[Product Recognition]
+        I --> J[ESG Analytics]
     end
     
     subgraph "💳 Payment Layer"
-        J[PIX Processing] --> K[Mercado Pago]
-        K --> L[Tokenization]
+        K[PIX Processing] --> L[Mercado Pago]
+        L --> M[Tokenization]
     end
     
     subgraph "📊 Data Layer"
-        M[PostgreSQL] --> N[Redis Cache]
-        N --> O[Blockchain Storage]
+        N[PostgreSQL] --> O[Redis Cache]
+        O --> P[Blockchain Storage]
+    end
+    
+    subgraph "🔍 Monitoring"
+        Q[Prometheus] --> R[Grafana]
+        R --> S[Metrics & Logs]
     end
     
     A --> D
-    D --> G
-    G --> J
-    J --> M
+    D --> H
+    H --> K
+    K --> N
+    D --> Q
 ```
 
 ---
@@ -75,31 +84,48 @@ graph TB
 - Node.js 18+
 - PostgreSQL 15+
 - Redis 7+
-- Docker (opcional)
+- Docker (recomendado)
 
-### **Quick Start:**
+### **Quick Start com Docker:**
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/SH1W4/GuardFlow.git
-   cd GuardFlow
+   git clone https://github.com/SH1W4/guardflow.git
+   cd guardflow
    ```
 
-2. **Backend (FastAPI)**
+2. **Inicie todos os serviços**
+   ```bash
+   docker-compose -f docker-compose.dev.yml up -d
+   ```
+
+3. **Acesse os serviços**
+   - **Backend API**: http://localhost:8000
+   - **API Docs**: http://localhost:8000/docs
+   - **Health Check**: http://localhost:8000/health
+   - **Prometheus**: http://localhost:9090
+   - **Grafana**: http://localhost:3001 (admin/guardflow)
+
+### **Desenvolvimento Local:**
+
+1. **Backend (FastAPI)**
    ```bash
    cd backend
+   python -m venv venv
+   venv\Scripts\Activate.ps1  # Windows
+   # source venv/bin/activate  # Linux/Mac
    pip install -r requirements.txt
-   uvicorn app.main:app --host 127.0.0.1 --port 8002 --reload
+   uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
    ```
 
-3. **Frontend (React)**
+2. **Frontend (React)**
    ```bash
    cd guardflow-web
    npm install
    npm start
    ```
 
-4. **Mobile (React Native)**
+3. **Mobile (React Native)**
    ```bash
    cd mobile-app
    npm install
@@ -108,16 +134,16 @@ graph TB
    npx react-native run-ios
    ```
 
-5. **Testar sistema**
+4. **Testar sistema**
    ```bash
    # Backend API
-   curl http://localhost:8002/health
+   curl http://localhost:8000/health
    
    # Frontend Web
    http://localhost:3000
    
    # API Documentation
-   http://localhost:8002/docs
+   http://localhost:8000/docs
    ```
 
 ---
@@ -171,23 +197,30 @@ result = client.calculate_esg_score({
 
 ## 📊 **API ENDPOINTS**
 
+### **Core Endpoints:**
+- `GET /` - Informações da API
+- `GET /health` - Health check com métricas
+- `GET /docs` - Documentação interativa (Swagger)
+
 ### **Scanner Endpoints:**
 - `POST /api/v1/scanner/scan` - Escanear produto
 - `GET /api/v1/scanner/products` - Listar produtos escaneados
 - `POST /api/v1/scanner/populate-products` - Popular dados de teste
 
-### **Monetization Endpoints:**
-- `POST /api/v1/monetization/authorize-government-monetization` - Autorizar monetização governamental
-- `GET /api/v1/monetization/available-incentives` - Incentivos fiscais disponíveis
-- `POST /api/v1/monetization/authorize-service-payment` - Pagamento por serviço
-- `GET /api/v1/monetization/monetization-potential` - Potencial de monetização
-- `POST /api/v1/gst/convert-to-tokens` - Converter valor em tokens GST
-- `GET /api/v1/gst/token-balance/{user_id}` - Saldo de tokens GST do usuário
+### **Authentication Endpoints:**
+- `POST /api/v1/auth/login` - Login com OAuth2/JWT
+- `GET /api/v1/auth/me` - Informações do usuário
+- `POST /api/v1/auth/refresh` - Renovar token
 
 ### **Cart Endpoints:**
 - `GET /api/v1/cart/` - Obter carrinho
 - `POST /api/v1/cart/add` - Adicionar item ao carrinho
 - `DELETE /api/v1/cart/remove` - Remover item do carrinho
+
+### **Payment Endpoints:**
+- `POST /api/v1/payment/create` - Criar pagamento PIX
+- `GET /api/v1/payment/status/{id}` - Status do pagamento
+- `POST /api/v1/payment/confirm` - Confirmar pagamento
 
 ### **ESG Endpoints:**
 - `GET /api/v1/esg/dashboard` - Dashboard ESG
@@ -199,6 +232,14 @@ result = client.calculate_esg_score({
 - `GET /api/v1/stores/{id}/products` - Produtos da loja
 - `POST /api/v1/stores/populate-stores` - Popular lojas de teste
 
+### **Monetization Endpoints:**
+- `POST /api/v1/monetization/authorize-government-monetization` - Autorizar monetização governamental
+- `GET /api/v1/monetization/available-incentives` - Incentivos fiscais disponíveis
+- `POST /api/v1/monetization/authorize-service-payment` - Pagamento por serviço
+- `GET /api/v1/monetization/monetization-potential` - Potencial de monetização
+- `POST /api/v1/gst/convert-to-tokens` - Converter valor em tokens GST
+- `GET /api/v1/gst/token-balance/{user_id}` - Saldo de tokens GST do usuário
+
 ---
 
 ## 🧪 **TESTING**
@@ -207,45 +248,57 @@ result = client.calculate_esg_score({
 ```bash
 # Executar todos os testes do backend
 cd backend
-pytest
+pytest -v
+
+# Com cobertura
+pytest --cov=app --cov-report=html
+
+# Testes específicos
+pytest tests/test_auth_cart_payment.py -v
 ```
 
 ### **Testes Manuais:**
 ```bash
 # Health check
-curl http://localhost:8002/health
+curl http://localhost:8000/health
 
-# Listar produtos
-curl http://localhost:8002/api/v1/retail/products
+# API Documentation
+open http://localhost:8000/docs
+
+# Prometheus Metrics
+curl http://localhost:8000/metrics
 ```
 
 ---
 
 ## 🛣️ **ROADMAP**
 
-### **Fase 1: MVP (✅ 85% Concluída)**
-- [x] Backend FastAPI (90% funcional)
-- [x] Mobile React Native (85% funcional)
-- [x] Frontend React (70% funcional)
-- [x] Sistema de autenticação JWT
+### **Fase 1: MVP (✅ 100% Concluída)**
+- [x] Backend FastAPI com segurança OAuth2/JWT
+- [x] Mobile React Native com contratos alinhados
+- [x] Frontend React consolidado
+- [x] Sistema de autenticação RBAC
 - [x] Scanner com Google Vision API
 - [x] Pagamentos PIX integrados
 - [x] Sistema ESG implementado
+- [x] Infraestrutura Docker
+- [x] Observabilidade (Prometheus/Grafana)
 - [x] Documentação completa
+- [x] Testes automatizados
 
-### **Fase 2: Finalização (🔄 Em Progresso)**
-- [ ] Conectar mobile ao backend
-- [ ] Completar frontend web
-- [ ] Testes E2E completos
-- [ ] Deploy em produção
-- [ ] Demo funcional
-
-### **Fase 3: Expansão (📋 Planejado)**
+### **Fase 2: Expansão (🔄 Em Progresso)**
 - [ ] 10 mercados ativos
 - [ ] 1.000 usuários ativos
 - [ ] Monetização governamental ativa
 - [ ] Ecossistema ESG completo
 - [ ] IA avançada para ESG
+
+### **Fase 3: Escala (📋 Planejado)**
+- [ ] Multi-tenant architecture
+- [ ] Microserviços especializados
+- [ ] Blockchain integration
+- [ ] Marketplace de tokens ESG
+- [ ] Internacionalização
 
 ---
 
@@ -295,6 +348,21 @@ curl http://localhost:8002/api/v1/retail/products
 - **[Selfbelt](https://github.com/SH1W4/selfbelt)** - Plataforma de telemetria
 - **[Manus Framework](https://github.com/SH1W4/manus)** - Framework de desenvolvimento
 - **[EON Framework](https://github.com/SH1W4/eon)** - Framework de integração
+- **[ARKITECT](https://github.com/SH1W4/arkitect)** - Plataforma de meta-governança para agentes IA
+
+---
+
+## 📚 **DOCUMENTAÇÃO**
+
+### **Guias de Operação:**
+- **[OPERACAO_REPO.md](docs/OPERACAO_REPO.md)** - Guia completo de operação do repositório
+- **[SETUP_DEV.md](docs/SETUP_DEV.md)** - Setup de desenvolvimento
+- **[GUIA_MIGRACAO_ESTRUTURA.md](GUIA_MIGRACAO_ESTRUTURA.md)** - Guia de migração da estrutura
+
+### **Documentação Técnica:**
+- **API Reference**: http://localhost:8000/docs
+- **Health Check**: http://localhost:8000/health
+- **Metrics**: http://localhost:8000/metrics
 
 ---
 
@@ -350,7 +418,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ## 📞 **SUPPORT**
 
 - **Documentação**: [docs.guardflow.com](https://docs.guardflow.com)
-- **Issues**: [GitHub Issues](https://github.com/SH1W4/GuardFlow/issues)
+- **Issues**: [GitHub Issues](https://github.com/SH1W4/guardflow/issues)
 - **Email**: support@guardflow.com
 - **Discord**: [GuardFlow Community](https://discord.gg/guardflow)
 
