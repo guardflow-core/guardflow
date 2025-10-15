@@ -13,6 +13,16 @@
 
 ---
 
+## 🧭 **NAVEGAÇÃO RÁPIDA**
+- **Documentação principal**: [docs/INDEX.md](docs/INDEX.md)
+- **Setup de desenvolvimento**: [docs/SETUP_DEV.md](docs/SETUP_DEV.md)
+- **Operação do repositório**: [docs/OPERACAO_REPO.md](docs/OPERACAO_REPO.md)
+- **Taskmash Super Escopo**: [docs/execution/TASKMASH_SUPER_ESCOPO.md](docs/execution/TASKMASH_SUPER_ESCOPO.md)
+- **Modelo de negócio**: [docs/business/strategy/MODELEO_NEGOCIO.md](docs/business/strategy/MODELEO_NEGOCIO.md)
+- **Princípio Não-Invasivo**: [docs/PRINCIPIO_NAO_INVASIVO.md](docs/PRINCIPIO_NAO_INVASIVO.md)
+
+---
+
 ## 🎯 **VISÃO GERAL**
 
 O **GuardFlow** é um sistema de checkout inteligente para varejo que transforma a experiência de compras através de scanner de produtos com IA, pagamentos PIX instantâneos, sistema ESG integrado e tokenização de transações. Projetado para "agilizar suas compras!" com tecnologia de ponta.
@@ -28,16 +38,6 @@ O **GuardFlow** é um sistema de checkout inteligente para varejo que transforma
 - 🏛️ **Monetização Governamental** - Créditos fiscais e incentivos
 - 🐳 **Docker Ready** - Infraestrutura containerizada
 - 📈 **Observabilidade** - Prometheus, Grafana e métricas
-
----
-
-## 🧭 **Mapa de Navegação Rápida**
-- Documentação principal: [docs/INDEX.md](docs/INDEX.md)
-- Setup de desenvolvimento: [docs/SETUP_DEV.md](docs/SETUP_DEV.md)
-- Operação do repositório: [docs/OPERACAO_REPO.md](docs/OPERACAO_REPO.md)
-- Taskmash Super Escopo: [docs/execution/TASKMASH_SUPER_ESCOPO.md](docs/execution/TASKMASH_SUPER_ESCOPO.md)
-- Modelo de negócio: [docs/business/strategy/MODELEO_NEGOCIO.md](docs/business/strategy/MODELEO_NEGOCIO.md)
-- Princípio Não-Invasivo: [docs/PRINCIPIO_NAO_INVASIVO.md](docs/PRINCIPIO_NAO_INVASIVO.md)
 
 ---
 
