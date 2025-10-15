@@ -31,6 +31,16 @@ O **GuardFlow** é um sistema de checkout inteligente para varejo que transforma
 
 ---
 
+## 🧭 **Mapa de Navegação Rápida**
+- Documentação principal: [docs/INDEX.md](docs/INDEX.md)
+- Setup de desenvolvimento: [docs/SETUP_DEV.md](docs/SETUP_DEV.md)
+- Operação do repositório: [docs/OPERACAO_REPO.md](docs/OPERACAO_REPO.md)
+- Taskmash Super Escopo: [docs/execution/TASKMASH_SUPER_ESCOPO.md](docs/execution/TASKMASH_SUPER_ESCOPO.md)
+- Modelo de negócio: [docs/business/strategy/MODELEO_NEGOCIO.md](docs/business/strategy/MODELEO_NEGOCIO.md)
+- Princípio Não-Invasivo: [docs/PRINCIPIO_NAO_INVASIVO.md](docs/PRINCIPIO_NAO_INVASIVO.md)
+
+---
+
 ## 🏗️ **ARQUITETURA**
 
 ### **GuardFlow System Architecture:**

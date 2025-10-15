@@ -1,5 +1,13 @@
 # 📚 **ÍNDICE DE DOCUMENTAÇÃO - GUARDFLOW**
 
+## 🚦 Navegação Rápida
+- [Começar pelo README](../README.md)
+- [Setup de desenvolvimento](SETUP_DEV.md)
+- [Operação do repositório](OPERACAO_REPO.md)
+- [Taskmash Super Escopo](execution/TASKMASH_SUPER_ESCOPO.md)
+- [Modelo de Negócio](business/strategy/MODELEO_NEGOCIO.md)
+- [Princípio Não-Invasivo](PRINCIPIO_NAO_INVASIVO.md)
+
 ## 🎯 **Visão Geral**
 Este índice organiza toda a documentação do projeto GuardFlow de forma hierárquica e acessível.
 
