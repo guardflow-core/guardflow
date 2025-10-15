@@ -1,8 +1,8 @@
-# ✅ RENOMEAÇÃO COMPLETA - QUICFLOW → GUARDFLOW
+# ✅ RENOMEAÇÃO COMPLETA - GUARDFLOW → GUARDFLOW
 
 ## 🎯 **TAREFA CONCLUÍDA COM SUCESSO!**
 
-Toda a documentação, código e lógica foi renomeada de **QuicFlow** para **GuardFlow**.
+Toda a documentação, código e lógica foi renomeada de **GuardFlow** para **GuardFlow**.
 
 ---
 

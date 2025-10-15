@@ -1,4 +1,4 @@
-# QuicFlow - Nomes Comerciais Adequados
+# GuardFlow - Nomes Comerciais Adequados
 
 ## 🎯 Critérios para Nome Comercial
 
@@ -284,7 +284,7 @@ Opções de Cores:
 
 ---
 
-*Lista de Nomes Comerciais - QuicFlow/GuardPass Integration*
+*Lista de Nomes Comerciais - GuardFlow/GuardPass Integration*
 
 
 

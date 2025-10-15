@@ -417,7 +417,7 @@ HOJE ✅
 ├── Descobrir mobile app implementado
 ├── Criar backend APIs completas
 ├── Configurar integração mobile-backend
-└── Renomear QuicFlow → GuardFlow
+└── Renomear GuardFlow → GuardFlow
 
 AMANHÃ 🔧
 ├── Corrigir backend funcionando

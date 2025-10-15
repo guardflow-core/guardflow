@@ -1,17 +1,17 @@
-# QuicFlow - Integração com Ecossistema GuardPass
+# GuardFlow - Integração com Ecossistema GuardPass
 
 ## 🎯 Integração Nativa GuardPass
 
-### **QuicFlow como Módulo do Ecossistema GuardPass**
+### **GuardFlow como Módulo do Ecossistema GuardPass**
 
-O QuicFlow não é um projeto independente - é um **módulo especializado** do ecossistema GuardPass, focado em **checkout inteligente e tokenização de NFe**.
+O GuardFlow não é um projeto independente - é um **módulo especializado** do ecossistema GuardPass, focado em **checkout inteligente e tokenização de NFe**.
 
 ```
 Ecossistema GuardPass:
 ├── GUARDRIVE (Core) - Infraestrutura base
 ├── GUARDRIVE-SDK - Ferramentas de desenvolvimento
 ├── GUARDRIVE-MCP - Model Context Protocol
-├── QuicFlow - Checkout inteligente (ESTE MÓDULO)
+├── GuardFlow - Checkout inteligente (ESTE MÓDULO)
 └── Outros módulos especializados
 ```
 
@@ -41,10 +41,10 @@ Ecossistema GuardPass:
 
 #### **Single Sign-On (SSO)**
 ```javascript
-// QuicFlow App - Integração de Auth
+// GuardFlow App - Integração de Auth
 import { GuardPassAuth } from '@guardrive/sdk';
 
-class QuicFlowAuth {
+class GuardFlowAuth {
   constructor() {
     this.guardpass = new GuardPassAuth({
       clientId: 'guardflow_mobile',
@@ -58,11 +58,11 @@ class QuicFlowAuth {
       // Login via GuardPass (biometria + 2FA)
       const user = await this.guardpass.authenticate();
       
-      // Sincroniza perfil com QuicFlow
+      // Sincroniza perfil com GuardFlow
       await this.syncUserProfile(user);
       
       // Configura permissões específicas
-      await this.setupQuicFlowPermissions(user);
+      await this.setupGuardFlowPermissions(user);
       
       return user;
     } catch (error) {
@@ -72,7 +72,7 @@ class QuicFlowAuth {
   }
 
   async syncUserProfile(guardPassUser) {
-    // Sincroniza dados do GuardPass com QuicFlow
+    // Sincroniza dados do GuardPass com GuardFlow
     const quickFlowProfile = {
       id: guardPassUser.id,
       email: guardPassUser.email,
@@ -97,7 +97,7 @@ class QuicFlowAuth {
 // Integração com GUARDRIVE Payment System
 import { GuardDrivePayments } from '@guardrive/payments';
 
-class QuicFlowPayments {
+class GuardFlowPayments {
   constructor() {
     this.payments = new GuardDrivePayments({
       module: 'guardflow',
@@ -147,7 +147,7 @@ class QuicFlowPayments {
 // Integração com GUARDRIVE ESG System
 import { GuardDriveESG } from '@guardrive/esg';
 
-class QuicFlowESG {
+class GuardFlowESG {
   constructor() {
     this.esg = new GuardDriveESG({
       module: 'guardflow'
@@ -195,14 +195,14 @@ class QuicFlowESG {
 
 ## 🔗 Integração com GUARDRIVE-MCP
 
-### **Model Context Protocol para QuicFlow**
+### **Model Context Protocol para GuardFlow**
 
 #### **Configuração MCP**
 ```json
 {
   "name": "guardflow-mcp",
   "version": "1.0.0",
-  "description": "QuicFlow integration with GUARDRIVE-MCP",
+  "description": "GuardFlow integration with GUARDRIVE-MCP",
   "capabilities": {
     "resources": [
       "guardflow://products/*",
@@ -232,10 +232,10 @@ class QuicFlowESG {
 }
 ```
 
-#### **Recursos MCP do QuicFlow**
+#### **Recursos MCP do GuardFlow**
 ```javascript
-// MCP Resources para QuicFlow
-class QuicFlowMCPProvider {
+// MCP Resources para GuardFlow
+class GuardFlowMCPProvider {
   async getResources() {
     return [
       {
@@ -247,7 +247,7 @@ class QuicFlowMCPProvider {
       {
         uri: "guardflow://transactions/recent",
         name: "Recent Transactions", 
-        description: "Recent QuicFlow transactions",
+        description: "Recent GuardFlow transactions",
         mimeType: "application/json"
       },
       {
@@ -286,12 +286,12 @@ class QuicFlowMCPProvider {
 
 #### **Estrutura de Receitas**
 ```
-QuicFlow Revenue Model:
+GuardFlow Revenue Model:
 ├── SaaS License: R$ 300-650/carrinho/mês
 ├── Transaction Fees: R$ 0,30/transação
 ├── ESG Data: R$ 500-1.500/loja/mês
 ├── GUARDRIVE Share: 20% da receita total
-└── Net Revenue: 80% para QuicFlow
+└── Net Revenue: 80% para GuardFlow
 ```
 
 #### **Benefícios da Integração**
@@ -307,7 +307,7 @@ Economia de Custos:
 
 ### **Investimento Reduzido**
 ```
-Desenvolvimento QuicFlow (com GUARDRIVE):
+Desenvolvimento GuardFlow (com GUARDRIVE):
 ├── Frontend Mobile: R$ 300K
 ├── Backend Específico: R$ 200K
 ├── Hardware Integration: R$ 150K
@@ -319,10 +319,10 @@ Desenvolvimento QuicFlow (com GUARDRIVE):
 ## 🚀 Roadmap de Integração
 
 ### **Fase 1: Setup Integração (Mês 1-2)**
-- [ ] **Configurar GuardPass Auth** no app QuicFlow
+- [ ] **Configurar GuardPass Auth** no app GuardFlow
 - [ ] **Integrar GUARDRIVE Payments** para checkout
 - [ ] **Conectar ESG Database** do GUARDRIVE
-- [ ] **Setup MCP Resources** para QuicFlow
+- [ ] **Setup MCP Resources** para GuardFlow
 - [ ] **Testes de integração** completos
 
 ### **Fase 2: Desenvolvimento Core (Mês 3-4)**
@@ -334,7 +334,7 @@ Desenvolvimento QuicFlow (com GUARDRIVE):
 
 ### **Fase 3: Piloto Integrado (Mês 5-6)**
 - [ ] **1 supermercado piloto** com integração completa
-- [ ] **Usuários GuardPass** testando QuicFlow
+- [ ] **Usuários GuardPass** testando GuardFlow
 - [ ] **Métricas de integração** e performance
 - [ ] **Feedback e ajustes** baseados em dados reais
 - [ ] **Validação do modelo** integrado
@@ -354,7 +354,7 @@ GUARDRIVE Core APIs:
 
 ### **Configuração de Ambiente**
 ```yaml
-# docker-compose.yml - QuicFlow + GUARDRIVE
+# docker-compose.yml - GuardFlow + GUARDRIVE
 version: '3.8'
 services:
   guardflow-app:
@@ -430,7 +430,7 @@ export default {
 - ✅ **Suporte técnico** especializado
 
 ### **4. Network Effect**
-- ✅ **Usuários GuardPass** podem usar QuicFlow imediatamente
+- ✅ **Usuários GuardPass** podem usar GuardFlow imediatamente
 - ✅ **Dados ESG** enriquecem todo o ecossistema
 - ✅ **Tokens GST** utilizáveis em outros módulos
 - ✅ **Cross-selling** natural entre produtos
@@ -457,7 +457,7 @@ export default {
 
 ---
 
-*Integração QuicFlow-GuardPass - Módulo Especializado do Ecossistema*
+*Integração GuardFlow-GuardPass - Módulo Especializado do Ecossistema*
 
 
 

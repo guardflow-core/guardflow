@@ -1,8 +1,8 @@
-# QuicFlow - Documento Estratégico de Implementação
+# GuardFlow - Documento Estratégico de Implementação
 
 ## 🎯 Visão Estratégica Geral
 
-O QuicFlow representa uma **revolução na economia urbana tokenizada** através de uma estratégia "Cavalo de Troia" que combina:
+O GuardFlow representa uma **revolução na economia urbana tokenizada** através de uma estratégia "Cavalo de Troia" que combina:
 
 - **Rail A**: Sistema de pagamentos instantâneos (entrada "inocente")
 - **Rail B**: Infraestrutura GuardPass (domínio estratégico)
@@ -489,7 +489,7 @@ Municipal Integration:
 
 ## 🎯 Conclusão Estratégica
 
-O QuicFlow representa uma **oportunidade única** de revolucionar a economia urbana através de uma estratégia "Cavalo de Troia" bem executada. A combinação de:
+O GuardFlow representa uma **oportunidade única** de revolucionar a economia urbana através de uma estratégia "Cavalo de Troia" bem executada. A combinação de:
 
 - **Sistema de pagamentos instantâneos** (entrada "inocente")
 - **Infraestrutura GuardPass** (domínio estratégico)
@@ -507,7 +507,7 @@ Cria uma **vantagem competitiva insuperável** que permitirá dominar completame
 
 ---
 
-*Documento Estratégico QuicFlow - Sistema de Economia Urbana Tokenizada*
+*Documento Estratégico GuardFlow - Sistema de Economia Urbana Tokenizada*
 
 
 

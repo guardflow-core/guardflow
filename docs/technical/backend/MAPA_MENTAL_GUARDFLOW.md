@@ -160,7 +160,7 @@ DIA 1 (HOJE) ✅
 ├── 🔍 Descobrir mobile app (85% pronto)
 ├── 🏗️ Criar backend APIs completas
 ├── 🔗 Configurar integração mobile-backend
-├── 📝 Renomear QuicFlow → GuardFlow
+├── 📝 Renomear GuardFlow → GuardFlow
 └── 📋 Documentar tudo
 
 DIA 2 (AMANHÃ) 🔧

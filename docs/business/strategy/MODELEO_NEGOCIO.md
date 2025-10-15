@@ -43,7 +43,7 @@ NFe (Documento Fiscal)          NFT (Ativo Digital)
 
 #### **Nenhum concorrente faz isso!**
 - **Mercado tradicional**: NFe é apenas documento fiscal
-- **QuicFlow**: NFe vira ativo digital com valor econômico
+- **GuardFlow**: NFe vira ativo digital com valor econômico
 - **Resultado**: Diferenciação total no mercado
 
 #### **Barreira de Entrada Enorme**
@@ -53,6 +53,68 @@ NFe (Documento Fiscal)          NFT (Ativo Digital)
 - **Resultado**: Vantagem competitiva sustentável
 
 ## 💰 Como Ganhamos Dinheiro? Modelo de Monetização
+
+### 0. Monetização Técnica via XML da NFe (Pipeline)
+
+```
+Entrada: XML da NFe (NF-e 4.0, schema SEFAZ)
+→ Validação: XML Signature, XSD, cStat=100 (autorizada)
+→ Parsing: chNFe, nNF, dhEmi, emit, dest, total, det[x], impostos
+→ Normalização: anonimização (hash salgado de CNPJ/CPF), arredondamentos
+→ Enriquecimento: mapeamento NCM → fatores ESG, geolocalização (opcional)
+→ Cálculos: totais, impostos, indicadores ESG por item e nota
+→ Metadados NFT: fingerprint (SHA-256 do XML canonical), carimbo de tempo
+→ Tokenização: criação de NFT com metadados e ponte on/off-chain
+→ Publicação: marketplace/registro, sem expor dados sensíveis
+```
+
+#### Campos-chave extraídos (exemplos)
+- Identificação: `ide.chNFe`, `ide.nNF`, `ide.dhEmi`
+- Emitente/Destinatário: `emit.CNPJ|CPF`, `dest.CNPJ|CPF` (anonimizados)
+- Itens: `det.prod.cProd`, `det.prod.cEAN`, `det.prod.NCM`, `det.prod.vProd`
+- Impostos: `imposto.ICMS`, `imposto.PIS`, `imposto.COFINS`
+- Totais: `total.ICMSTot.vNF`, `vProd`, `vDesc`, `vFrete`, `vIPI`
+
+#### Metadados do Token (exemplo)
+- `token_id`: hash curto de `chNFe + dhEmi + fingerprint`
+- `fingerprint`: SHA-256 do XML canonicalizado
+- `issue_date`: `dhEmi`
+- `gross_value`: `total.ICMSTot.vProd`
+- `net_value`: `total.ICMSTot.vNF`
+- `taxes_breakdown`: ICMS/PIS/COFINS/IPI
+- `esg_score`: calculado por NCM/fornecedor/região (0–100)
+- `anonymization_salt_id`: referência ao sal rotativo (não reversível)
+
+#### Política de Preços por Nota (tokenização)
+- Até R$ 100: R$ 0,10
+- R$ 100–1.000: R$ 0,30
+- R$ 1.000–10.000: R$ 0,70
+- > R$ 10.000: 0,03% do `vNF` (teto R$ 5,00)
+
+#### Política de Preços por Relatório ESG
+- Itemizado (por NCM): R$ 5,00/nota
+- Consolidado mensal: R$ 200,00 por CNPJ mascarado
+- Corporativo (custom): a partir de R$ 2.000/mês
+
+#### Garantias de Compliance
+- LGPD: anonimização por hash salgado, sem reidentificação
+- NF-e: aceite apenas de XML autorizado (cStat=100), assinatura válida
+- Cadeia de custódia: fingerprint + carimbo de tempo + logs imutáveis
+- Opt-out/retention: retenção mínima legal, limpeza agendada
+
+#### Exemplo de fluxo (pseudocódigo)
+```
+xml = load_xml()
+validate_signature(xml); validate_xsd(xml)
+doc = parse_nf(xml)
+anon = anonymize(doc.emit.CNPJ, doc.dest.CPF, salt=rotate_salt())
+esg = compute_esg(doc.items)
+meta = build_metadata(doc, anon, esg)
+token = mint_token(meta)  # on/off-chain strategy
+store_registry(token)
+```
+
+---
 
 ### 1. **Taxas de Transação (Revenue Stream Principal)**
 

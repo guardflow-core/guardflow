@@ -1,8 +1,8 @@
-# QuicFlow - Estratégia de Integração Física com Mercados
+# GuardFlow - Estratégia de Integração Física com Mercados
 
 ## 🎯 Integração Física Inteligente
 
-O QuicFlow é um **módulo do ecossistema GuardPass** especializado em checkout inteligente, que oferece **integração física prática** com supermercados através de soluções híbridas custo-efetivas.
+O GuardFlow é um **módulo do ecossistema GuardPass** especializado em checkout inteligente, que oferece **integração física prática** com supermercados através de soluções híbridas custo-efetivas.
 
 ### **Duas Estratégias Complementares**
 
@@ -22,11 +22,11 @@ Estratégia B: Híbrida Inteligente (Celular + Carrinho)
 
 ## 🛒 Estratégia A: Carrinho Inteligente Dedicado
 
-### **1. Hardware do Carrinho QuicFlow**
+### **1. Hardware do Carrinho GuardFlow**
 
 #### **Especificações Técnicas**
 ```
-QuicFlow Smart Cart v1.0
+GuardFlow Smart Cart v1.0
 ├── Tela Touchscreen 10" (Android)
 ├── Scanner 360° integrado
 ├── Balança eletrônica
@@ -145,7 +145,7 @@ class SmartCartSystem {
 - ✅ **Eficiência operacional**: Menos funcionários
 - ✅ **Diferenciação**: Experiência única
 
-#### **Para o QuicFlow**
+#### **Para o GuardFlow**
 - ✅ **Lock-in forte**: Hardware proprietário
 - ✅ **Dados exclusivos**: Comportamento físico
 - ✅ **Receita recorrente**: Aluguel + manutenção
@@ -157,7 +157,7 @@ class SmartCartSystem {
 
 #### **Arquitetura do Sistema**
 ```
-Carrinho Híbrido QuicFlow
+Carrinho Híbrido GuardFlow
 ├── Scanner integrado (simples)
 ├── Dock para celular
 ├── Sensores de peso
@@ -182,7 +182,7 @@ Hardware Híbrido:
 
 ### **2. Integração Celular + Carrinho**
 
-#### **App QuicFlow Híbrido**
+#### **App GuardFlow Híbrido**
 ```javascript
 // Modo Híbrido no App
 class HybridCartMode {
@@ -244,7 +244,7 @@ class HybridCartMode {
 #### **Experiência do Usuário**
 ```
 1. Entrada no Mercado
-   ├── Cliente abre app QuicFlow
+   ├── Cliente abre app GuardFlow
    ├── App detecta carrinho próximo (Beacon)
    ├── Cliente coloca celular no dock
    ├── Sincronização automática
@@ -319,7 +319,7 @@ Estratégia: App Puro + Scanner Básico
 
 #### **Protocolo de Comunicação**
 ```javascript
-// Protocolo QuicFlow Cart Sync
+// Protocolo GuardFlow Cart Sync
 class CartSyncProtocol {
   constructor() {
     this.bluetooth = new BluetoothLE();
@@ -489,4 +489,4 @@ Software + Dados:
 
 ---
 
-*Integração Física QuicFlow - Sistema de Economia Urbana Tokenizada*
+*Integração Física GuardFlow - Sistema de Economia Urbana Tokenizada*

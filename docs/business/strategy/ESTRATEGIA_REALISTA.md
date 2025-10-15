@@ -1,4 +1,4 @@
-# QuicFlow - Estratégia Realista e Executável
+# GuardFlow - Estratégia Realista e Executável
 
 ## 🎯 Estratégia Focada: Integração GuardPass
 
@@ -364,4 +364,4 @@ Uma **estratégia realista e executável** que pode gerar um **negócio de R$ 20
 
 ---
 
-*Estratégia Realista QuicFlow - Foco na Execução*
+*Estratégia Realista GuardFlow - Foco na Execução*

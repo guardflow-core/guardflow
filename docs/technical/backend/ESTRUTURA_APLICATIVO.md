@@ -1,4 +1,4 @@
-# QuicFlow - Estrutura do Aplicativo
+# GuardFlow - Estrutura do Aplicativo
 
 ## 🔍 Análise da Estrutura Atual
 
@@ -55,7 +55,7 @@ Funcionalidades implementadas:
 Agora precisamos **evoluir da landing page para o aplicativo mobile** real. Vou propor uma estrutura robusta e escalável:
 
 ```
-QuicFlow-App/
+GuardFlow-App/
 ├── 📱 Mobile App (React Native)
 ├── 🌐 Backend API (FastAPI)
 ├── 🗄️ Database (PostgreSQL + Redis)
@@ -492,7 +492,7 @@ services:
 
 ---
 
-*Estrutura do Aplicativo QuicFlow - Sistema de Economia Urbana Tokenizada*
+*Estrutura do Aplicativo GuardFlow - Sistema de Economia Urbana Tokenizada*
 
 
 

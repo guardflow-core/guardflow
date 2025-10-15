@@ -1,4 +1,4 @@
-# QuicFlow - Lista de Tarefas e Bugs
+# GuardFlow - Lista de Tarefas e Bugs
 
 ## 🎯 Tarefas Prioritárias
 
@@ -220,4 +220,4 @@
 
 ---
 
-*Lista de tarefas do QuicFlow - Sistema de Economia Urbana Tokenizada*
+*Lista de tarefas do GuardFlow - Sistema de Economia Urbana Tokenizada*

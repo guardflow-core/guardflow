@@ -286,7 +286,7 @@ Prioridade Alta:
 └── Materiais de pitch - B2B messaging
 
 Prioridade Média:
-├── Todos os .md - Buscar/substituir QuicFlow → GuardFlow
+├── Todos os .md - Buscar/substituir GuardFlow → GuardFlow
 ├── Estratégias - Ajustar para novo posicionamento
 ├── Exemplos práticos - Novos números e casos
 └── Parcerias - Pitch atualizado

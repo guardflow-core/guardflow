@@ -1,4 +1,4 @@
-# QuicFlow - Estratégia de Parcerias e Implementação Física
+# GuardFlow - Estratégia de Parcerias e Implementação Física
 
 ## 🎯 Estratégia de Penetração por Segmento
 
@@ -446,4 +446,4 @@ Financeiros:
 
 ---
 
-*Estratégia de Parcerias QuicFlow - Sistema de Economia Urbana Tokenizada*
+*Estratégia de Parcerias GuardFlow - Sistema de Economia Urbana Tokenizada*

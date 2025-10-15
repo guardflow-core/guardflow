@@ -1,4 +1,4 @@
-# QuicFlow - Estado da Sessão
+# GuardFlow - Estado da Sessão
 
 ## 📅 Informações da Sessão
 - **Data**: 25/09/2025
@@ -7,12 +7,12 @@
 - **Próxima Ação**: Desenvolvimento da Arquitetura
 
 ## 🎯 Objetivo da Sessão
-Organizar o projeto QuicFlow em estrutura adequada na área de projetos, criando documentação técnica completa e estabelecendo base para desenvolvimento.
+Organizar o projeto GuardFlow em estrutura adequada na área de projetos, criando documentação técnica completa e estabelecendo base para desenvolvimento.
 
 ## ✅ Tarefas Concluídas
 
 ### 1. Organização do Projeto
-- [x] **Criação do diretório** `C:\Users\João\Desktop\PROJETOS\02_ORGANIZATIONS\QuicFlow`
+- [x] **Criação do diretório** `C:\Users\João\Desktop\PROJETOS\02_ORGANIZATIONS\GuardFlow`
 - [x] **Cópia dos arquivos** do Downloads para o diretório do projeto
 - [x] **Verificação da estrutura** e conteúdo dos arquivos
 
@@ -32,7 +32,7 @@ Organizar o projeto QuicFlow em estrutura adequada na área de projetos, criando
 ## 📁 Estrutura Atual do Projeto
 
 ```
-QuicFlow/
+GuardFlow/
 ├── README.md                           # ✅ Criado
 ├── DESENVOLVIMENTO.md                  # ✅ Criado
 ├── TODO.md                             # ✅ Criado
@@ -173,7 +173,7 @@ QuicFlow/
 
 ### Navegação
 ```bash
-cd "C:\Users\João\Desktop\PROJETOS\02_ORGANIZATIONS\QuicFlow"
+cd "C:\Users\João\Desktop\PROJETOS\02_ORGANIZATIONS\GuardFlow"
 ```
 
 ### Desenvolvimento
@@ -193,7 +193,7 @@ flake8 src/
 # Inicializar repositório
 git init
 git add .
-git commit -m "Initial commit: QuicFlow project setup"
+git commit -m "Initial commit: GuardFlow project setup"
 
 # Configurar remote
 git remote add origin <repository-url>
@@ -222,4 +222,4 @@ git push -u origin main
 
 ---
 
-*Estado da sessão QuicFlow - 25/09/2025 17:14*
+*Estado da sessão GuardFlow - 25/09/2025 17:14*

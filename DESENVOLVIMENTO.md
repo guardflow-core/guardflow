@@ -257,4 +257,4 @@ redis_client = Redis(host='localhost', port=6379, db=0)
 
 ---
 
-*Documentação técnica do QuicFlow - Sistema de Economia Urbana Tokenizada*
+*Documentação técnica do GuardFlow - Sistema de Economia Urbana Tokenizada*

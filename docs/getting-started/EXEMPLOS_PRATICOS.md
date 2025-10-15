@@ -1,10 +1,10 @@
-# QuicFlow - Exemplos Práticos de Monetização
+# GuardFlow - Exemplos Práticos de Monetização
 
 ## 🎯 Como Funciona na Prática?
 
 ### **Cenário 1: Supermercado Local**
 
-#### **Situação Atual (Sem QuicFlow)**
+#### **Situação Atual (Sem GuardFlow)**
 ```
 Cliente compra R$ 100 em produtos
 ├── Gera NFe fiscal (obrigatória)
@@ -13,7 +13,7 @@ Cliente compra R$ 100 em produtos
 └── NFe vira "lixo digital"
 ```
 
-#### **Com QuicFlow**
+#### **Com GuardFlow**
 ```
 Cliente compra R$ 100 em produtos
 ├── Gera NFe fiscal (obrigatória)
@@ -22,7 +22,7 @@ Cliente compra R$ 100 em produtos
 ├── NFT é criado com valor econômico
 ├── Cliente pode negociar o NFT
 ├── Empresa tem dados ESG para relatórios
-└── QuicFlow ganha em cada etapa
+└── GuardFlow ganha em cada etapa
 ```
 
 #### **Receita Gerada**
@@ -44,7 +44,7 @@ Empresa compra R$ 50K em materiais
 └── Nenhum valor adicional
 ```
 
-#### **Com QuicFlow**
+#### **Com GuardFlow**
 ```
 Empresa compra R$ 50K em materiais
 ├── Gera NFe fiscal
@@ -53,7 +53,7 @@ Empresa compra R$ 50K em materiais
 ├── Relatório ESG gerado automaticamente
 ├── Certificação ESG automática
 ├── Dados vendidos para investidores
-└── QuicFlow ganha em cada etapa
+└── GuardFlow ganha em cada etapa
 ```
 
 #### **Receita Gerada**
@@ -77,7 +77,7 @@ Município tem 100K habitantes
 └── Nenhuma integração
 ```
 
-#### **Com QuicFlow**
+#### **Com GuardFlow**
 ```
 Município tem 100K habitantes
 ├── 10K empresas integradas
@@ -86,7 +86,7 @@ Município tem 100K habitantes
 ├── Relatórios ESG automáticos
 ├── Compliance automático
 ├── Dados vendidos para investidores
-└── QuicFlow domina a economia local
+└── GuardFlow domina a economia local
 ```
 
 #### **Receita Gerada**
@@ -174,9 +174,9 @@ Grandes: 500 × R$ 50K = R$ 25M
 Total: R$ 30.25M
 ```
 
-#### **Taxa QuicFlow (2%)**
+#### **Taxa GuardFlow (2%)**
 ```
-Receita QuicFlow: R$ 605K/mês
+Receita GuardFlow: R$ 605K/mês
 Receita anual: R$ 7.26M
 ```
 
@@ -198,9 +198,9 @@ Grandes: 5K × R$ 50K = R$ 250M
 Total: R$ 442.5M
 ```
 
-#### **Taxa QuicFlow (2%)**
+#### **Taxa GuardFlow (2%)**
 ```
-Receita QuicFlow: R$ 8.85M/mês
+Receita GuardFlow: R$ 8.85M/mês
 Receita anual: R$ 106.2M
 ```
 
@@ -224,9 +224,9 @@ Cidades grandes: 50 × R$ 10M = R$ 500M
 Total: R$ 1.5B/mês
 ```
 
-#### **Taxa QuicFlow (2%)**
+#### **Taxa GuardFlow (2%)**
 ```
-Receita QuicFlow: R$ 30M/mês
+Receita GuardFlow: R$ 30M/mês
 Receita anual: R$ 360M
 ```
 
@@ -355,5 +355,5 @@ Valor da empresa: R$ 130B
 
 ---
 
-*Exemplos Práticos QuicFlow - Sistema de Economia Urbana Tokenizada*
+*Exemplos Práticos GuardFlow - Sistema de Economia Urbana Tokenizada*
 
