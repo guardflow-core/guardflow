@@ -16,6 +16,7 @@ government_router = None
 ecosystem_router = None
 esg_dashboard_router = None
 esg_gamification_router = None
+esg_engine_router = None
 
 try:
     from app.api.monetization import router as monetization_router  # type: ignore
@@ -23,6 +24,7 @@ try:
     from app.api.ecosystem_saas import router as ecosystem_router  # type: ignore
     from app.api.esg_dashboard import router as esg_dashboard_router  # type: ignore
     from app.api.esg_gamification import router as esg_gamification_router  # type: ignore
+    from app.api.esg_engine import router as esg_engine_router  # type: ignore
 except Exception:
     # Routers opcionais não disponíveis no ambiente mínimo de testes
     pass
@@ -88,6 +90,10 @@ async def health_check():
         "version": "0.1.0",
         "environment": settings.ENVIRONMENT,
     }
+
+# Incluir routers disponíveis
+if esg_engine_router:
+    app.include_router(esg_engine_router, prefix="/api/v1")
 
 # Rotas de fallback mínimas para testes, quando módulos completos não estão disponíveis
 if monetization_router is None or ecosystem_router is None:
