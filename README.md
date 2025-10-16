@@ -20,6 +20,7 @@
 - **Taskmash Super Escopo**: [docs/execution/TASKMASH_SUPER_ESCOPO.md](docs/execution/TASKMASH_SUPER_ESCOPO.md)
 - **Modelo de negócio**: [docs/business/strategy/MODELEO_NEGOCIO.md](docs/business/strategy/MODELEO_NEGOCIO.md)
 - **Princípio Não-Invasivo**: [docs/PRINCIPIO_NAO_INVASIVO.md](docs/PRINCIPIO_NAO_INVASIVO.md)
+- **[Notas de Release 1.1.0](docs/releases/1.1.0.md)** - ESG Engine e compliance
 
 ---
 
@@ -386,6 +387,7 @@ curl http://localhost:8000/metrics
 - **[SETUP_DEV.md](docs/SETUP_DEV.md)** - Setup de desenvolvimento
 - **[GUIA_MIGRACAO_ESTRUTURA.md](GUIA_MIGRACAO_ESTRUTURA.md)** - Guia de migração da estrutura
 - **[PRINCIPIO_NAO_INVASIVO.md](docs/PRINCIPIO_NAO_INVASIVO.md)** - Princípio fundamental de não interferência
+- **[Notas de Release 1.1.0](docs/releases/1.1.0.md)** - ESG Engine e compliance
 
 ### **Documentação Técnica:**
 - **API Reference**: http://localhost:8000/docs
