@@ -1,263 +1,182 @@
-# 📋 **COMPLIANCE LGPD - GUARDFLOW**
-## **Lei Geral de Proteção de Dados Pessoais**
+# 🔒 COMPLIANCE LGPD - GuardFlow
+
+## 📋 **Visão Geral**
+
+Este documento detalha as diretrizes e procedimentos do GuardFlow para garantir a conformidade com a Lei Geral de Proteção de Dados (LGPD) do Brasil (Lei nº 13.709/2018). Nosso compromisso é proteger a privacidade e os dados pessoais de nossos usuários e parceiros.
 
 ---
 
-## 🎯 **VISÃO GERAL**
+## 🎯 **Princípios Fundamentais da LGPD**
 
-O GuardFlow está em total conformidade com a **Lei Geral de Proteção de Dados (LGPD - Lei 13.709/2018)**, implementando medidas técnicas e organizacionais para proteção de dados pessoais.
+O GuardFlow adere aos seguintes princípios da LGPD:
 
-### **Princípios Fundamentais**
-- **Finalidade**: Coleta de dados apenas para finalidades específicas e legítimas
-- **Adequação**: Dados adequados à finalidade declarada
-- **Necessidade**: Coleta mínima necessária para a finalidade
-- **Livre acesso**: Transparência sobre tratamento de dados
-- **Qualidade**: Dados exatos e atualizados
-- **Transparência**: Informações claras sobre tratamento
-- **Segurança**: Medidas técnicas e organizacionais adequadas
-- **Prevenção**: Prevenção de danos aos titulares
-- **Não discriminação**: Tratamento não discriminatório
-- **Responsabilização**: Demonstração de conformidade
-
----
-
-## 🔐 **DADOS PESSOAIS COLETADOS**
-
-### **Categoria 1: Dados de Identificação**
-- **Nome completo** (obrigatório)
-- **CPF/CNPJ** (obrigatório)
-- **E-mail** (obrigatório)
-- **Telefone** (opcional)
-
-### **Categoria 2: Dados de Localização**
-- **Endereço de entrega** (opcional)
-- **CEP** (opcional)
-- **Coordenadas GPS** (opcional, com consentimento)
-
-### **Categoria 3: Dados de Comportamento**
-- **Histórico de compras** (necessário para ESG)
-- **Preferências de produtos** (opcional)
-- **Padrões de consumo** (anônimos)
-
-### **Categoria 4: Dados Biométricos**
-- **Biometria facial** (opcional, com consentimento explícito)
-- **Impressão digital** (opcional, com consentimento explícito)
+1. **Finalidade**: Realização do tratamento para propósitos legítimos, específicos, explícitos e informados ao titular.
+2. **Adequação**: Compatibilidade do tratamento com as finalidades informadas.
+3. **Necessidade**: Limitação do tratamento ao mínimo necessário para a realização de suas finalidades.
+4. **Livre Acesso**: Garantia de consulta facilitada e gratuita sobre a forma e duração do tratamento.
+5. **Qualidade dos Dados**: Garantia de exatidão, clareza, relevância e atualização dos dados.
+6. **Transparência**: Informações claras, precisas e facilmente acessíveis sobre o tratamento dos dados.
+7. **Segurança**: Utilização de medidas técnicas e administrativas aptas a proteger os dados pessoais.
+8. **Prevenção**: Adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados.
+9. **Não Discriminação**: Impossibilidade de tratamento para fins discriminatórios ilícitos ou abusivos.
+10. **Responsabilização e Prestação de Contas**: Demonstração da adoção de medidas eficazes e capazes de comprovar a observância e o cumprimento das normas de proteção de dados pessoais.
 
 ---
 
-## 🛡️ **MEDIDAS DE SEGURANÇA**
+## 📝 **Dados Pessoais Coletados e Finalidade**
 
-### **Técnicas**
-- **Criptografia** AES-256 para dados em trânsito e repouso
-- **Hash SHA-256** para dados sensíveis
-- **Tokens JWT** com expiração automática
-- **Rate limiting** para prevenção de ataques
-- **Logs de auditoria** para rastreabilidade
-- **Backup criptografado** com retenção de 5 anos
+O GuardFlow coleta e trata dados pessoais estritamente necessários para a prestação de seus serviços e para as finalidades explícitas abaixo:
 
-### **Organizacionais**
-- **DPO (Data Protection Officer)** designado
-- **Treinamento** regular da equipe
-- **Políticas internas** de proteção de dados
-- **Contratos** com fornecedores (LGPD compliant)
-- **Avaliação de impacto** (AIPD) realizada
+| Categoria de Dados | Exemplos de Dados | Finalidade do Tratamento | Base Legal (LGPD) |
+| :----------------- | :---------------- | :----------------------- | :---------------- |
+| **Identificação**  | Nome, CPF/CNPJ, e-mail, telefone | Cadastro de usuários e parceiros, autenticação, comunicação | Execução de contrato, Consentimento |
+| **Transacionais**  | Dados de NFe (emitente, destinatário, produtos, valores), histórico de compras | Processamento de monetização, cálculo ESG, relatórios fiscais, auditoria | Execução de contrato, Obrigação legal, Legítimo interesse |
+| **Financeiros**    | Dados de pagamento (PIX, cartão - tokenizado), histórico de transações | Processamento de pagamentos, faturamento, prevenção a fraudes | Execução de contrato, Obrigação legal |
+| **Comportamentais**| Interações com a plataforma, preferências, dados de uso | Personalização da experiência, melhoria de serviços, gamificação ESG | Legítimo interesse, Consentimento |
+| **Técnicos**       | Endereço IP, logs de acesso, dados de dispositivo | Segurança da informação, monitoramento, diagnóstico de problemas | Legítimo interesse, Obrigação legal |
 
 ---
 
-## 📊 **FINALIDADES DO TRATAMENTO**
+## 🔄 **Fluxo de Dados e Retenção**
 
-### **1. Prestação de Serviços (Base Legal: Art. 7º, V)**
-- **Checkout inteligente** e processamento de pagamentos
-- **Scanner de produtos** com IA
-- **Cálculo de scores ESG** para produtos
-- **Tokenização** de transações
+### **1. Coleta**
+- **Fontes**: Cadastro do usuário, upload de NFe XML, integrações com ERPs, interações na plataforma.
+- **Anonimização/Pseudonimização**: Dados sensíveis são anonimizados ou pseudonimizados sempre que possível.
 
-### **2. Melhoria de Serviços (Base Legal: Art. 7º, V)**
-- **Analytics ESG** e relatórios de sustentabilidade
-- **Recomendações** de produtos sustentáveis
-- **Gamificação** ESG com recompensas
+### **2. Armazenamento**
+- **Local**: Bancos de dados PostgreSQL e Redis (cache) em ambiente seguro (Docker).
+- **Segurança**: Criptografia em repouso e em trânsito, controle de acesso rigoroso, backups regulares.
 
-### **3. Compliance Regulatório (Base Legal: Art. 7º, II)**
-- **Relatórios fiscais** para SEFAZ
-- **Auditoria** de transações
-- **Compliance** com regulamentações
+### **3. Tratamento**
+- **Processamento**: Utilização para cálculo ESG, monetização, relatórios, personalização.
+- **Acesso**: Restrito a equipes autorizadas, com base no princípio do menor privilégio.
 
-### **4. Marketing Direcionado (Base Legal: Art. 7º, I - Consentimento)**
-- **Comunicações** sobre produtos ESG
-- **Ofertas personalizadas** (apenas com consentimento)
-- **Newsletter** de sustentabilidade
+### **4. Compartilhamento**
+- **Com Terceiros**: Apenas com consentimento do titular ou por obrigação legal/regulatória (ex: SEFAZ, parceiros de pagamento).
+- **Anonimizado**: Dados agregados e anonimizados podem ser compartilhados para fins de análise de mercado e ESG sem identificação pessoal.
 
----
-
-## 🔄 **FLUXOS DE DADOS**
-
-### **Fluxo 1: Cadastro de Usuário**
-```mermaid
-graph TD
-    A[Usuário acessa app] --> B[Coleta dados mínimos]
-    B --> C[Verificação de identidade]
-    C --> D[Consentimento LGPD]
-    D --> E[Criptografia dos dados]
-    E --> F[Armazenamento seguro]
-    F --> G[Confirmação de cadastro]
-```
-
-### **Fluxo 2: Processamento de Compra**
-```mermaid
-graph TD
-    A[Scanner de produto] --> B[Coleta dados da compra]
-    B --> C[Anonimização de dados sensíveis]
-    C --> D[Cálculo ESG]
-    D --> E[Tokenização]
-    E --> F[Armazenamento criptografado]
-```
-
-### **Fluxo 3: Relatórios ESG**
-```mermaid
-graph TD
-    A[Dados agregados] --> B[Anonimização]
-    B --> C[Geração de insights]
-    C --> D[Relatórios ESG]
-    D --> E[Compartilhamento seguro]
-```
+### **5. Retenção**
+- **Período**: Dados são retidos pelo tempo necessário para cumprir as finalidades para as quais foram coletados, obrigações legais ou regulatórias.
+- **Descarte**: Após o período de retenção, os dados são descartados de forma segura ou anonimizados permanentemente.
 
 ---
 
-## ⏰ **RETENÇÃO DE DADOS**
+## 🛡️ **Direitos dos Titulares**
 
-### **Dados de Identificação**
-- **Retenção**: 5 anos após último acesso
-- **Base legal**: Art. 7º, V (prestação de serviços)
-- **Destinação**: Exclusão automática após período
+O GuardFlow garante aos titulares dos dados os seguintes direitos, conforme a LGPD:
+
+- **Confirmação e Acesso**: Confirmar a existência de tratamento e acessar os dados.
+- **Correção**: Corrigir dados incompletos, inexatos ou desatualizados.
+- **Anonimização, Bloqueio ou Eliminação**: De dados desnecessários, excessivos ou tratados em desconformidade com a LGPD.
+- **Portabilidade**: Obter a portabilidade dos dados a outro fornecedor de serviço ou produto.
+- **Eliminação**: Eliminar dados pessoais tratados com o consentimento do titular.
+- **Informação**: Obter informações sobre entidades públicas e privadas com as quais o controlador realizou uso compartilhado de dados.
+- **Revogação do Consentimento**: Revogar o consentimento a qualquer momento.
+- **Oposição**: Opor-se a tratamento realizado com base em uma das hipóteses de dispensa de consentimento, em caso de descumprimento ao disposto na LGPD.
+
+Para exercer qualquer um desses direitos, entre em contato através do nosso canal de suporte: `support@guardflow.com`.
+
+---
+
+## 🛡️ **Medidas de Segurança**
+
+- **Criptografia**: Dados em trânsito (TLS/SSL) e em repouso (criptografia de disco/banco de dados).
+- **Controle de Acesso**: Autenticação multifactor (MFA), RBAC (Role-Based Access Control), princípio do menor privilégio.
+- **Monitoramento**: Logs de auditoria, detecção de intrusões, monitoramento de segurança 24/7.
+- **Testes de Segurança**: Testes de penetração, varreduras de vulnerabilidade regulares.
+- **Conscientização**: Treinamento regular da equipe sobre LGPD e segurança da informação.
+
+---
+
+## 📊 **Mapeamento de Dados Pessoais**
+
+### **Dados de Usuários Finais**
+- **Coleta**: Cadastro, autenticação, preferências
+- **Processamento**: Personalização, gamificação ESG
+- **Retenção**: 3 anos após último acesso
+- **Compartilhamento**: Apenas com consentimento explícito
+
+### **Dados de Parceiros Comerciais**
+- **Coleta**: Dados de NFe, informações fiscais
+- **Processamento**: Cálculo ESG, monetização
+- **Retenção**: 5 anos (obrigação fiscal)
+- **Compartilhamento**: SEFAZ, autoridades fiscais
 
 ### **Dados de Transações**
-- **Retenção**: 10 anos (compliance fiscal)
-- **Base legal**: Art. 7º, II (cumprimento de obrigação legal)
-- **Destinação**: Arquivo permanente (anônimo)
-
-### **Dados Biométricos**
-- **Retenção**: 1 ano após último uso
-- **Base legal**: Art. 7º, I (consentimento)
-- **Destinação**: Exclusão imediata após período
-
-### **Dados de Marketing**
-- **Retenção**: Até revogação do consentimento
-- **Base legal**: Art. 7º, I (consentimento)
-- **Destinação**: Exclusão em 30 dias após revogação
+- **Coleta**: Histórico de compras, pagamentos
+- **Processamento**: Análise de padrões, prevenção de fraudes
+- **Retenção**: 7 anos (compliance financeiro)
+- **Compartilhamento**: Instituições financeiras autorizadas
 
 ---
 
-## 🚫 **DIREITOS DOS TITULARES**
-
-### **1. Confirmação e Acesso (Art. 9º)**
-- **Endpoint**: `GET /api/v1/privacy/data-access`
-- **Prazo**: 15 dias úteis
-- **Formato**: JSON estruturado
-
-### **2. Correção (Art. 9º, §2º)**
-- **Endpoint**: `PUT /api/v1/privacy/data-correction`
-- **Prazo**: 15 dias úteis
-- **Validação**: Verificação de identidade
-
-### **3. Anonimização, Bloqueio ou Eliminação (Art. 9º, §2º)**
-- **Endpoint**: `DELETE /api/v1/privacy/data-deletion`
-- **Prazo**: 15 dias úteis
-- **Confirmação**: E-mail de confirmação
-
-### **4. Portabilidade (Art. 9º, §2º)**
-- **Endpoint**: `GET /api/v1/privacy/data-export`
-- **Formato**: JSON/CSV
-- **Prazo**: 15 dias úteis
-
-### **5. Informações sobre Compartilhamento (Art. 9º, §2º)**
-- **Endpoint**: `GET /api/v1/privacy/sharing-info`
-- **Detalhes**: Terceiros, finalidades, base legal
-
-### **6. Revogação de Consentimento (Art. 8º, §5º)**
-- **Endpoint**: `POST /api/v1/privacy/consent-revocation`
-- **Efeito**: Imediato para dados opcionais
-- **Permanência**: Dados obrigatórios para prestação de serviços
-
----
-
-## 🔍 **AUDITORIA E MONITORAMENTO**
+## 🔍 **Auditoria e Monitoramento**
 
 ### **Logs de Auditoria**
-- **Acesso a dados**: Quem, quando, o que
-- **Modificações**: Histórico completo de alterações
-- **Compartilhamento**: Registro de transferências
-- **Retenção**: 5 anos
+- **Acesso a Dados**: Registro de todos os acessos a dados pessoais
+- **Alterações**: Log de modificações em dados sensíveis
+- **Exportações**: Registro de exportações de dados
+- **Retenção**: Logs mantidos por 2 anos
 
-### **Métricas de Conformidade**
-- **Tempo de resposta** a solicitações: < 15 dias
-- **Taxa de sucesso** em correções: > 95%
-- **Disponibilidade** de endpoints: > 99.9%
-- **Cobertura de logs**: 100%
-
-### **Alertas Automáticos**
-- **Acesso não autorizado** a dados sensíveis
-- **Tentativas de exfiltração** de dados
-- **Violações de retenção** de dados
-- **Falhas de criptografia**
+### **Monitoramento Contínuo**
+- **Detecção de Anomalias**: Sistema de alertas para acessos suspeitos
+- **Análise de Padrões**: Identificação de comportamentos anômalos
+- **Relatórios**: Relatórios mensais de conformidade
 
 ---
 
-## 📞 **CONTATOS E RESPONSABILIDADES**
+## 📞 **Contato do DPO (Encarregado de Dados)**
 
-### **DPO (Data Protection Officer)**
-- **Nome**: [Nome do DPO]
-- **E-mail**: dpo@guardflow.com
-- **Telefone**: [Telefone]
-- **Responsabilidades**: Conformidade LGPD, treinamento, auditoria
+Para quaisquer dúvidas ou solicitações relacionadas à LGPD, entre em contato com nosso Encarregado de Dados (DPO):
 
-### **Canal de Denúncias**
-- **E-mail**: privacy@guardflow.com
-- **Formulário**: https://guardflow.com/privacy/complaint
-- **Prazo de resposta**: 72 horas
-
-### **Autoridade Nacional (ANPD)**
-- **Site**: https://www.gov.br/anpd
-- **E-mail**: anpd@anpd.gov.br
-- **Telefone**: (61) 2027-6400
+- **Nome**: [A ser definido]
+- **Email**: dpo@guardflow.com
+- **Telefone**: [A ser definido]
 
 ---
 
-## 📋 **CHECKLIST DE CONFORMIDADE**
+## 📋 **Checklist de Conformidade**
 
 ### **✅ Implementado**
-- [x] **Política de privacidade** clara e acessível
-- [x] **Consentimento explícito** para dados sensíveis
-- [x] **Criptografia** de dados em trânsito e repouso
-- [x] **Logs de auditoria** completos
-- [x] **Endpoints** para direitos dos titulares
-- [x] **DPO** designado
-- [x] **Treinamento** da equipe
-- [x] **AIPD** (Avaliação de Impacto) realizada
+- [x] Política de privacidade clara
+- [x] Consentimento explícito para coleta
+- [x] Criptografia de dados sensíveis
+- [x] Controle de acesso baseado em roles
+- [x] Logs de auditoria
+- [x] Direitos dos titulares documentados
 
 ### **🔄 Em Implementação**
-- [ ] **Certificação ISO 27001** (Q2 2024)
-- [ ] **Certificação LGPD** (Q3 2024)
-- [ ] **Auditoria externa** anual
-- [ ] **Relatório de conformidade** trimestral
+- [ ] Portal de exercício de direitos
+- [ ] Relatórios de impacto à proteção de dados
+- [ ] Treinamento da equipe
+- [ ] Testes de penetração
+
+### **📅 Planejado**
+- [ ] Certificação ISO 27001
+- [ ] Auditoria externa
+- [ ] Implementação de privacy by design
+- [ ] Análise de impacto à proteção de dados (AIPD)
 
 ---
 
-## 📊 **MÉTRICAS DE CONFORMIDADE**
+## 🚨 **Incidentes de Segurança**
 
-### **Indicadores de Performance**
-- **Tempo médio de resposta**: 8 dias
-- **Taxa de resolução**: 98%
-- **Satisfação do titular**: 4.8/5
-- **Incidentes de segurança**: 0
+### **Procedimento de Resposta**
+1. **Detecção**: Identificação imediata do incidente
+2. **Contenção**: Isolamento e contenção do problema
+3. **Análise**: Investigação e análise do impacto
+4. **Comunicação**: Notificação às autoridades e titulares
+5. **Recuperação**: Restauração dos sistemas
+6. **Lições Aprendidas**: Documentação e melhorias
 
-### **Relatórios Regulares**
-- **Mensal**: Relatório de acesso a dados
-- **Trimestral**: Relatório de conformidade
-- **Anual**: Auditoria completa
+### **Tempo de Resposta**
+- **Detecção**: Imediata (sistemas de monitoramento 24/7)
+- **Contenção**: Máximo 1 hora
+- **Comunicação**: Máximo 72 horas (conforme LGPD)
+- **Recuperação**: Máximo 24 horas
 
 ---
 
-<div align="center">
-🛡️ **GuardFlow** - Proteção de Dados Pessoais<br/>
-Conformidade Total com LGPD
-</div>
+*Última atualização: 16 de Outubro de 2025*
+*Versão: 1.0*
+*Próxima revisão: 16 de Janeiro de 2026*

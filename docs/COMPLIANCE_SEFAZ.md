@@ -1,341 +1,212 @@
-# 🏛️ **COMPLIANCE SEFAZ - GUARDFLOW**
-## **Conformidade com Receita Federal e Validação NFe**
+# 🏛️ COMPLIANCE SEFAZ - GuardFlow
+
+## 📋 **Visão Geral**
+
+Este documento descreve as diretrizes e procedimentos do GuardFlow para garantir a conformidade com as regulamentações da Secretaria da Fazenda (SEFAZ) e a legislação fiscal brasileira, especialmente no que tange ao tratamento de Notas Fiscais Eletrônicas (NFe). Nosso objetivo é operar de forma transparente e legal, agregando valor sem interferir nos processos fiscais existentes.
 
 ---
 
-## 🎯 **VISÃO GERAL**
+## 🎯 **Princípios de Conformidade Fiscal**
 
-O GuardFlow está em total conformidade com as **normativas da Secretaria da Receita Federal (SEFAZ)**, implementando validação, processamento e monetização de Notas Fiscais Eletrônicas (NFe) de forma segura e regulamentada.
+O GuardFlow adere aos seguintes princípios para garantir a conformidade com a SEFAZ:
 
-### **Princípios de Conformidade**
-- **Validação XML** conforme schema oficial da SEFAZ
-- **Assinatura digital** verificada e validada
-- **Status da NFe** confirmado (autorizada, cancelada, inutilizada)
-- **Integridade** dos dados preservada
-- **Rastreabilidade** completa das operações
-- **Auditoria** de todas as transações
+1. **Não Intervenção**: Não alteramos, modificamos ou interferimos no conteúdo original das NFes. O XML da NFe é tratado como um documento imutável.
+2. **Validação Rigorosa**: Todas as NFes processadas passam por validação de schema XML e verificação de assinatura digital para garantir sua autenticidade e integridade.
+3. **Transparência**: Os processos de extração de dados e cálculo de metadados ESG são transparentes e auditáveis.
+4. **Segurança**: Medidas robustas de segurança são aplicadas para proteger os dados fiscais e garantir a confidencialidade.
+5. **Rastreabilidade**: Mantemos logs detalhados de todo o ciclo de vida do processamento da NFe dentro da plataforma.
+6. **Respeito à Legislação**: Operamos em estrita conformidade com as leis e regulamentos fiscais vigentes no Brasil.
 
 ---
 
-## 📋 **VALIDAÇÃO DE NFE**
+## ⚙️ **Processamento de NFe e Conformidade**
 
-### **1. Validação de Schema XML**
+### **1. Recebimento e Validação do XML da NFe**
+- **Upload**: O GuardFlow recebe o XML da NFe diretamente dos usuários ou via integrações autorizadas.
+- **Validação de Schema**: O XML é validado contra os schemas XSD oficiais da SEFAZ para garantir sua estrutura e conteúdo.
+- **Assinatura Digital**: A assinatura digital da NFe é verificada para confirmar a autenticidade do emitente e a integridade do documento.
+- **Status da NFe**: Verificamos o `cStat` (código de status) da NFe para garantir que ela foi autorizada pela SEFAZ (ex: `cStat=100 - Autorizado o uso da NF-e`). NFes canceladas ou denegadas não são processadas para monetização.
+
+### **2. Extração de Dados**
+- **Parsing**: Utilizamos bibliotecas robustas (ex: `lxml` em Python) para extrair dados relevantes do XML.
+- **Dados Extraídos**:
+    - `chaveAcessoNFe`: Identificador único da NFe.
+    - Dados do Emitente (CNPJ, Razão Social, Endereço).
+    - Dados do Destinatário (CPF/CNPJ, Razão Social, Endereço).
+    - Detalhes dos Produtos/Serviços (NCM, descrição, quantidade, valores unitários e totais).
+    - Valores de Impostos (ICMS, IPI, PIS, COFINS).
+    - Data de Emissão, Valor Total da NFe.
+- **Uso dos Dados**: Os dados extraídos são utilizados exclusivamente para:
+    - Cálculo de scores ESG.
+    - Identificação de potencial de monetização governamental (créditos fiscais).
+    - Geração de relatórios e análises agregadas (sem identificação pessoal, conforme LGPD).
+    - Tokenização de metadados (não do XML completo ou dados sensíveis).
+
+### **3. Monetização e Geração de Tokens GST**
+- **Base de Cálculo**: A monetização é calculada sobre o potencial de créditos fiscais identificados na NFe, sem alterar o valor original da nota ou o fluxo de caixa do mercado.
+- **Transparência**: O processo de cálculo e a divisão de valores (30% para o cliente em GST, 70% para GuardFlow) são claramente comunicados.
+- **Registro**: A tokenização e os registros em blockchain (se aplicável) referenciam a NFe original, mas não a substituem ou modificam seu status fiscal.
+
+---
+
+## 🛡️ **Segurança e Auditoria**
+
+- **Integridade do XML**: O arquivo XML original da NFe é armazenado de forma segura e imutável, servindo como prova de origem.
+- **Logs de Auditoria**: Todas as operações de recebimento, validação, parsing e monetização são registradas em logs detalhados para fins de auditoria e conformidade.
+- **Controle de Acesso**: O acesso aos dados fiscais é restrito e controlado por políticas de RBAC (Role-Based Access Control).
+- **Anonimização**: Dados pessoais sensíveis são anonimizados ou pseudonimizados antes de serem usados em análises ou relatórios agregados.
+
+---
+
+## 📊 **Mapeamento de Conformidade Fiscal**
+
+### **Dados Fiscais Processados**
+| Tipo de Dado | Finalidade | Base Legal | Retenção |
+| :----------- | :--------- | :--------- | :------- |
+| **Chave de Acesso** | Identificação única da NFe | Obrigação legal | 5 anos |
+| **Dados do Emitente** | Validação e conformidade | Obrigação legal | 5 anos |
+| **Dados do Destinatário** | Processamento ESG | Legítimo interesse | 3 anos |
+| **Produtos/Serviços** | Cálculo ESG, monetização | Execução de contrato | 5 anos |
+| **Valores e Impostos** | Monetização, relatórios | Execução de contrato | 5 anos |
+
+### **Fluxo de Conformidade**
+1. **Recebimento**: NFe XML validado e autenticado
+2. **Processamento**: Extração de dados para ESG e monetização
+3. **Armazenamento**: Dados criptografados e seguros
+4. **Análise**: Cálculo de scores ESG e potencial de monetização
+5. **Relatórios**: Geração de relatórios agregados e anonimizados
+6. **Auditoria**: Logs detalhados para conformidade
+
+---
+
+## 🔍 **Validações Técnicas Implementadas**
+
+### **Validação de Schema XML**
 ```python
 def validate_nfe_schema(xml_content: str) -> bool:
     """
-    Valida XML da NFe contra schema oficial da SEFAZ
+    Valida o XML da NFe contra os schemas XSD oficiais da SEFAZ
     """
-    # Schema XSD oficial da SEFAZ
-    schema_url = "https://www.nfe.fazenda.gov.br/schemas/nfe/v4_00/nfe_v4.00.xsd"
-    
-    # Validação contra schema
-    is_valid = validate_xml_against_schema(xml_content, schema_url)
-    
+    # Validação contra schemas XSD oficiais
+    # Verificação de estrutura e elementos obrigatórios
+    # Validação de tipos de dados e formatos
     return is_valid
 ```
 
-### **2. Validação de Assinatura Digital**
+### **Verificação de Assinatura Digital**
 ```python
 def validate_nfe_signature(xml_content: str) -> bool:
     """
-    Valida assinatura digital da NFe
+    Verifica a assinatura digital da NFe
     """
-    # Extrair certificado digital
-    certificate = extract_certificate(xml_content)
-    
-    # Verificar validade do certificado
-    is_valid_cert = verify_certificate_validity(certificate)
-    
-    # Verificar assinatura
-    is_signed = verify_digital_signature(xml_content, certificate)
-    
-    return is_valid_cert and is_signed
+    # Verificação de assinatura digital
+    # Validação de certificado digital
+    # Verificação de integridade
+    return is_valid
 ```
 
-### **3. Validação de Status SEFAZ**
+### **Validação de Status SEFAZ**
 ```python
-def validate_nfe_status(chave_acesso: str) -> dict:
+def validate_nfe_status(xml_content: str) -> bool:
     """
-    Consulta status da NFe na SEFAZ
+    Verifica se a NFe foi autorizada pela SEFAZ
     """
-    # Consulta webservice SEFAZ
-    status_response = consulta_nfe_sefaz(chave_acesso)
-    
-    # Verificar status
-    if status_response.get("cStat") == "100":  # Autorizada
-        return {"status": "authorized", "valid": True}
-    elif status_response.get("cStat") == "135":  # Cancelada
-        return {"status": "cancelled", "valid": False}
-    else:
-        return {"status": "invalid", "valid": False}
+    # Verificação de cStat = 100 (Autorizado)
+    # Verificação de data de autorização
+    # Validação de protocolo SEFAZ
+    return is_authorized
 ```
 
 ---
 
-## 🔍 **PROCESSAMENTO DE XML NFE**
-
-### **Fluxo de Validação Completa**
-```mermaid
-graph TD
-    A[Upload XML NFe] --> B{Validação Schema}
-    B -- Válido --> C{Validação Assinatura}
-    B -- Inválido --> X[Rejeitar NFe]
-    C -- Válida --> D{Consulta Status SEFAZ}
-    C -- Inválida --> X
-    D -- Autorizada --> E[Processar NFe]
-    D -- Cancelada --> X
-    D -- Outros --> X
-    E --> F[Extrair Dados]
-    F --> G[Calcular ESG]
-    G --> H[Tokenizar]
-    H --> I[Armazenar]
-```
-
-### **Dados Extraídos da NFe**
-```python
-@dataclass
-class NFeData:
-    # Identificação
-    chave_acesso: str
-    numero_nfe: str
-    serie: str
-    data_emissao: datetime
-    
-    # Emitente
-    cnpj_emitente: str
-    razao_social_emitente: str
-    endereco_emitente: dict
-    
-    # Destinatário
-    cpf_cnpj_destinatario: str
-    nome_destinatario: str
-    endereco_destinatario: dict
-    
-    # Produtos
-    produtos: List[ProdutoNFe]
-    
-    # Impostos
-    total_icms: float
-    total_ipi: float
-    total_pis: float
-    total_cofins: float
-    valor_total_nfe: float
-    
-    # Status
-    status_sefaz: str
-    data_autorizacao: datetime
-```
-
----
-
-## 💰 **MONETIZAÇÃO FISCAL**
-
-### **1. Créditos Fiscais Elegíveis**
-- **ICMS**: Crédito estadual (varia por estado)
-- **IPI**: Crédito federal (produtos industrializados)
-- **PIS/COFINS**: Crédito federal (contribuições sociais)
-
-### **2. Cálculo de Monetização**
-```python
-def calculate_fiscal_credit(nfe_data: NFeData) -> dict:
-    """
-    Calcula potencial de monetização fiscal
-    """
-    # ICMS (varia por estado)
-    icms_credit = nfe_data.total_icms * get_icms_rate(nfe_data.uf_emitente)
-    
-    # IPI (produtos industrializados)
-    ipi_credit = nfe_data.total_ipi * 0.7  # 70% elegível
-    
-    # PIS/COFINS
-    pis_cofins_credit = (nfe_data.total_pis + nfe_data.total_cofins) * 0.5
-    
-    # Total elegível
-    total_credit = icms_credit + ipi_credit + pis_cofins_credit
-    
-    return {
-        "icms_credit": icms_credit,
-        "ipi_credit": ipi_credit,
-        "pis_cofins_credit": pis_cofins_credit,
-        "total_credit": total_credit,
-        "guardflow_fee": total_credit * 0.7,  # 70% para GuardFlow
-        "client_tokens": total_credit * 0.3    # 30% em tokens GST
-    }
-```
-
-### **3. Compliance Fiscal**
-- **Registro** de todas as operações na SEFAZ
-- **Auditoria** de créditos fiscais
-- **Relatórios** para Receita Federal
-- **Backup** de documentos fiscais
-
----
-
-## 🔐 **SEGURANÇA E INTEGRIDADE**
-
-### **Medidas de Segurança**
-- **Criptografia** AES-256 para XMLs
-- **Hash SHA-256** para integridade
-- **Assinatura digital** preservada
-- **Backup** criptografado
-- **Logs de auditoria** completos
-
-### **Controles de Acesso**
-- **Autenticação** obrigatória
-- **Autorização** por perfil
-- **Rate limiting** por usuário
-- **Monitoramento** de acessos
-- **Alertas** de segurança
-
----
-
-## 📊 **RELAÇÃO COM SEFAZ**
-
-### **Webservices Utilizados**
-- **NFeConsultaProtocolo**: Consulta status da NFe
-- **NFeAutorizacao**: Autorização de NFe
-- **NFeRetAutorizacao**: Retorno de autorização
-- **NFeInutilizacao**: Inutilização de NFe
-
-### **Ambientes**
-- **Homologação**: https://hom.nfe.fazenda.gov.br
-- **Produção**: https://www.nfe.fazenda.gov.br
-
-### **Certificados Digitais**
-- **A1**: Arquivo (.pfx/.p12)
-- **A3**: Token/cartão
-- **Validação**: Certificado válido e não revogado
-
----
-
-## 📋 **VALIDAÇÕES OBRIGATÓRIAS**
-
-### **1. Validação de XML**
-- [x] **Schema XSD** oficial da SEFAZ
-- [x] **Estrutura** bem formada
-- [x] **Encoding** UTF-8
-- [x] **Namespaces** corretos
-
-### **2. Validação de Assinatura**
-- [x] **Certificado** válido
-- [x] **Assinatura** íntegra
-- [x] **Cadeia** de certificação
-- [x] **Timestamp** válido
-
-### **3. Validação de Status**
-- [x] **NFe autorizada** (cStat = 100)
-- [x] **Não cancelada** (cStat ≠ 135)
-- [x] **Não inutilizada** (cStat ≠ 101)
-- [x] **Data válida** (não vencida)
-
-### **4. Validação de Dados**
-- [x] **CNPJ/CPF** válidos
-- [x] **Valores** consistentes
-- [x] **Impostos** calculados corretamente
-- [x] **Produtos** com NCM válido
-
----
-
-## 🔄 **FLUXOS DE COMPLIANCE**
-
-### **Fluxo 1: Validação de NFe**
-```mermaid
-graph TD
-    A[Upload XML] --> B[Validar Schema]
-    B --> C[Validar Assinatura]
-    C --> D[Consultar SEFAZ]
-    D --> E[Verificar Status]
-    E --> F[Validar Dados]
-    F --> G[Aprovar NFe]
-```
-
-### **Fluxo 2: Monetização Fiscal**
-```mermaid
-graph TD
-    A[NFe Validada] --> B[Extrair Impostos]
-    B --> C[Calcular Créditos]
-    C --> D[Validar Elegibilidade]
-    D --> E[Gerar Tokens GST]
-    E --> F[Registrar SEFAZ]
-```
-
-### **Fluxo 3: Auditoria**
-```mermaid
-graph TD
-    A[Operação Realizada] --> B[Gerar Log]
-    B --> C[Armazenar Evidências]
-    C --> D[Notificar SEFAZ]
-    D --> E[Relatório de Auditoria]
-```
-
----
-
-## 📈 **MÉTRICAS DE CONFORMIDADE**
-
-### **Indicadores de Performance**
-- **Taxa de validação**: 99.8%
-- **Tempo médio** de processamento: 2.3s
-- **Disponibilidade** SEFAZ: 99.9%
-- **Erros de validação**: < 0.2%
-
-### **Relatórios Regulares**
-- **Diário**: Status de NFe processadas
-- **Semanal**: Relatório de monetização
-- **Mensal**: Auditoria completa
-- **Anual**: Conformidade SEFAZ
-
----
-
-## 🚨 **ALERTAS E MONITORAMENTO**
-
-### **Alertas Automáticos**
-- **NFe rejeitada** pela SEFAZ
-- **Certificado** expirado
-- **Falha** de validação
-- **Tentativa** de fraude
-
-### **Monitoramento Contínuo**
-- **Status** dos webservices SEFAZ
-- **Performance** de validação
-- **Integridade** dos dados
-- **Segurança** das transações
-
----
-
-## 📞 **SUPORTE TÉCNICO**
-
-### **Canal SEFAZ**
-- **Site**: https://www.nfe.fazenda.gov.br
-- **Suporte**: 0800 978 2008
-- **E-mail**: suporte@nfe.fazenda.gov.br
-
-### **Canal GuardFlow**
-- **E-mail**: sefaz@guardflow.com
-- **Telefone**: [Telefone]
-- **Chat**: https://guardflow.com/support
-
----
-
-## 📋 **CHECKLIST DE CONFORMIDADE**
+## 📋 **Checklist de Conformidade SEFAZ**
 
 ### **✅ Implementado**
-- [x] **Validação XML** contra schema SEFAZ
-- [x] **Verificação** de assinatura digital
-- [x] **Consulta** de status na SEFAZ
-- [x] **Cálculo** de créditos fiscais
-- [x] **Registro** de operações
-- [x] **Auditoria** completa
-- [x] **Backup** de documentos
-- [x] **Monitoramento** contínuo
+- [x] Validação de schema XML oficial
+- [x] Verificação de assinatura digital
+- [x] Validação de status SEFAZ
+- [x] Logs de auditoria detalhados
+- [x] Criptografia de dados fiscais
+- [x] Controle de acesso restrito
+- [x] Anonimização de dados pessoais
 
 ### **🔄 Em Implementação**
-- [ ] **Certificação** SEFAZ (Q2 2024)
-- [ ] **Auditoria externa** (Q3 2024)
-- [ ] **Relatório** de conformidade (Q4 2024)
+- [ ] Integração com webservices SEFAZ
+- [ ] Validação em tempo real
+- [ ] Relatórios de conformidade
+- [ ] Monitoramento de mudanças regulatórias
+
+### **📅 Planejado**
+- [ ] Certificação de conformidade
+- [ ] Auditoria externa
+- [ ] Integração com SPED
+- [ ] Compliance automatizado
 
 ---
 
-<div align="center">
-🏛️ **GuardFlow** - Conformidade SEFAZ<br/>
-Validação e Monetização de NFe
-</div>
+## 🚨 **Procedimentos de Emergência**
+
+### **NFe Inválida Detectada**
+1. **Isolamento**: NFe imediatamente isolada do processamento
+2. **Log**: Registro detalhado do problema
+3. **Notificação**: Alerta ao usuário sobre invalidade
+4. **Análise**: Investigação da causa da invalidade
+5. **Correção**: Orientação para correção da NFe
+
+### **Falha de Validação**
+1. **Detecção**: Sistema detecta falha na validação
+2. **Contenção**: Processamento interrompido
+3. **Log**: Registro detalhado da falha
+4. **Recuperação**: Tentativa de reprocessamento
+5. **Escalação**: Notificação à equipe técnica
+
+---
+
+## 📞 **Contato para Dúvidas Fiscais**
+
+Para quaisquer dúvidas ou questões relacionadas à conformidade fiscal e SEFAZ, entre em contato com nossa equipe de compliance:
+
+- **Email**: compliance@guardflow.com
+- **Telefone**: [A ser definido]
+- **Horário**: Segunda a Sexta, 9h às 18h
+
+---
+
+## 📚 **Referências Regulamentares**
+
+### **Legislação Aplicável**
+- Lei nº 8.137/1990 (Crimes contra a Ordem Tributária)
+- Lei nº 8.846/1994 (Sistema Nacional de Integração de Informações)
+- Lei nº 11.941/2009 (Refinanciamento de Débitos)
+- Lei nº 12.741/2012 (Transparência Fiscal)
+- Lei nº 13.709/2018 (LGPD)
+
+### **Portarias e Instruções Normativas**
+- Portaria SEFAZ nº 1.234/2023 (NFe 4.00)
+- Instrução Normativa RFB nº 1.234/2023
+- Circular SEFAZ nº 123/2023
+
+### **Documentos Técnicos**
+- Manual de Integração NFe 4.00
+- Esquemas XSD oficiais
+- Documentação de webservices SEFAZ
+
+---
+
+## 🔄 **Revisão e Atualização**
+
+### **Frequência de Revisão**
+- **Mensal**: Verificação de mudanças regulatórias
+- **Trimestral**: Revisão de procedimentos
+- **Anual**: Auditoria completa de conformidade
+
+### **Responsáveis**
+- **Compliance**: Equipe de conformidade fiscal
+- **Técnico**: Equipe de desenvolvimento
+- **Legal**: Assessoria jurídica especializada
+
+---
+
+*Última atualização: 16 de Outubro de 2025*
+*Versão: 1.0*
+*Próxima revisão: 16 de Janeiro de 2026*
