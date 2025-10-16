@@ -15,28 +15,22 @@ class Settings(BaseSettings):
     APP_DESCRIPTION: str = "GuardFlow - Agiliza aí suas compras! API Backend"
     
     # Environment
-    ENVIRONMENT: str = Field(default="development", env="ENVIRONMENT")
-    DEBUG: bool = Field(default=True, env="DEBUG")
+    ENVIRONMENT: str = Field(default="development")
+    DEBUG: bool = Field(default=True)
     
     # API
     API_V1_PREFIX: str = "/api/v1"
-    API_BASE_URL: str = Field(default="http://localhost:8000", env="API_BASE_URL")
+    API_BASE_URL: str = Field(default="http://localhost:8000")
     
     # Database
-    DATABASE_URL: str = Field(
-        default="sqlite+aiosqlite:///./guardflow_dev.db",
-        env="DATABASE_URL"
-    )
+    DATABASE_URL: str = Field(default="sqlite+aiosqlite:///./guardflow_dev.db")
     
     # Redis Cache
-    REDIS_URL: str = Field(default="redis://localhost:6379/0", env="REDIS_URL")
+    REDIS_URL: str = Field(default="redis://localhost:6379/0")
     
     # Security
-    SECRET_KEY: str = Field(
-        default="guardflow-super-secret-key-agiliza-ai-2024",
-        env="SECRET_KEY"
-    )
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(default=60*24*7, env="ACCESS_TOKEN_EXPIRE_MINUTES")  # 7 days
+    SECRET_KEY: str = Field(default="guardflow-super-secret-key-agiliza-ai-2024")
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(default=60*24*7)  # 7 days
     ALGORITHM: str = "HS256"
     
     # CORS
