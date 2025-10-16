@@ -5,6 +5,36 @@ Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.1.0] - 2025-10-16
+
+### ✨ Adicionado
+- ESG Engine núcleo implementado (`backend/app/services/esg_engine.py`)
+  - 14 fatores ESG (Ambiental, Social, Governança)
+  - Mapeamento NCM → Fatores ESG
+  - Cálculo ponderado por categoria e score geral
+  - Insights automáticos por categoria
+- API ESG Engine (`backend/app/api/esg_engine.py`)
+  - `POST /api/v1/esg-engine/calculate-score`
+  - `GET /api/v1/esg-engine/factors`
+  - `GET /api/v1/esg-engine/factors/by-ncm/{ncm}`
+  - `GET /api/v1/esg-engine/categories`
+  - `GET /api/v1/esg-engine/health`
+- Documentos de Compliance
+  - `docs/COMPLIANCE_LGPD.md`
+  - `docs/COMPLIANCE_SEFAZ.md`
+
+### 🔧 Modificado
+- `app.main` refatorado para carregar routers de forma isolada (fail-safe)
+- README enriquecido com endpoints do ESG Engine
+- Índice de documentação atualizado
+
+### 🧪 Testes
+- Nova suíte `tests/test_esg_engine.py`
+- Suite backend com 14 testes passando
+
+### 📈 Status do Projeto
+- Progresso estimado: 90% (antes: 85%)
+
 ## [1.0.0] - 2024-12-19
 
 ### 🎉 Adicionado

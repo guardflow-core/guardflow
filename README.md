@@ -9,7 +9,7 @@
 [![Docker](https://img.shields.io/badge/Docker-24.0-blue.svg)](https://www.docker.com/)
 [![Status](https://img.shields.io/badge/Status-100%25%20Operational-green.svg)](https://github.com/SH1W4/guardflow)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/SH1W4/guardflow/releases)
+[![Version](https://img.shields.io/badge/Version-1.1.0-green.svg)](https://github.com/SH1W4/guardflow/releases)
 
 ---
 
@@ -236,6 +236,20 @@ result = client.calculate_esg_score({
 - `GET /api/v1/esg/dashboard` - Dashboard ESG
 - `POST /api/v1/esg/calculate` - Calcular score ESG
 - `GET /api/v1/esg/gamification` - Sistema de gamificação
+
+### **APIs ESG Engine**
+- `POST /api/v1/esg-engine/calculate-score` — Calcula score ESG por NCM
+- `GET /api/v1/esg-engine/factors` — Lista fatores ESG
+- `GET /api/v1/esg-engine/factors/by-ncm/{ncm}` — Fatores por NCM
+- `GET /api/v1/esg-engine/categories` — Categorias ESG
+- `GET /api/v1/esg-engine/health` — Health do ESG Engine
+
+Exemplo:
+```bash
+curl -X POST http://localhost:8000/api/v1/esg-engine/calculate-score \
+  -H "Content-Type: application/json" \
+  -d '{"ncm_code":"84","product_data":{"organic":false,"certified":true}}'
+```
 
 ### **Store Endpoints:**
 - `GET /api/v1/stores/` - Listar lojas
