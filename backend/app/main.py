@@ -18,16 +18,36 @@ esg_dashboard_router = None
 esg_gamification_router = None
 esg_engine_router = None
 
+# Importações isoladas por router
 try:
     from app.api.monetization import router as monetization_router  # type: ignore
+except Exception:
+    monetization_router = None
+
+try:
     from app.api.government_monetization import router as government_router  # type: ignore
+except Exception:
+    government_router = None
+
+try:
     from app.api.ecosystem_saas import router as ecosystem_router  # type: ignore
+except Exception:
+    ecosystem_router = None
+
+try:
     from app.api.esg_dashboard import router as esg_dashboard_router  # type: ignore
+except Exception:
+    esg_dashboard_router = None
+
+try:
     from app.api.esg_gamification import router as esg_gamification_router  # type: ignore
+except Exception:
+    esg_gamification_router = None
+
+try:
     from app.api.esg_engine import router as esg_engine_router  # type: ignore
 except Exception:
-    # Routers opcionais não disponíveis no ambiente mínimo de testes
-    pass
+    esg_engine_router = None
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
