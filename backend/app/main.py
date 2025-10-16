@@ -49,6 +49,11 @@ try:
 except Exception:
     esg_engine_router = None
 
+try:
+    from app.api.nfe_esg_calculator import router as nfe_esg_calculator_router  # type: ignore
+except Exception:
+    nfe_esg_calculator_router = None
+
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("guardflow")
@@ -114,6 +119,9 @@ async def health_check():
 # Incluir routers disponíveis
 if esg_engine_router:
     app.include_router(esg_engine_router, prefix="/api/v1")
+
+if nfe_esg_calculator_router:
+    app.include_router(nfe_esg_calculator_router, prefix="/api/v1")
 
 # Rotas de fallback mínimas para testes, quando módulos completos não estão disponíveis
 if monetization_router is None or ecosystem_router is None:
