@@ -2,63 +2,19 @@
 GuardFlow - Main Application
 Sistema de tokenização ESG e monetização governamental
 """
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from fastapi.routing import APIRouter
 import logging
 import uvicorn
 from contextlib import asynccontextmanager
 
-# Importar APIs (tolerante à ausência de módulos opcionais)
-monetization_router = None
-government_router = None
-ecosystem_router = None
-esg_dashboard_router = None
-esg_gamification_router = None
-esg_engine_router = None
-ecosystem_integration_router = None
-
-# Importações isoladas por router
-try:
-    from app.api.monetization import router as monetization_router  # type: ignore
-except Exception:
-    monetization_router = None
-
-try:
-    from app.api.government_monetization import router as government_router  # type: ignore
-except Exception:
-    government_router = None
-
-try:
-    from app.api.ecosystem_saas import router as ecosystem_router  # type: ignore
-except Exception:
-    ecosystem_router = None
-
-try:
-    from app.api.esg_dashboard import router as esg_dashboard_router  # type: ignore
-except Exception:
-    esg_dashboard_router = None
-
-try:
-    from app.api.esg_gamification import router as esg_gamification_router  # type: ignore
-except Exception:
-    esg_gamification_router = None
-
-try:
-    from app.api.esg_engine import router as esg_engine_router  # type: ignore
-except Exception:
-    esg_engine_router = None
-
-try:
-    from app.api.ecosystem_integration import router as ecosystem_integration_router  # type: ignore
-except Exception:
-    ecosystem_integration_router = None
-
-try:
-    from app.api.nfe_esg_calculator import router as nfe_esg_calculator_router  # type: ignore
-except Exception:
-    nfe_esg_calculator_router = None
+# Importar APIs
+from app.api.monetization import router as monetization_router
+from app.api.government_monetization import router as government_router
+from app.api.ecosystem_saas import router as ecosystem_router
+from app.api.esg_dashboard import router as esg_dashboard_router
+from app.api.esg_gamification import router as esg_gamification_router
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
@@ -88,17 +44,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Incluir routers se disponíveis
-if monetization_router is not None:
-    app.include_router(monetization_router, prefix="/api/v1", tags=["Monetização"])
-if government_router is not None:
-    app.include_router(government_router, prefix="/api/v1", tags=["Monetização Governamental"])
-if ecosystem_router is not None:
-    app.include_router(ecosystem_router, prefix="/api/v1", tags=["Ecossistema"])
-if esg_dashboard_router is not None:
-    app.include_router(esg_dashboard_router, prefix="/api/v1", tags=["Dashboard ESG"])
-if esg_gamification_router is not None:
-    app.include_router(esg_gamification_router, prefix="/api/v1", tags=["Gamificação ESG"])
+# Incluir routers
+app.include_router(monetization_router, prefix="/api/v1", tags=["Monetização"])
+app.include_router(government_router, prefix="/api/v1", tags=["Monetização Governamental"])
+app.include_router(ecosystem_router, prefix="/api/v1", tags=["Ecossistema"])
+app.include_router(esg_dashboard_router, prefix="/api/v1", tags=["Dashboard ESG"])
+app.include_router(esg_gamification_router, prefix="/api/v1", tags=["Gamificação ESG"])
 
 @app.get("/")
 async def root():
@@ -110,45 +61,14 @@ async def root():
         "docs": "/docs"
     }
 
-from app.config import settings
-
 @app.get("/health")
 async def health_check():
     """Health check"""
     return {
         "status": "healthy",
         "service": "GuardFlow API",
-        "version": "0.1.0",
-        "environment": settings.ENVIRONMENT,
+        "version": "0.1.0"
     }
-
-# Incluir routers disponíveis
-if esg_engine_router:
-    app.include_router(esg_engine_router, prefix="/api/v1")
-
-if nfe_esg_calculator_router:
-    app.include_router(nfe_esg_calculator_router, prefix="/api/v1")
-
-if ecosystem_integration_router:
-    app.include_router(ecosystem_integration_router, prefix="/api/v1")
-
-# Rotas de fallback mínimas para testes, quando módulos completos não estão disponíveis
-if monetization_router is None or ecosystem_router is None:
-    fallback = APIRouter()
-
-    @fallback.post("/api/v1/auth/login", status_code=status.HTTP_401_UNAUTHORIZED)
-    async def fallback_login():
-        return {"success": False, "message": "Unauthorized"}
-
-    @fallback.get("/api/v1/cart/", status_code=status.HTTP_401_UNAUTHORIZED)
-    async def fallback_cart_list():
-        return {"success": False, "message": "Unauthorized"}
-
-    @fallback.get("/api/v1/payment/status/{transaction_id}", status_code=status.HTTP_401_UNAUTHORIZED)
-    async def fallback_payment_status(transaction_id: str):
-        return {"success": False, "message": "Unauthorized", "transaction_id": transaction_id}
-
-    app.include_router(fallback, tags=["Fallback"])
 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request, exc):

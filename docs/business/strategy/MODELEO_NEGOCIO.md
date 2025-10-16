@@ -1,22 +1,4 @@
-# GuardFlow - Modelo de Negócio e Monetização
-
-## 🚨 **PRINCÍPIO FUNDAMENTAL: NÃO INTERFERIMOS NO FLUXO DE CAIXA**
-
-### **⚠️ IMPORTANTE: NUNCA Interferimos no Fluxo de Caixa dos Mercados**
-- **❌ NÃO tocamos** no dinheiro das vendas
-- **❌ NÃO interferimos** no processo de pagamento
-- **❌ NÃO afetamos** o caixa do estabelecimento
-- **✅ APENAS agregamos valor** através de tecnologia
-- **✅ APENAS monetizamos** através de nossas linhas específicas
-
-### **🎯 Nossa Monetização é 100% Aditiva:**
-1. **Taxas de tokenização** (nossa tecnologia)
-2. **Dados ESG** (nossos relatórios)
-3. **Marketplace de NFTs** (nossa plataforma)
-4. **Integração municipal** (nossos serviços)
-5. **Licenciamento** (nossa tecnologia)
-
----
+# QuicFlow - Modelo de Negócio e Monetização
 
 ## 🎯 Por que NFe para NFT? A Lógica Estratégica
 
@@ -43,7 +25,7 @@ NFe (Documento Fiscal)          NFT (Ativo Digital)
 
 #### **Nenhum concorrente faz isso!**
 - **Mercado tradicional**: NFe é apenas documento fiscal
-- **GuardFlow**: NFe vira ativo digital com valor econômico
+- **QuicFlow**: NFe vira ativo digital com valor econômico
 - **Resultado**: Diferenciação total no mercado
 
 #### **Barreira de Entrada Enorme**
@@ -53,68 +35,6 @@ NFe (Documento Fiscal)          NFT (Ativo Digital)
 - **Resultado**: Vantagem competitiva sustentável
 
 ## 💰 Como Ganhamos Dinheiro? Modelo de Monetização
-
-### 0. Monetização Técnica via XML da NFe (Pipeline)
-
-```
-Entrada: XML da NFe (NF-e 4.0, schema SEFAZ)
-→ Validação: XML Signature, XSD, cStat=100 (autorizada)
-→ Parsing: chNFe, nNF, dhEmi, emit, dest, total, det[x], impostos
-→ Normalização: anonimização (hash salgado de CNPJ/CPF), arredondamentos
-→ Enriquecimento: mapeamento NCM → fatores ESG, geolocalização (opcional)
-→ Cálculos: totais, impostos, indicadores ESG por item e nota
-→ Metadados NFT: fingerprint (SHA-256 do XML canonical), carimbo de tempo
-→ Tokenização: criação de NFT com metadados e ponte on/off-chain
-→ Publicação: marketplace/registro, sem expor dados sensíveis
-```
-
-#### Campos-chave extraídos (exemplos)
-- Identificação: `ide.chNFe`, `ide.nNF`, `ide.dhEmi`
-- Emitente/Destinatário: `emit.CNPJ|CPF`, `dest.CNPJ|CPF` (anonimizados)
-- Itens: `det.prod.cProd`, `det.prod.cEAN`, `det.prod.NCM`, `det.prod.vProd`
-- Impostos: `imposto.ICMS`, `imposto.PIS`, `imposto.COFINS`
-- Totais: `total.ICMSTot.vNF`, `vProd`, `vDesc`, `vFrete`, `vIPI`
-
-#### Metadados do Token (exemplo)
-- `token_id`: hash curto de `chNFe + dhEmi + fingerprint`
-- `fingerprint`: SHA-256 do XML canonicalizado
-- `issue_date`: `dhEmi`
-- `gross_value`: `total.ICMSTot.vProd`
-- `net_value`: `total.ICMSTot.vNF`
-- `taxes_breakdown`: ICMS/PIS/COFINS/IPI
-- `esg_score`: calculado por NCM/fornecedor/região (0–100)
-- `anonymization_salt_id`: referência ao sal rotativo (não reversível)
-
-#### Política de Preços por Nota (tokenização)
-- Até R$ 100: R$ 0,10
-- R$ 100–1.000: R$ 0,30
-- R$ 1.000–10.000: R$ 0,70
-- > R$ 10.000: 0,03% do `vNF` (teto R$ 5,00)
-
-#### Política de Preços por Relatório ESG
-- Itemizado (por NCM): R$ 5,00/nota
-- Consolidado mensal: R$ 200,00 por CNPJ mascarado
-- Corporativo (custom): a partir de R$ 2.000/mês
-
-#### Garantias de Compliance
-- LGPD: anonimização por hash salgado, sem reidentificação
-- NF-e: aceite apenas de XML autorizado (cStat=100), assinatura válida
-- Cadeia de custódia: fingerprint + carimbo de tempo + logs imutáveis
-- Opt-out/retention: retenção mínima legal, limpeza agendada
-
-#### Exemplo de fluxo (pseudocódigo)
-```
-xml = load_xml()
-validate_signature(xml); validate_xsd(xml)
-doc = parse_nf(xml)
-anon = anonymize(doc.emit.CNPJ, doc.dest.CPF, salt=rotate_salt())
-esg = compute_esg(doc.items)
-meta = build_metadata(doc, anon, esg)
-token = mint_token(meta)  # on/off-chain strategy
-store_registry(token)
-```
-
----
 
 ### 1. **Taxas de Transação (Revenue Stream Principal)**
 
@@ -383,7 +303,7 @@ Monetização de dados ESG
 
 ## 🎯 Conclusão
 
-O **GuardFlow não é apenas um sistema de pagamentos** - é uma **revolução na economia urbana** que:
+O **QuicFlow não é apenas um sistema de pagamentos** - é uma **revolução na economia urbana** que:
 
 1. **Transforma NFe em ativos digitais** com valor econômico
 2. **Gera dados ESG automaticamente** para cada transação
@@ -398,76 +318,4 @@ O **GuardFlow não é apenas um sistema de pagamentos** - é uma **revolução n
 
 ---
 
-## 🚨 **PRINCÍPIO NÃO-INVASIVO: NOSSA GARANTIA FUNDAMENTAL**
-
-### **⚠️ NUNCA Interferimos no Fluxo de Caixa dos Mercados**
-
-#### **❌ O que NÃO fazemos:**
-- **NÃO tocamos** no dinheiro das vendas
-- **NÃO interferimos** no processo de pagamento PIX
-- **NÃO afetamos** o caixa do estabelecimento
-- **NÃO alteramos** o fluxo de recebimento
-- **NÃO cobramos** taxas sobre vendas
-- **NÃO retemos** valores das transações
-
-#### **✅ O que fazemos:**
-- **APENAS agregamos valor** através de tecnologia
-- **APENAS monetizamos** através de nossas linhas específicas
-- **APENAS oferecemos** serviços adicionais
-- **APENAS criamos** novas fontes de receita
-- **APENAS melhoramos** a experiência do cliente
-
-### **🎯 Nossa Monetização é 100% Aditiva e Não-Invasiva:**
-
-#### **1. Taxas de Tokenização (Nossa Tecnologia)**
-- **Valor**: R$ 0,50 - R$ 2,00 por NFe tokenizada
-- **Fonte**: Nossa plataforma de tokenização
-- **Impacto**: ZERO no fluxo de caixa do mercado
-
-#### **2. Dados ESG (Nossos Relatórios)**
-- **Valor**: R$ 100 - R$ 10K por relatório
-- **Fonte**: Nossa análise de dados
-- **Impacto**: ZERO no fluxo de caixa do mercado
-
-#### **3. Marketplace de NFTs (Nossa Plataforma)**
-- **Valor**: 2-5% das negociações
-- **Fonte**: Nossa plataforma de negociação
-- **Impacto**: ZERO no fluxo de caixa do mercado
-
-#### **4. Integração Municipal (Nossos Serviços)**
-- **Valor**: R$ 10K - R$ 100K/mês por cidade
-- **Fonte**: Nossos serviços de integração
-- **Impacto**: ZERO no fluxo de caixa do mercado
-
-#### **5. Licenciamento (Nossa Tecnologia)**
-- **Valor**: R$ 1K - R$ 100K/mês
-- **Fonte**: Nossa tecnologia licenciada
-- **Impacto**: ZERO no fluxo de caixa do mercado
-
-### **🛡️ Garantias de Compliance:**
-
-#### **✅ Compliance Total:**
-- **LGPD**: Dados protegidos e anonimizados
-- **Regulamentações**: Todas as normas fiscais respeitadas
-- **Transparência**: Processo 100% transparente
-- **Auditoria**: Controles internos rigorosos
-
-#### **✅ Benefícios para o Mercado:**
-- **Sem interferência** no fluxo de caixa
-- **Sem taxas** sobre vendas
-- **Sem retenção** de valores
-- **Apenas valor agregado** através de tecnologia
-- **Apenas novas fontes** de receita
-
-### **🎯 Resumo: Modelo 100% Não-Invasivo**
-
-**GuardFlow = Tecnologia + Valor Agregado + Monetização Própria**
-
-- **❌ NÃO tocamos** no dinheiro dos mercados
-- **✅ APENAS agregamos** valor através de tecnologia
-- **✅ APENAS monetizamos** através de nossas linhas específicas
-- **✅ APENAS criamos** novas oportunidades de receita
-
----
-
-*Modelo de Negócio GuardFlow - Sistema de Economia Urbana Tokenizada Não-Invasiva*
+*Modelo de Negócio QuicFlow - Sistema de Economia Urbana Tokenizada*

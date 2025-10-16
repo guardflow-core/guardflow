@@ -2,7 +2,7 @@
 Authentication Schemas
 Schemas Pydantic para autenticação
 """
-from pydantic import BaseModel, EmailStr, Field, field_validator
+from pydantic import BaseModel, EmailStr, Field, validator
 from typing import Optional
 from datetime import datetime
 
@@ -13,7 +13,7 @@ class LoginRequest(BaseModel):
     remember_me: bool = Field(default=False, description="Lembrar login")
     
     class Config:
-        json_schema_extra = {
+        schema_extra = {
             "example": {
                 "email": "usuario@guardpass.com",
                 "password": "senha123",
@@ -26,7 +26,7 @@ class TokenRefreshRequest(BaseModel):
     access_token: str = Field(..., description="Token atual para renovação")
     
     class Config:
-        json_schema_extra = {
+        schema_extra = {
             "example": {
                 "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
             }
@@ -69,7 +69,7 @@ class UserResponse(BaseModel):
     
     class Config:
         from_attributes = True
-        json_schema_extra = {
+        schema_extra = {
             "example": {
                 "id": "123e4567-e89b-12d3-a456-426614174000",
                 "guardpass_id": "gp_user_12345",
@@ -105,7 +105,7 @@ class LoginResponse(BaseModel):
     message: str = Field(..., description="Mensagem de sucesso")
     
     class Config:
-        json_schema_extra = {
+        schema_extra = {
             "example": {
                 "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
                 "token_type": "bearer",
@@ -130,15 +130,13 @@ class UserUpdateRequest(BaseModel):
     push_notifications: Optional[bool] = Field(None, description="Receber notificações push")
     sms_notifications: Optional[bool] = Field(None, description="Receber notificações SMS")
     
-    @field_validator('name')
-    @classmethod
+    @validator('name')
     def validate_name(cls, v):
         if v and len(v.strip()) < 2:
             raise ValueError('Nome deve ter pelo menos 2 caracteres')
         return v.strip() if v else v
     
-    @field_validator('phone')
-    @classmethod
+    @validator('phone')
     def validate_phone(cls, v):
         if v:
             # Remover caracteres não numéricos para validação
@@ -148,7 +146,7 @@ class UserUpdateRequest(BaseModel):
         return v
     
     class Config:
-        json_schema_extra = {
+        schema_extra = {
             "example": {
                 "name": "João Silva Santos",
                 "phone": "+5511999999999",
@@ -166,15 +164,13 @@ class PasswordChangeRequest(BaseModel):
     new_password: str = Field(..., min_length=8, description="Nova senha")
     confirm_password: str = Field(..., min_length=8, description="Confirmação da nova senha")
     
-    @field_validator('confirm_password')
-    @classmethod
-    def passwords_match(cls, v, info):
-        if hasattr(info, 'data') and 'new_password' in info.data and v != info.data['new_password']:
+    @validator('confirm_password')
+    def passwords_match(cls, v, values):
+        if 'new_password' in values and v != values['new_password']:
             raise ValueError('Senhas não conferem')
         return v
     
-    @field_validator('new_password')
-    @classmethod
+    @validator('new_password')
     def validate_password_strength(cls, v):
         if len(v) < 8:
             raise ValueError('Nova senha deve ter pelo menos 8 caracteres')
@@ -189,7 +185,7 @@ class PasswordChangeRequest(BaseModel):
         return v
     
     class Config:
-        json_schema_extra = {
+        schema_extra = {
             "example": {
                 "current_password": "senha123",
                 "new_password": "NovaSenha123!",
@@ -216,7 +212,7 @@ class UserStatsResponse(BaseModel):
     local_purchases: Optional[int] = Field(None, description="Compras de produtos locais")
     
     class Config:
-        json_schema_extra = {
+        schema_extra = {
             "example": {
                 "total_purchases": 42,
                 "total_amount_spent": "1250.75",
