@@ -20,6 +20,7 @@
 - **Taskmash Super Escopo**: [docs/execution/TASKMASH_SUPER_ESCOPO.md](docs/execution/TASKMASH_SUPER_ESCOPO.md)
 - **Modelo de negócio**: [docs/business/strategy/MODELEO_NEGOCIO.md](docs/business/strategy/MODELEO_NEGOCIO.md)
 - **Princípio Não-Invasivo**: [docs/PRINCIPIO_NAO_INVASIVO.md](docs/PRINCIPIO_NAO_INVASIVO.md)
+- **Integração Ecosystem-Degov**: [docs/architecture/README.md](docs/architecture/README.md)
 - **[Notas de Release 1.1.0](docs/releases/1.1.0.md)** - ESG Engine e compliance
 
 ---
@@ -33,6 +34,7 @@ O **GuardFlow** é um sistema de checkout inteligente para varejo que transforma
 - 💳 **Checkout Inteligente** - Processamento rápido e sem filas
 - 🌱 **Sistema ESG** - Integração de métricas de sustentabilidade
 - 🪙 **Tokenização** - Conversão de transações em tokens digitais
+- 🔗 **Integração Ecosystem-Degov** - Ecossistema completo de tokens ESG
 - 📊 **Analytics ESG** - Dashboards e insights de sustentabilidade
 - 🔐 **Segurança Enterprise** - Autenticação OAuth2/JWT e RBAC
 - 🚀 **Multiplataforma** - Web, Mobile (iOS/Android) e API
@@ -393,6 +395,55 @@ curl http://localhost:8000/metrics
 - **API Reference**: http://localhost:8000/docs
 - **Health Check**: http://localhost:8000/health
 - **Metrics**: http://localhost:8000/metrics
+
+---
+
+## 🔗 **INTEGRAÇÃO ECOSYSTEM-DEGOV**
+
+### **🌱 Ecossistema ESG Completo**
+
+O GuardFlow agora se integra com o **Ecosystem-Degov** para criar um ecossistema ESG completo:
+
+#### **🔄 Fluxo de Integração:**
+1. **GuardFlow** processa NFe e calcula scores ESG
+2. **Ecosystem-Degov** tokeniza os dados ESG
+3. **Trinity AI Agent** otimiza a alocação de tokens
+4. **Blockchain** registra transações ESG
+
+#### **🪙 Tokens ESG Disponíveis:**
+- **GST** (Green Sustainability Token) - Token principal
+- **ECT** (EcoToken) - Impacto ambiental
+- **AET** (AI Ethics Token) - Ética em IA
+- **ECS** (EcoScore) - Sistema de pontuação
+- **CCR** (Carbon Credit) - Créditos de carbono
+- **ECR** (EcoCertificate) - Certificações NFT
+- **EST** (EcoStake) - Recompensas de staking
+- **EGM** (EcoGem) - Benefícios premium
+
+#### **📊 Benefícios da Integração:**
+- **Monetização ESG**: Transformar dados ESG em valor
+- **Incentivos Sustentáveis**: Recompensar práticas ESG
+- **Transparência**: Blockchain para rastreabilidade
+- **Escalabilidade**: Ecossistema completo de sustentabilidade
+
+#### **🚀 Como Usar:**
+```bash
+# Configurar integração
+cp docs/architecture/integration.env.example backend/.env.integration
+
+# Iniciar serviços integrados
+docker-compose -f docs/architecture/docker-compose.integration.yml up -d
+
+# Testar tokenização
+curl -X POST http://localhost:8000/api/v1/ecosystem-integration/tokenize-nfe \
+  -H "Content-Type: application/json" \
+  -d '{"nfe_id": "123...", "valor_total": 1500.00, ...}'
+```
+
+#### **📚 Documentação:**
+- **[Arquitetura de Integração](docs/architecture/README.md)** - Guia completo
+- **[Configuração](docs/architecture/integration-config.yaml)** - Configurações
+- **[Docker Compose](docs/architecture/docker-compose.integration.yml)** - Deploy
 
 ---
 

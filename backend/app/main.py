@@ -17,6 +17,7 @@ ecosystem_router = None
 esg_dashboard_router = None
 esg_gamification_router = None
 esg_engine_router = None
+ecosystem_integration_router = None
 
 # Importações isoladas por router
 try:
@@ -48,6 +49,11 @@ try:
     from app.api.esg_engine import router as esg_engine_router  # type: ignore
 except Exception:
     esg_engine_router = None
+
+try:
+    from app.api.ecosystem_integration import router as ecosystem_integration_router  # type: ignore
+except Exception:
+    ecosystem_integration_router = None
 
 try:
     from app.api.nfe_esg_calculator import router as nfe_esg_calculator_router  # type: ignore
@@ -122,6 +128,9 @@ if esg_engine_router:
 
 if nfe_esg_calculator_router:
     app.include_router(nfe_esg_calculator_router, prefix="/api/v1")
+
+if ecosystem_integration_router:
+    app.include_router(ecosystem_integration_router, prefix="/api/v1")
 
 # Rotas de fallback mínimas para testes, quando módulos completos não estão disponíveis
 if monetization_router is None or ecosystem_router is None:
