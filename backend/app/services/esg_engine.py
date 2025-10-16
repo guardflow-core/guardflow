@@ -195,47 +195,93 @@ class ESGEngine:
         ]
     
     def _load_ncm_mapping(self) -> Dict[str, List[str]]:
-        """Carrega mapeamento NCM para fatores ESG"""
+        """Carrega mapeamento NCM para fatores ESG - Mapeamento expandido"""
         return {
-            # Eletrônicos e Tecnologia
-            "84": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy"],
-            "85": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy", "education_access"],
-            "90": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy"],
+            # Eletrônicos e Tecnologia (84-90)
+            "84": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy", "waste_reduction"],
+            "85": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy", "education_access", "labor_conditions"],
+            "86": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy"],
+            "87": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy", "labor_conditions"],
+            "88": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy"],
+            "89": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy"],
+            "90": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy", "health_safety"],
             
-            # Energia e Combustíveis
-            "27": ["renewable_energy", "carbon_footprint"],
-            "28": ["renewable_energy", "carbon_footprint"],
-            "29": ["renewable_energy", "carbon_footprint"],
+            # Energia e Combustíveis (27-29)
+            "27": ["renewable_energy", "carbon_footprint", "transparency", "regulatory_compliance"],
+            "28": ["renewable_energy", "carbon_footprint", "transparency", "regulatory_compliance"],
+            "29": ["renewable_energy", "carbon_footprint", "transparency", "regulatory_compliance"],
             
-            # Plásticos e Materiais
-            "39": ["waste_reduction", "carbon_footprint"],
-            "40": ["waste_reduction", "carbon_footprint"],
-            "48": ["waste_reduction", "education_access"],
-            "49": ["waste_reduction", "education_access"],
+            # Plásticos e Materiais (39-49)
+            "39": ["waste_reduction", "carbon_footprint", "transparency"],
+            "40": ["waste_reduction", "carbon_footprint", "transparency"],
+            "41": ["waste_reduction", "carbon_footprint", "labor_conditions"],
+            "42": ["waste_reduction", "carbon_footprint", "labor_conditions"],
+            "43": ["waste_reduction", "carbon_footprint", "labor_conditions"],
+            "44": ["waste_reduction", "carbon_footprint", "biodiversity"],
+            "45": ["waste_reduction", "carbon_footprint", "biodiversity"],
+            "46": ["waste_reduction", "carbon_footprint", "biodiversity"],
+            "47": ["waste_reduction", "carbon_footprint", "biodiversity"],
+            "48": ["waste_reduction", "education_access", "transparency"],
+            "49": ["waste_reduction", "education_access", "transparency"],
             
-            # Bebidas e Alimentos
-            "22": ["water_usage", "health_safety", "community_impact"],
-            "23": ["water_usage", "health_safety", "community_impact"],
-            "24": ["water_usage", "health_safety", "community_impact"],
+            # Bebidas e Alimentos (22-24)
+            "22": ["water_usage", "health_safety", "community_impact", "biodiversity"],
+            "23": ["water_usage", "health_safety", "community_impact", "biodiversity"],
+            "24": ["water_usage", "health_safety", "community_impact", "biodiversity"],
             
-            # Animais e Plantas
-            "01": ["biodiversity", "community_impact", "health_safety"],
-            "02": ["biodiversity", "community_impact", "health_safety"],
-            "03": ["biodiversity", "community_impact", "health_safety"],
-            "04": ["biodiversity", "community_impact", "health_safety"],
-            "05": ["biodiversity", "community_impact"],
+            # Animais e Plantas (01-05)
+            "01": ["biodiversity", "community_impact", "health_safety", "labor_conditions"],
+            "02": ["biodiversity", "community_impact", "health_safety", "labor_conditions"],
+            "03": ["biodiversity", "community_impact", "health_safety", "labor_conditions"],
+            "04": ["biodiversity", "community_impact", "health_safety", "labor_conditions"],
+            "05": ["biodiversity", "community_impact", "health_safety"],
             
-            # Têxteis e Calçados
-            "61": ["labor_conditions", "diversity_inclusion"],
-            "62": ["labor_conditions", "diversity_inclusion"],
-            "63": ["labor_conditions", "diversity_inclusion"],
-            "64": ["labor_conditions", "diversity_inclusion"],
+            # Têxteis e Calçados (61-64)
+            "61": ["labor_conditions", "diversity_inclusion", "waste_reduction", "transparency"],
+            "62": ["labor_conditions", "diversity_inclusion", "waste_reduction", "transparency"],
+            "63": ["labor_conditions", "diversity_inclusion", "waste_reduction", "transparency"],
+            "64": ["labor_conditions", "diversity_inclusion", "waste_reduction", "transparency"],
             
-            # Medicamentos e Cosméticos
-            "30": ["health_safety", "regulatory_compliance"],
-            "33": ["health_safety", "regulatory_compliance"],
-            "34": ["health_safety", "regulatory_compliance"],
-            "35": ["health_safety", "regulatory_compliance"]
+            # Medicamentos e Cosméticos (30-35)
+            "30": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "31": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "32": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "33": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "34": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "35": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            
+            # Veículos e Transporte (86-89)
+            "86": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy", "labor_conditions"],
+            "87": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy", "labor_conditions"],
+            "88": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy"],
+            "89": ["carbon_footprint", "transparency", "anti_corruption", "data_privacy"],
+            
+            # Químicos e Farmacêuticos (28-38)
+            "28": ["renewable_energy", "carbon_footprint", "transparency", "regulatory_compliance", "health_safety"],
+            "29": ["renewable_energy", "carbon_footprint", "transparency", "regulatory_compliance", "health_safety"],
+            "30": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "31": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "32": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "33": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "34": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "35": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "36": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "37": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            "38": ["health_safety", "regulatory_compliance", "transparency", "data_privacy"],
+            
+            # Metais e Mineração (72-83)
+            "72": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "73": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "74": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "75": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "76": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "77": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "78": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "79": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "80": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "81": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "82": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"],
+            "83": ["carbon_footprint", "labor_conditions", "community_impact", "transparency"]
         }
     
     def calculate_esg_score(self, ncm_code: str, product_data: Dict = None) -> ESGScore:
@@ -413,6 +459,197 @@ class ESGEngine:
             insights["overall"] = "Produto necessita melhorias significativas"
         
         return insights
+    
+    def batch_calculate_esg_scores(self, ncm_codes: List[str], product_data_list: List[Dict] = None) -> List[ESGScore]:
+        """
+        Calcula scores ESG para múltiplos códigos NCM
+        
+        Args:
+            ncm_codes: Lista de códigos NCM
+            product_data_list: Lista de dados dos produtos (opcional)
+        
+        Returns:
+            List[ESGScore]: Lista de scores ESG calculados
+        """
+        results = []
+        
+        for i, ncm_code in enumerate(ncm_codes):
+            product_data = product_data_list[i] if product_data_list and i < len(product_data_list) else None
+            score = self.calculate_esg_score(ncm_code, product_data)
+            results.append(score)
+        
+        return results
+    
+    def get_esg_benchmark(self, category: ESGCategory) -> Dict[str, float]:
+        """
+        Retorna benchmark ESG por categoria
+        
+        Args:
+            category: Categoria ESG
+        
+        Returns:
+            Dict com benchmarks (média, mediana, percentis)
+        """
+        # Simulação de benchmarks - em produção viria de dados reais
+        benchmarks = {
+            ESGCategory.ENVIRONMENTAL: {
+                "average": 65.5,
+                "median": 68.0,
+                "p25": 45.0,
+                "p75": 85.0,
+                "excellent": 80.0,
+                "good": 60.0,
+                "needs_improvement": 40.0
+            },
+            ESGCategory.SOCIAL: {
+                "average": 62.3,
+                "median": 65.0,
+                "p25": 42.0,
+                "p75": 82.0,
+                "excellent": 80.0,
+                "good": 60.0,
+                "needs_improvement": 40.0
+            },
+            ESGCategory.GOVERNANCE: {
+                "average": 58.7,
+                "median": 60.0,
+                "p25": 38.0,
+                "p75": 78.0,
+                "excellent": 80.0,
+                "good": 60.0,
+                "needs_improvement": 40.0
+            }
+        }
+        
+        return benchmarks.get(category, {})
+    
+    def get_esg_recommendations(self, score: ESGScore) -> List[Dict[str, str]]:
+        """
+        Gera recomendações baseadas no score ESG
+        
+        Args:
+            score: Score ESG calculado
+        
+        Returns:
+            List[Dict]: Lista de recomendações
+        """
+        recommendations = []
+        
+        # Recomendações ambientais
+        if score.environmental < 60:
+            recommendations.append({
+                "category": "Environmental",
+                "priority": "High",
+                "recommendation": "Implementar práticas de economia circular e redução de carbono",
+                "action": "Adotar energia renovável e otimizar uso de recursos"
+            })
+        
+        # Recomendações sociais
+        if score.social < 60:
+            recommendations.append({
+                "category": "Social",
+                "priority": "High",
+                "recommendation": "Melhorar condições de trabalho e impacto comunitário",
+                "action": "Implementar políticas de diversidade e inclusão"
+            })
+        
+        # Recomendações de governança
+        if score.governance < 60:
+            recommendations.append({
+                "category": "Governance",
+                "priority": "High",
+                "recommendation": "Fortalecer transparência e compliance",
+                "action": "Implementar políticas anti-corrupção e proteção de dados"
+            })
+        
+        # Recomendações gerais
+        if score.overall < 50:
+            recommendations.append({
+                "category": "Overall",
+                "priority": "Critical",
+                "recommendation": "Revisão completa da estratégia ESG",
+                "action": "Desenvolver plano de ação ESG abrangente"
+            })
+        
+        return recommendations
+    
+    def get_esg_trends(self, scores_history: List[ESGScore]) -> Dict[str, str]:
+        """
+        Analisa tendências ESG baseadas em histórico de scores
+        
+        Args:
+            scores_history: Histórico de scores ESG
+        
+        Returns:
+            Dict com análise de tendências
+        """
+        if len(scores_history) < 2:
+            return {"trend": "Insufficient data", "direction": "Unknown"}
+        
+        # Calcular tendência
+        recent_scores = scores_history[-3:] if len(scores_history) >= 3 else scores_history
+        older_scores = scores_history[:-3] if len(scores_history) >= 6 else scores_history[:-len(recent_scores)]
+        
+        if not older_scores:
+            return {"trend": "Insufficient data", "direction": "Unknown"}
+        
+        recent_avg = sum(s.overall for s in recent_scores) / len(recent_scores)
+        older_avg = sum(s.overall for s in older_scores) / len(older_scores)
+        
+        trend_diff = recent_avg - older_avg
+        
+        if trend_diff > 5:
+            return {"trend": "Improving", "direction": "Up", "change": f"+{trend_diff:.1f}"}
+        elif trend_diff < -5:
+            return {"trend": "Declining", "direction": "Down", "change": f"{trend_diff:.1f}"}
+        else:
+            return {"trend": "Stable", "direction": "Flat", "change": f"{trend_diff:.1f}"}
+    
+    def export_esg_report(self, score: ESGScore, format: str = "json") -> str:
+        """
+        Exporta relatório ESG em formato específico
+        
+        Args:
+            score: Score ESG
+            format: Formato do relatório (json, csv, xml)
+        
+        Returns:
+            str: Relatório formatado
+        """
+        report_data = {
+            "timestamp": score.calculation_timestamp.isoformat(),
+            "version": score.version,
+            "scores": {
+                "environmental": score.environmental,
+                "social": score.social,
+                "governance": score.governance,
+                "overall": score.overall
+            },
+            "factors_applied": score.factors_applied,
+            "insights": self.get_esg_insights(score),
+            "recommendations": self.get_esg_recommendations(score)
+        }
+        
+        if format.lower() == "json":
+            return json.dumps(report_data, indent=2, ensure_ascii=False)
+        elif format.lower() == "csv":
+            # Implementar exportação CSV
+            return f"Environmental,Social,Governance,Overall\n{score.environmental},{score.social},{score.governance},{score.overall}"
+        elif format.lower() == "xml":
+            # Implementar exportação XML
+            return f"""<?xml version="1.0" encoding="UTF-8"?>
+<esg_report>
+    <timestamp>{score.calculation_timestamp.isoformat()}</timestamp>
+    <version>{score.version}</version>
+    <scores>
+        <environmental>{score.environmental}</environmental>
+        <social>{score.social}</social>
+        <governance>{score.governance}</governance>
+        <overall>{score.overall}</overall>
+    </scores>
+</esg_report>"""
+        else:
+            return json.dumps(report_data, indent=2, ensure_ascii=False)
 
 # Instância global do ESG Engine
 esg_engine = ESGEngine()
