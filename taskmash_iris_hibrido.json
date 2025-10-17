@@ -1,0 +1,330 @@
+{
+  "taskmash": {
+    "nome": "GuardFlow + IRIS Híbrido",
+    "versao": "1.0",
+    "data_criacao": "2025-01-27",
+    "duracao_total": "24 semanas",
+    "investimento": "R$ 0 - R$ 50K",
+    "roi_projetado": "1000%+",
+    "fases": [
+      {
+        "fase": 1,
+        "nome": "Validação com APIs Externas",
+        "semanas": "1-8",
+        "objetivo": "Validar conceito e coletar dados para IRIS",
+        "entregas": [
+          "Sistema funcional com APIs externas",
+          "2 supermercados piloto",
+          "1000+ transações validadas",
+          "Base de dados para IRIS"
+        ],
+        "metricas": {
+          "precisao": "95%+",
+          "velocidade": "< 3 segundos",
+          "transacoes": "1000+",
+          "mercados": "2"
+        }
+      },
+      {
+        "fase": 2,
+        "nome": "Sistema Híbrido",
+        "semanas": "9-16",
+        "objetivo": "Integrar IRIS com APIs e otimizar custos",
+        "entregas": [
+          "Sistema híbrido funcional",
+          "10 mercados ativos",
+          "5000+ transações processadas",
+          "IRIS operando em 60% das transações"
+        ],
+        "metricas": {
+          "economia": "60% vs APIs puras",
+          "precisao": "98%+",
+          "velocidade": "< 2 segundos",
+          "mercados": "10"
+        }
+      },
+      {
+        "fase": 3,
+        "nome": "IRIS Próprio",
+        "semanas": "17-24",
+        "objetivo": "Dominar com tecnologia própria e diferenciação",
+        "entregas": [
+          "Sistema IRIS completo",
+          "50 mercados ativos",
+          "10000+ transações processadas",
+          "Experiência poética única"
+        ],
+        "metricas": {
+          "economia": "90% vs APIs puras",
+          "precisao": "99%+",
+          "velocidade": "< 1 segundo",
+          "mercados": "50"
+        }
+      }
+    ],
+    "tarefas": [
+      {
+        "id": "TASK-001",
+        "nome": "Configurar ambiente de desenvolvimento",
+        "prioridade": "CRÍTICA",
+        "duracao": "3 dias",
+        "responsavel": "Dev Team",
+        "dependencias": [],
+        "entregaveis": ["Ambiente configurado", "Docker funcionando"],
+        "fase": 1,
+        "semana": "1-2"
+      },
+      {
+        "id": "TASK-002",
+        "nome": "Integrar Google Vision API",
+        "prioridade": "CRÍTICA",
+        "duracao": "2 dias",
+        "responsavel": "Backend Team",
+        "dependencias": ["TASK-001"],
+        "entregaveis": ["API integrada", "Testes funcionando"],
+        "fase": 1,
+        "semana": "1-2"
+      },
+      {
+        "id": "TASK-003",
+        "nome": "Integrar Amazon Rekognition API",
+        "prioridade": "CRÍTICA",
+        "duracao": "2 dias",
+        "responsavel": "Backend Team",
+        "dependencias": ["TASK-001"],
+        "entregaveis": ["API integrada", "Testes funcionando"],
+        "fase": 1,
+        "semana": "1-2"
+      },
+      {
+        "id": "TASK-004",
+        "nome": "Configurar IRIS em modo aprendizado",
+        "prioridade": "ALTA",
+        "duracao": "3 dias",
+        "responsavel": "AI Team",
+        "dependencias": ["TASK-001"],
+        "entregaveis": ["IRIS configurado", "Logs de aprendizado"],
+        "fase": 1,
+        "semana": "1-2"
+      },
+      {
+        "id": "TASK-009",
+        "nome": "Deploy em ambiente de produção",
+        "prioridade": "CRÍTICA",
+        "duracao": "2 dias",
+        "responsavel": "DevOps Team",
+        "dependencias": ["TASK-002", "TASK-003"],
+        "entregaveis": ["Sistema em produção"],
+        "fase": 1,
+        "semana": "3-4"
+      },
+      {
+        "id": "TASK-010",
+        "nome": "Configurar primeiro supermercado piloto",
+        "prioridade": "CRÍTICA",
+        "duracao": "3 dias",
+        "responsavel": "Business Team",
+        "dependencias": ["TASK-009"],
+        "entregaveis": ["Supermercado configurado", "Treinamento realizado"],
+        "fase": 1,
+        "semana": "3-4"
+      },
+      {
+        "id": "TASK-011",
+        "nome": "Implementar sistema de validação cruzada",
+        "prioridade": "ALTA",
+        "duracao": "2 dias",
+        "responsavel": "AI Team",
+        "dependencias": ["TASK-004"],
+        "entregaveis": ["Validação cruzada funcionando"],
+        "fase": 1,
+        "semana": "3-4"
+      },
+      {
+        "id": "TASK-012",
+        "nome": "Coletar primeiros 100 dados de treinamento",
+        "prioridade": "ALTA",
+        "duracao": "3 dias",
+        "responsavel": "Data Team",
+        "dependencias": ["TASK-010"],
+        "entregaveis": ["100 transações validadas"],
+        "fase": 1,
+        "semana": "3-4"
+      },
+      {
+        "id": "TASK-025",
+        "nome": "Implementar lógica híbrida IRIS + APIs",
+        "prioridade": "CRÍTICA",
+        "duracao": "4 dias",
+        "responsavel": "AI Team",
+        "dependencias": ["TASK-019"],
+        "entregaveis": ["Sistema híbrido funcionando"],
+        "fase": 2,
+        "semana": "9-12"
+      },
+      {
+        "id": "TASK-041",
+        "nome": "Implementar IRIS como sistema principal",
+        "prioridade": "CRÍTICA",
+        "duracao": "4 dias",
+        "responsavel": "AI Team",
+        "dependencias": ["TASK-035"],
+        "entregaveis": ["IRIS como sistema principal"],
+        "fase": 3,
+        "semana": "17-20"
+      },
+      {
+        "id": "TASK-042",
+        "nome": "Implementar experiência poética",
+        "prioridade": "CRÍTICA",
+        "duracao": "3 dias",
+        "responsavel": "AI Team",
+        "dependencias": ["TASK-041"],
+        "entregaveis": ["Devaneio algorítmico funcionando"],
+        "fase": 3,
+        "semana": "17-20"
+      },
+      {
+        "id": "TASK-043",
+        "nome": "Implementar empatia visual",
+        "prioridade": "ALTA",
+        "duracao": "3 dias",
+        "responsavel": "AI Team",
+        "dependencias": ["TASK-042"],
+        "entregaveis": ["Empatia visual funcionando"],
+        "fase": 3,
+        "semana": "17-20"
+      },
+      {
+        "id": "TASK-044",
+        "nome": "Implementar memória onírica",
+        "prioridade": "ALTA",
+        "duracao": "3 dias",
+        "responsavel": "AI Team",
+        "dependencias": ["TASK-043"],
+        "entregaveis": ["Memória onírica funcionando"],
+        "fase": 3,
+        "semana": "17-20"
+      },
+      {
+        "id": "TASK-049",
+        "nome": "Expandir para 50 mercados",
+        "prioridade": "CRÍTICA",
+        "duracao": "5 dias",
+        "responsavel": "Business Team",
+        "dependencias": ["TASK-044"],
+        "entregaveis": ["50 mercados ativos"],
+        "fase": 3,
+        "semana": "21-24"
+      },
+      {
+        "id": "TASK-050",
+        "nome": "Otimizar IRIS para 90% das transações",
+        "prioridade": "CRÍTICA",
+        "duracao": "3 dias",
+        "responsavel": "AI Team",
+        "dependencias": ["TASK-049"],
+        "entregaveis": ["90% IRIS", "10% APIs"],
+        "fase": 3,
+        "semana": "21-24"
+      },
+      {
+        "id": "TASK-051",
+        "nome": "Implementar sistema de personalidades",
+        "prioridade": "ALTA",
+        "duracao": "4 dias",
+        "responsavel": "AI Team",
+        "dependencias": ["TASK-050"],
+        "entregaveis": ["ATHENA", "ARES", "ARGUS funcionando"],
+        "fase": 3,
+        "semana": "21-24"
+      },
+      {
+        "id": "TASK-052",
+        "nome": "Reduzir custos em 90%",
+        "prioridade": "ALTA",
+        "duracao": "2 dias",
+        "responsavel": "Backend Team",
+        "dependencias": ["TASK-050"],
+        "entregaveis": ["90% economia de custos"],
+        "fase": 3,
+        "semana": "21-24"
+      }
+    ],
+    "metricas_sucesso": {
+      "tecnicas": {
+        "precisao_deteccao": "> 99%",
+        "velocidade_processamento": "< 1 segundo",
+        "disponibilidade": "> 99.9%",
+        "economia_custos": "90%"
+      },
+      "negocio": {
+        "mercados_ativos": "50",
+        "transacoes_processadas": "10000+",
+        "receita_mensal": "R$ 1M+",
+        "roi": "1000%+"
+      },
+      "experiencia": {
+        "satisfacao_cliente": "> 95%",
+        "adocao_iris": "90%",
+        "experiencia_poetica": "Ativa",
+        "diferenciacao": "Única no mercado"
+      }
+    },
+    "cronograma": [
+      {
+        "semana": "1-2",
+        "fase": "Infraestrutura",
+        "foco": "APIs + IRIS Setup",
+        "entregas": "Ambiente configurado"
+      },
+      {
+        "semana": "3-4",
+        "fase": "Piloto",
+        "foco": "Validação inicial",
+        "entregas": "2 mercados, 100 transações"
+      },
+      {
+        "semana": "5-8",
+        "fase": "Escala",
+        "foco": "Otimização APIs",
+        "entregas": "2 mercados, 1000 transações"
+      },
+      {
+        "semana": "9-12",
+        "fase": "Híbrido",
+        "foco": "IRIS + APIs",
+        "entregas": "10 mercados, 5000 transações"
+      },
+      {
+        "semana": "13-16",
+        "fase": "Otimização",
+        "foco": "IRIS otimizado",
+        "entregas": "10 mercados, 60% economia"
+      },
+      {
+        "semana": "17-20",
+        "fase": "IRIS Próprio",
+        "foco": "Experiência poética",
+        "entregas": "50 mercados, IRIS principal"
+      },
+      {
+        "semana": "21-24",
+        "fase": "Escala Final",
+        "foco": "Domínio total",
+        "entregas": "50 mercados, 90% economia"
+      }
+    ],
+    "proximos_passos": [
+      "Aprovar taskmash - Revisar e aprovar plano",
+      "Alocar recursos - Definir equipe e responsabilidades",
+      "Iniciar TASK-001 - Configurar ambiente de desenvolvimento",
+      "Configurar monitoramento - Implementar métricas de acompanhamento",
+      "Comunicar stakeholders - Apresentar plano para aprovação"
+    ],
+    "status": "PLANO_COMPLETO",
+    "proxima_acao": "Aguardar aprovação para iniciar execução",
+    "responsavel": "João (Product Owner)",
+    "data_atualizacao": "2025-01-27"
+  }
+}

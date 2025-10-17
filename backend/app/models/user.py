@@ -4,6 +4,7 @@ User Model - Modelo de usuário integrado com GuardPass
 from sqlalchemy import Column, String, DateTime, Boolean, Text, Integer
 from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy import String
+from sqlalchemy.orm import relationship
 from app.database import DATABASE_URL
 
 # Tipo UUID compatível com SQLite
@@ -66,6 +67,11 @@ class User(Base):
     # Timestamps
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
+    
+    # Relacionamentos
+    invoice_conversions = relationship("InvoiceConversion", back_populates="user")
+    monetization_transactions = relationship("MonetizationTransaction", back_populates="user")
+    government_credits = relationship("GovernmentCredit", back_populates="user")
     
     # Metadados
     user_agent = Column(Text, nullable=True)
