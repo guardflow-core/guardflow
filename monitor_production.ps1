@@ -14,14 +14,14 @@ function Test-ServiceHealth {
     try {
         $response = Invoke-RestMethod -Uri $Url -Method GET -TimeoutSec 10
         if ($response.status -eq $ExpectedStatus) {
-            Write-Host "✅ $ServiceName: $($response.status)" -ForegroundColor Green
+            Write-Host "✅ $ServiceName`: $($response.status)" -ForegroundColor Green
             return $true
         } else {
-            Write-Host "⚠️ $ServiceName: $($response.status)" -ForegroundColor Yellow
+            Write-Host "⚠️ $ServiceName`: $($response.status)" -ForegroundColor Yellow
             return $false
         }
     } catch {
-        Write-Host "❌ $ServiceName: Erro de conexão" -ForegroundColor Red
+        Write-Host "❌ $ServiceName`: Erro de conexão" -ForegroundColor Red
         return $false
     }
 }
@@ -41,7 +41,7 @@ function Get-ServiceMetrics {
         Write-Host "  CPU Usage: $($response.cpu_usage)%" -ForegroundColor White
         Write-Host "  Active Connections: $($response.active_connections)" -ForegroundColor White
     } catch {
-        Write-Host "❌ $ServiceName: Erro ao obter métricas" -ForegroundColor Red
+        Write-Host "❌ $ServiceName`: Erro ao obter métricas" -ForegroundColor Red
     }
 }
 
