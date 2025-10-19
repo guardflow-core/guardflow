@@ -106,3 +106,5 @@ if (Test-Path "mobile-app/package.json") {
 Write-Host "`n🎉 Verificação de dependências concluída!" -ForegroundColor Green
 Write-Host "=========================================" -ForegroundColor Green
 Write-Host "🚀 Execute '.\start_guardflow.ps1' para iniciar o sistema" -ForegroundColor Yellow
+
+

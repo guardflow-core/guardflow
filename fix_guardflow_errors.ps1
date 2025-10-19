@@ -90,3 +90,5 @@ Write-Host "2. Verifique se todos os componentes funcionam" -ForegroundColor Whi
 Write-Host "3. Teste as funcionalidades principais" -ForegroundColor White
 
 Write-Host "`n🛑 Se ainda houver erros, execute '.\check_dependencies.ps1'" -ForegroundColor Red
+
+

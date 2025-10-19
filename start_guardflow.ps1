@@ -53,3 +53,5 @@ Write-Host "3. Teste as APIs em http://127.0.0.1:8002/docs" -ForegroundColor Whi
 Write-Host "4. Use o Expo Go para testar o mobile" -ForegroundColor White
 
 Write-Host "`n🛑 Para parar todos os serviços, feche as janelas do PowerShell" -ForegroundColor Red
+
+

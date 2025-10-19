@@ -146,3 +146,5 @@ Write-Host "3. Use Expo Go no celular para testar o mobile" -ForegroundColor Whi
 Write-Host "4. Verifique os logs nos terminais abertos" -ForegroundColor White
 
 Write-Host "`n🛑 Para parar todos os serviços, feche as janelas do PowerShell" -ForegroundColor Red
+
+
