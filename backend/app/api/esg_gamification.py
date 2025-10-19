@@ -89,6 +89,7 @@ async def join_esg_challenge(
 @router.get("/esg/badges/{user_id}")
 @limiter.limit("30/minute")
 async def get_user_badges(
+    request: Request,
     user_id: str,
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db)
@@ -197,6 +198,7 @@ async def claim_badge(
 @router.get("/esg/leaderboard")
 @limiter.limit("30/minute")
 async def get_esg_leaderboard(
+    request: Request,
     period: str = "monthly",  # daily, weekly, monthly, yearly
     limit: int = 50,
     current_user: User = Depends(get_current_user),

@@ -263,3 +263,5 @@ async def get_token_transactions(user_id: str, limit: int = 10):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Erro interno: {str(e)}"
         )
+
+

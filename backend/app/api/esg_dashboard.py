@@ -32,6 +32,7 @@ limiter = Limiter(key_func=get_remote_address)
 @router.get("/esg/dashboard/{user_id}")
 @limiter.limit("20/minute")
 async def get_esg_dashboard(
+    request: Request,
     user_id: str,
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db)
@@ -172,6 +173,7 @@ async def create_esg_challenge(
 @router.get("/esg/ranking")
 @limiter.limit("30/minute")
 async def get_esg_ranking(
+    request: Request,
     limit: int = 50,
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db)

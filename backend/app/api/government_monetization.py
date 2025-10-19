@@ -192,3 +192,5 @@ async def get_user_credits(user_id: str):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Erro interno: {str(e)}"
         )
+
+
