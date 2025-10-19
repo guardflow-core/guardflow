@@ -1,0 +1,22 @@
+{
+    "timestamp": "2025-10-19T10:06:35.177837",
+    "enterprise_score": 55,
+    "structure_analysis": {
+        "depth_1": 2,
+        "snake_case_dirs": 3,
+        "code_files": 6,
+        "documentation_files": 8,
+        "config_files": 8,
+        "esg_required_files": 8,
+        "enterprise_required_files": 1,
+        "enterprise_directories": 1,
+        "depth_2": 2
+    },
+    "recommendations_count": 1,
+    "enterprise_compliance": {
+        "directory_structure": true,
+        "required_files": false,
+        "esg_files": true,
+        "naming_convention": true
+    }
+}
