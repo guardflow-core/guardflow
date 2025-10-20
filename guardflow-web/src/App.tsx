@@ -7,6 +7,11 @@ import ThemeToggle from './components/ThemeToggle';
 import Dashboard from './components/Dashboard';
 import QRCheckoutDemo from './pages/QRCheckoutDemo';
 import SEVEPersonalization from './components/SEVEPersonalization';
+import ScannerPage from './pages/ScannerPage';
+import CartPage from './pages/CartPage';
+import ESGDashboard from './pages/ESGDashboard';
+import UsersPage from './pages/UsersPage';
+import PerformancePage from './pages/PerformancePage';
 import './App.css';
 
 // Componente principal da aplicação
@@ -57,40 +62,13 @@ const AppContent: React.FC = () => {
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/scanner" element={
-              <Box sx={{ p: 3, textAlign: 'center' }}>
-                <Typography variant="h4" gutterBottom>📱 Scanner</Typography>
-                <Typography variant="body1" color="text.secondary">
-                  Funcionalidade em desenvolvimento
-                </Typography>
-              </Box>
-            } />
-            <Route path="/cart" element={
-              <Box sx={{ p: 3, textAlign: 'center' }}>
-                <Typography variant="h4" gutterBottom>🛒 Carrinho</Typography>
-                <Typography variant="body1" color="text.secondary">
-                  Funcionalidade em desenvolvimento
-                </Typography>
-              </Box>
-            } />
-            <Route path="/esg" element={
-              <Box sx={{ p: 3, textAlign: 'center' }}>
-                <Typography variant="h4" gutterBottom>🌱 ESG Dashboard</Typography>
-                <Typography variant="body1" color="text.secondary">
-                  Funcionalidade em desenvolvimento
-                </Typography>
-              </Box>
-            } />
-            <Route path="/users" element={
-              <Box sx={{ p: 3, textAlign: 'center' }}>
-                <Typography variant="h4" gutterBottom>👥 Usuários</Typography>
-                <Typography variant="body1" color="text.secondary">
-                  Funcionalidade em desenvolvimento
-                </Typography>
-              </Box>
-            } />
-            <Route path="/qr-checkout" element={<QRCheckoutDemo />} />
-            <Route path="/seve" element={<SEVEPersonalization />} />
+            <Route path="/scanner" element={<ScannerPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/esg" element={<ESGDashboard />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/performance" element={<PerformancePage />} />
+          <Route path="/qr-checkout" element={<QRCheckoutDemo />} />
+          <Route path="/seve" element={<SEVEPersonalization />} />
           </Routes>
         </Container>
       </Box>

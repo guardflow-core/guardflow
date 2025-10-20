@@ -105,6 +105,7 @@ cryptography>=42.0.7,<47
 # Rate limiting
 slowapi==0.1.9
 slowapi[redis]==0.1.9
+psutil==5.9.6
 
 # Health checks
 fastapi-health==0.4.0

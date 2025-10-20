@@ -18,6 +18,8 @@ from app.api.esg_gamification import router as esg_gamification_router
 from app.api.agility_tax import router as agility_tax_router
 from app.api.qr_checkout import router as qr_checkout_router
 from app.api.seve_personalization import router as seve_router
+from app.api.symbeon_advanced import router as symbeon_advanced_router
+from app.api.performance import router as performance_router
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
@@ -56,6 +58,8 @@ app.include_router(esg_gamification_router, prefix="/api/v1", tags=["Gamifica√ß√
 app.include_router(agility_tax_router, prefix="/api/v1", tags=["Agility Tax"])
 app.include_router(qr_checkout_router, prefix="/api/v1", tags=["QR Checkout"])
 app.include_router(seve_router, prefix="/api/v1", tags=["SEVE Personalization"])
+app.include_router(symbeon_advanced_router, prefix="/api/v1", tags=["SYMBEON Advanced"])
+app.include_router(performance_router, prefix="/api/v1/performance", tags=["Performance"])
 
 @app.get("/")
 async def root():

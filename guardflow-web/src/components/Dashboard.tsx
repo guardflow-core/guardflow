@@ -544,6 +544,18 @@ const Dashboard: React.FC = () => {
             >
               Gerenciar Usuários
             </Button>
+            <Button
+              variant="outlined"
+              startIcon={<Speed />}
+              onClick={() => window.open('/performance', '_blank')}
+              sx={{ 
+                borderColor: 'rgba(255,255,255,0.5)', 
+                color: 'white',
+                '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.1)' }
+              }}
+            >
+              Performance
+            </Button>
           </Box>
         </CardContent>
       </Card>
