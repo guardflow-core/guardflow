@@ -510,6 +510,18 @@ const Dashboard: React.FC = () => {
             </Button>
             <Button
               variant="outlined"
+              startIcon={<People />}
+              onClick={() => window.open('/seve', '_blank')}
+              sx={{ 
+                borderColor: 'rgba(255,255,255,0.5)', 
+                color: 'white',
+                '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.1)' }
+              }}
+            >
+              SEVE Personalização
+            </Button>
+            <Button
+              variant="outlined"
               startIcon={<EcoIcon />}
               onClick={() => window.open('/esg', '_blank')}
               sx={{ 

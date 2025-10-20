@@ -271,13 +271,35 @@ async def _record_checkout_metrics(cart: CartPayload, checkout_time_seconds: flo
 
 
 @router.post("/seal", response_model=SealResponse)
-async def seal_cart(req: SealRequest, guardpass_token: Optional[str] = Header(None)):
+async def seal_cart(
+    req: SealRequest, 
+    guardpass_token: Optional[str] = Header(None),
+    seve_anonymous_id: Optional[str] = Header(None)
+):
     start_time = time.time()
+    
+    # Integração com SEVE Personalization (se disponível)
+    seve_context = None
+    if seve_anonymous_id:
+        try:
+            from app.services.seve_personalization import seve_personalization
+            # Atualizar perfil SEVE com dados da compra
+            seve_interaction = {
+                "purchased_esg_products": any(item.esg_score and item.esg_score > 7.0 for item in req.cart.items),
+                "viewed_brands": [item.name.split()[0] if item.name else "Unknown" for item in req.cart.items],
+                "viewed_categories": list(set([item.ncm_code[:2] if item.ncm_code else "00" for item in req.cart.items])),
+                "premium_product_views": any(item.unit_price > 20.0 for item in req.cart.items)
+            }
+            seve_context = await seve_personalization.update_profile_interaction(
+                seve_anonymous_id, seve_interaction
+            )
+        except Exception as e:
+            print(f"Erro na integração SEVE: {e}")
     
     # Integração com GuardPass
     guardpass_profile = await _get_guardpass_profile(guardpass_token)
     
-    # Calcular impacto ESG
+    # Calcular impacto ESG (enriquecido com dados SEVE)
     esg_impact = await _calculate_esg_impact(req.cart.items)
     
     # Gerar hash e assinatura

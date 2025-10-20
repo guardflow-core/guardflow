@@ -6,6 +6,7 @@ import { CustomThemeProvider, useTheme } from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
 import Dashboard from './components/Dashboard';
 import QRCheckoutDemo from './pages/QRCheckoutDemo';
+import SEVEPersonalization from './components/SEVEPersonalization';
 import './App.css';
 
 // Componente principal da aplicação
@@ -89,6 +90,7 @@ const AppContent: React.FC = () => {
               </Box>
             } />
             <Route path="/qr-checkout" element={<QRCheckoutDemo />} />
+            <Route path="/seve" element={<SEVEPersonalization />} />
           </Routes>
         </Container>
       </Box>

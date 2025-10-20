@@ -17,6 +17,7 @@ from app.api.esg_dashboard import router as esg_dashboard_router
 from app.api.esg_gamification import router as esg_gamification_router
 from app.api.agility_tax import router as agility_tax_router
 from app.api.qr_checkout import router as qr_checkout_router
+from app.api.seve_personalization import router as seve_router
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
@@ -54,6 +55,7 @@ app.include_router(esg_dashboard_router, prefix="/api/v1", tags=["Dashboard ESG"
 app.include_router(esg_gamification_router, prefix="/api/v1", tags=["Gamificação ESG"])
 app.include_router(agility_tax_router, prefix="/api/v1", tags=["Agility Tax"])
 app.include_router(qr_checkout_router, prefix="/api/v1", tags=["QR Checkout"])
+app.include_router(seve_router, prefix="/api/v1", tags=["SEVE Personalization"])
 
 @app.get("/")
 async def root():
