@@ -14,6 +14,11 @@
 <section class="hero-section">
   <div class="container">
     <div class="hero-content">
+      <div class="hero-logo">
+        <!-- Logo GuardFlow: Carrinho azul + cruz verde + arco colorido -->
+        <img src="guardflow-logo.svg" alt="GuardFlow" class="logo-main">
+      </div>
+      
       <h1 class="hero-title">
         Transforme seu Checkout em 
         <span class="highlight">Vantagem Competitiva</span>

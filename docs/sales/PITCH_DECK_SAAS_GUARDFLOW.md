@@ -14,7 +14,7 @@ A Plataforma que Transforma seu Checkout em Vantagem Competitiva
 ⚡ 90% mais rápido | 🌱 ESG automático | 🧠 IA personalizada
 💰 ROI garantido em 90 dias
 
-[Logo GuardFlow]
+[LOGO: Carrinho azul com cruz verde e arco colorido - simbolizando checkout inteligente + ESG + transformação]
 
 Apresentação para: [Nome do Cliente]
 Data: [Data da Apresentação]
