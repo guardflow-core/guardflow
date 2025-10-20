@@ -496,6 +496,19 @@ const Dashboard: React.FC = () => {
               Ver Carrinho
             </Button>
             <Button
+              variant="contained"
+              startIcon={<Security />}
+              onClick={() => window.open('/qr-checkout', '_blank')}
+              sx={{ 
+                bgcolor: 'rgba(255,255,255,0.2)', 
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.3)' },
+                color: 'white',
+                border: '1px solid rgba(255,255,255,0.3)'
+              }}
+            >
+              QR Checkout Demo
+            </Button>
+            <Button
               variant="outlined"
               startIcon={<EcoIcon />}
               onClick={() => window.open('/esg', '_blank')}

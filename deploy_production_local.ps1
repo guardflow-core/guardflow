@@ -117,3 +117,4 @@ Write-Host "  4. Configurar backup" -ForegroundColor White
 Write-Host "  5. Executar testes de carga" -ForegroundColor White
 
 Write-Host "`n🚀 GuardFlow está rodando em produção local!" -ForegroundColor Green
+

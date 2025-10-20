@@ -5,6 +5,7 @@ import { Palette, Info } from '@mui/icons-material';
 import { CustomThemeProvider, useTheme } from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
 import Dashboard from './components/Dashboard';
+import QRCheckoutDemo from './pages/QRCheckoutDemo';
 import './App.css';
 
 // Componente principal da aplicação
@@ -87,6 +88,7 @@ const AppContent: React.FC = () => {
                 </Typography>
               </Box>
             } />
+            <Route path="/qr-checkout" element={<QRCheckoutDemo />} />
           </Routes>
         </Container>
       </Box>
