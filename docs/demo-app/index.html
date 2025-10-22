@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agilizia_AI - Sistema Inteligente de Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Sistema inteligente de checkout com IA, ESG e zero atrito para mercados">
+    <meta name="keywords" content="checkout, IA, ESG, sustentabilidade, mercado, scanner">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <i class="fas fa-bolt"></i>
+                    <span>Agilizia_AI</span>
+                </div>
+                <nav class="nav">
+                    <a href="#demo" class="nav-link active">Demo</a>
+                    <a href="#features" class="nav-link">Funcionalidades</a>
+                    <a href="#roi" class="nav-link">ROI</a>
+                    <a href="#contact" class="nav-link">Contato</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Revolucione o Checkout dos Mercados</h1>
+                    <p>Sistema inteligente de checkout com IA, ESG e zero atrito</p>
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>85% Redução no tempo</span>
+                        </div>
+                        <div class="hero-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <span>300% ROI em 18 meses</span>
+                        </div>
+                        <div class="hero-feature">
+                            <i class="fas fa-leaf"></i>
+                            <span>100% Sustentável</span>
+                        </div>
+                    </div>
+                    <a href="#demo" class="cta-button">
+                        <i class="fas fa-play"></i>
+                        Iniciar Demonstração
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Demo Section -->
+        <section class="live-demo">
+            <div class="container">
+                <div class="live-demo-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Agilizia_AI</h3>
+                </div>
+                <div class="scanning-status">Escaneando produto...</div>
+                <div class="scanned-items">
+                    <div class="scanned-item">
+                        <i class="fas fa-apple-alt"></i>
+                        <div class="scanned-item-info">
+                            <div class="scanned-item-name">Maçã Orgânica</div>
+                            <div class="scanned-item-price">R$ 5,99</div>
+                        </div>
+                    </div>
+                    <div class="scanned-item">
+                        <i class="fas fa-wine-bottle"></i>
+                        <div class="scanned-item-info">
+                            <div class="scanned-item-name">Leite Sustentável</div>
+                            <div class="scanned-item-price">R$ 8,50</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scanned-total">Total: R$ 14,49</div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo Section -->
+        <section id="demo" class="interactive-demo">
+            <div class="container">
+                <h2>Demonstração Interativa</h2>
+                <div class="demo-tabs">
+                    <button class="demo-tab active" onclick="showDemo('scanner')">
+                        <i class="fas fa-qrcode"></i>
+                        <span>Scanner</span>
+                    </button>
+                    <button class="demo-tab" onclick="showDemo('cart')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrinho</span>
+                    </button>
+                    <button class="demo-tab" onclick="showDemo('esg')">
+                        <i class="fas fa-leaf"></i>
+                        <span>ESG</span>
+                    </button>
+                    <button class="demo-tab" onclick="showDemo('payment')">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Pagamento</span>
+                    </button>
+                </div>
+                
+                <div class="demo-content">
+                    <div id="scanner-demo" class="demo-panel active">
+                        <div class="demo-content">
+                            <i class="fas fa-bolt" style="font-size: 3rem; color: #4ade80; margin-bottom: 1rem;"></i>
+                            <h3>Agilizia_AI Scanner</h3>
+                            <p>Scanner inteligente com reconhecimento instantâneo de produtos, validação por IA e detecção de anomalias em tempo real.</p>
+                            <div class="demo-features">
+                                <div class="demo-feature">
+                                    <i class="fas fa-eye"></i>
+                                    <h4>Reconhecimento Instantâneo</h4>
+                                    <p>Identifica produtos em menos de 0.5 segundos com 99.8% de precisão</p>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-brain"></i>
+                                    <h4>IA para Validação</h4>
+                                    <p>Algoritmos avançados validam produtos e detectam inconsistências</p>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h4>Detecção de Anomalias</h4>
+                                    <p>Identifica automaticamente tentativas de fraude e produtos incorretos</p>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-history"></i>
+                                    <h4>Histórico Inteligente</h4>
+                                    <p>Aprende com cada interação para melhorar a precisão</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="cart-demo" class="demo-panel">
+                        <div class="cart-section">
+                            <div class="cart-header">
+                                <i class="fas fa-shopping-cart"></i>
+                                <h3>Carrinho Digital</h3>
+                            </div>
+                            <div class="cart-items">
+                                <div class="cart-item">
+                                    <i class="fas fa-apple-alt"></i>
+                                    <div class="cart-item-info">
+                                        <div class="cart-item-name">Maçã Orgânica</div>
+                                        <div class="cart-item-price">R$ 5,99</div>
+                                    </div>
+                                    <div class="quantity-controls">
+                                        <button class="quantity-btn" onclick="updateQuantity('apple', -1)">-</button>
+                                        <span class="quantity-display" id="apple-qty">2</span>
+                                        <button class="quantity-btn" onclick="updateQuantity('apple', 1)">+</button>
+                                    </div>
+                                </div>
+                                <div class="cart-item">
+                                    <i class="fas fa-wine-bottle"></i>
+                                    <div class="cart-item-info">
+                                        <div class="cart-item-name">Leite Sustentável</div>
+                                        <div class="cart-item-price">R$ 8,50</div>
+                                    </div>
+                                    <div class="quantity-controls">
+                                        <button class="quantity-btn" onclick="updateQuantity('milk', -1)">-</button>
+                                        <span class="quantity-display" id="milk-qty">1</span>
+                                        <button class="quantity-btn" onclick="updateQuantity('milk', 1)">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-subtotal" id="cart-total">Subtotal: R$ 20,48</div>
+                        </div>
+                    </div>
+                    
+                    <div id="esg-demo" class="demo-panel">
+                        <div class="demo-content">
+                            <i class="fas fa-leaf" style="font-size: 3rem; color: #4ade80; margin-bottom: 1rem;"></i>
+                            <h3>Dashboard ESG</h3>
+                            <p>Monitoramento em tempo real do impacto ambiental e social dos produtos, com scores ESG automáticos e relatórios de sustentabilidade.</p>
+                            <div class="demo-features">
+                                <div class="demo-feature">
+                                    <i class="fas fa-recycle"></i>
+                                    <h4>Score ESG Automático</h4>
+                                    <p>Cálculo instantâneo baseado em NCM e certificações</p>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <h4>Relatórios Sustentáveis</h4>
+                                    <p>Análise detalhada do impacto ambiental</p>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-award"></i>
+                                    <h4>Certificações Verdes</h4>
+                                    <p>Identificação automática de produtos certificados</p>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-globe"></i>
+                                    <h4>Impacto Global</h4>
+                                    <p>Métricas de sustentabilidade em tempo real</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="payment-demo" class="demo-panel">
+                        <div class="demo-content">
+                            <i class="fas fa-credit-card" style="font-size: 3rem; color: #4ade80; margin-bottom: 1rem;"></i>
+                            <h3>Pagamento Inteligente</h3>
+                            <p>Sistema de pagamento com PIX instantâneo, tokenização segura e integração com ERPs dos mercados para máxima agilidade.</p>
+                            <div class="demo-features">
+                                <div class="demo-feature">
+                                    <i class="fas fa-qrcode"></i>
+                                    <h4>PIX Instantâneo</h4>
+                                    <p>Pagamento em segundos com QR Code dinâmico</p>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h4>Tokenização Segura</h4>
+                                    <p>Dados protegidos com criptografia de ponta</p>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-link"></i>
+                                    <h4>Integração ERP</h4>
+                                    <p>Conexão direta com sistemas dos mercados</p>
+                                </div>
+                                <div class="demo-feature">
+                                    <i class="fas fa-bolt"></i>
+                                    <h4>Zero Atrito</h4>
+                                    <p>Checkout em menos de 30 segundos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Calculator Section -->
+        <section id="roi" class="roi-section">
+            <div class="container">
+                <h2>Calculadora de ROI</h2>
+                <div class="roi-calculator">
+                    <div class="roi-inputs">
+                        <div class="roi-input-group">
+                            <label for="daily-transactions">Transações Diárias</label>
+                            <input type="number" id="daily-transactions" value="1000" min="1" max="10000">
+                        </div>
+                        <div class="roi-input-group">
+                            <label for="avg-transaction-time">Tempo Médio por Transação (min)</label>
+                            <input type="number" id="avg-transaction-time" value="5" min="1" max="60">
+                        </div>
+                        <div class="roi-input-group">
+                            <label for="hourly-wage">Salário por Hora (R$)</label>
+                            <input type="number" id="hourly-wage" value="15" min="1" max="100">
+                        </div>
+                        <div class="roi-input-group">
+                            <label for="abandonment-rate">Taxa de Abandono (%)</label>
+                            <input type="number" id="abandonment-rate" value="15" min="0" max="100">
+                        </div>
+                    </div>
+                    <div class="roi-results">
+                        <div class="roi-result">
+                            <h3>Economia Mensal</h3>
+                            <div class="roi-value" id="monthly-savings">R$ 45.000</div>
+                        </div>
+                        <div class="roi-result">
+                            <h3>ROI Anual</h3>
+                            <div class="roi-value" id="annual-roi">340%</div>
+                        </div>
+                        <div class="roi-result">
+                            <h3>Payback</h3>
+                            <div class="roi-value" id="payback">3.2 meses</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Empresa</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

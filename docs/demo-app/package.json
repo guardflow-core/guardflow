@@ -1,0 +1,25 @@
+{
+  "name": "agilizia-ai-demo",
+  "version": "1.0.0",
+  "description": "Agilizia_AI - App de Demonstração Interativo",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "agilizia-ai",
+    "demo",
+    "checkout",
+    "esg",
+    "ai",
+    "retail"
+  ],
+  "author": "Agilizia_AI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "vercel": "^48.5.0"
+  }
+}
