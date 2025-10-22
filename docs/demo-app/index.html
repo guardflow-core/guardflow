@@ -13,6 +13,116 @@
             box-sizing: border-box;
         }
         
+        /* AI Tracking System */
+        .ai-tracking {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(74, 222, 128, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 10000;
+            display: none;
+        }
+        
+        .ai-tracking.active {
+            display: block;
+            animation: pulse 2s infinite;
+        }
+        
+        .ai-insights {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 15px;
+            max-width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            z-index: 10000;
+            display: none;
+        }
+        
+        .ai-insights.active {
+            display: block;
+            animation: slideInUp 0.5s ease-out;
+        }
+        
+        .ai-insights h4 {
+            color: #1e293b;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .ai-insights p {
+            color: #64748b;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .ai-progress {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            height: 3px;
+            border-radius: 2px;
+            margin-top: 8px;
+            transition: width 0.3s ease;
+        }
+        
+        .ai-personalization {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            display: none;
+        }
+        
+        .ai-personalization.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .ai-personalization h5 {
+            color: #667eea;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        
+        .ai-personalization p {
+            color: #64748b;
+            font-size: 11px;
+            line-height: 1.3;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
@@ -619,6 +729,22 @@
 </head>
 <body>
     <div id="app">
+        <!-- AI Tracking System -->
+        <div class="ai-tracking" id="aiTracking">
+            <i class="fas fa-brain"></i>
+            <span>IA Analisando...</span>
+        </div>
+        
+        <!-- AI Insights Panel -->
+        <div class="ai-insights" id="aiInsights">
+            <h4>
+                <i class="fas fa-lightbulb"></i>
+                <span>Insights da IA</span>
+            </h4>
+            <p id="aiInsightText">Analisando seu comportamento para personalizar a experiência...</p>
+            <div class="ai-progress" id="aiProgress" style="width: 0%"></div>
+        </div>
+        
         <!-- Header -->
         <header class="header">
             <div class="container">
@@ -718,6 +844,12 @@
                     <i class="fas fa-bolt" style="font-size: 3rem; color: #4ade80; margin-bottom: 1rem;"></i>
                     <h3>Agilize_AI Scanner</h3>
                     <p>Scanner inteligente com reconhecimento instantâneo de produtos, validação por IA e detecção de anomalias em tempo real.</p>
+                    
+                    <!-- AI Personalization -->
+                    <div class="ai-personalization" id="scannerPersonalization">
+                        <h5><i class="fas fa-user-cog"></i> Personalização IA</h5>
+                        <p>Baseado no seu perfil, recomendamos produtos orgânicos e sustentáveis.</p>
+                    </div>
                     <div class="demo-features">
                         <div class="demo-feature">
                             <i class="fas fa-eye"></i>
@@ -813,5 +945,226 @@
             </div>
         </section>
     </div>
+
+    <script>
+        // AI Tracking System
+        class AgilizeAI {
+            constructor() {
+                this.userProfile = {
+                    behavior: {},
+                    preferences: {},
+                    engagement: 0,
+                    sessionTime: 0,
+                    interactions: 0
+                };
+                this.insights = [
+                    "Detectamos interesse em produtos sustentáveis! 🌱",
+                    "Seu padrão de compra sugere preferência por orgânicos! 🥬",
+                    "IA identificou oportunidade de economia ESG! 💰",
+                    "Recomendamos produtos com melhor score ESG! ⭐",
+                    "Análise comportamental: perfil eco-consciente! 🌍"
+                ];
+                this.init();
+            }
+
+            init() {
+                this.startTracking();
+                this.setupEventListeners();
+                this.showAIElements();
+            }
+
+            startTracking() {
+                // Mostrar indicador de IA
+                setTimeout(() => {
+                    document.getElementById('aiTracking').classList.add('active');
+                }, 1000);
+
+                // Mostrar insights após 3 segundos
+                setTimeout(() => {
+                    this.showInsight();
+                }, 3000);
+
+                // Atualizar progresso
+                this.updateProgress();
+            }
+
+            setupEventListeners() {
+                // Rastrear cliques
+                document.addEventListener('click', (e) => {
+                    this.trackInteraction('click', e.target);
+                });
+
+                // Rastrear scroll
+                let scrollTimeout;
+                window.addEventListener('scroll', () => {
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        this.trackInteraction('scroll', window.scrollY);
+                    }, 100);
+                });
+
+                // Rastrear tempo na página
+                setInterval(() => {
+                    this.userProfile.sessionTime += 1;
+                    this.updateEngagement();
+                }, 1000);
+
+                // Rastrear tabs
+                document.querySelectorAll('.demo-tab').forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        this.trackTabSwitch(tab.textContent.trim());
+                    });
+                });
+            }
+
+            trackInteraction(type, target) {
+                this.userProfile.interactions++;
+                this.userProfile.behavior[type] = (this.userProfile.behavior[type] || 0) + 1;
+                
+                // Análise de comportamento
+                if (type === 'click') {
+                    if (target.classList.contains('cta-button')) {
+                        this.userProfile.preferences.interest = 'high';
+                    }
+                    if (target.classList.contains('demo-tab')) {
+                        this.userProfile.preferences.section = target.textContent.trim();
+                    }
+                }
+
+                this.updateEngagement();
+            }
+
+            trackTabSwitch(section) {
+                this.userProfile.preferences.activeSection = section;
+                this.showPersonalization(section);
+            }
+
+            showPersonalization(section) {
+                const personalization = document.getElementById('scannerPersonalization');
+                if (personalization) {
+                    personalization.classList.add('active');
+                    
+                    // Personalizar baseado na seção
+                    const messages = {
+                        'Scanner': 'IA detectou interesse em reconhecimento de produtos! 📱',
+                        'Carrinho': 'Analisando seu padrão de compra para otimizar carrinho! 🛒',
+                        'ESG': 'Perfil sustentável identificado! Recomendando produtos ESG! 🌱',
+                        'Pagamento': 'IA otimizando processo de pagamento para sua preferência! 💳'
+                    };
+                    
+                    personalization.querySelector('p').textContent = messages[section] || 'IA personalizando experiência...';
+                }
+            }
+
+            showInsight() {
+                const insights = document.getElementById('aiInsights');
+                const insightText = document.getElementById('aiInsightText');
+                
+                if (insights && insightText) {
+                    insights.classList.add('active');
+                    
+                    // Mostrar insight aleatório
+                    const randomInsight = this.insights[Math.floor(Math.random() * this.insights.length)];
+                    insightText.textContent = randomInsight;
+                    
+                    // Auto-hide após 5 segundos
+                    setTimeout(() => {
+                        insights.classList.remove('active');
+                    }, 5000);
+                }
+            }
+
+            updateProgress() {
+                const progress = document.getElementById('aiProgress');
+                if (progress) {
+                    let width = 0;
+                    const interval = setInterval(() => {
+                        width += Math.random() * 10;
+                        if (width >= 100) {
+                            width = 100;
+                            clearInterval(interval);
+                        }
+                        progress.style.width = width + '%';
+                    }, 200);
+                }
+            }
+
+            updateEngagement() {
+                this.userProfile.engagement = Math.min(
+                    (this.userProfile.interactions * 10) + (this.userProfile.sessionTime * 2),
+                    100
+                );
+
+                // Mostrar insights baseados no engajamento
+                if (this.userProfile.engagement > 50 && !this.userProfile.insightsShown) {
+                    this.userProfile.insightsShown = true;
+                    setTimeout(() => {
+                        this.showInsight();
+                    }, 2000);
+                }
+            }
+
+            showAIElements() {
+                // Mostrar elementos de IA gradualmente
+                setTimeout(() => {
+                    document.getElementById('aiTracking').classList.add('active');
+                }, 1000);
+
+                setTimeout(() => {
+                    document.getElementById('aiInsights').classList.add('active');
+                }, 3000);
+            }
+
+            // Método para demonstrar capacidades da IA
+            demonstrateAI() {
+                const insights = [
+                    "🎯 IA detectou padrão de interesse em sustentabilidade",
+                    "📊 Análise comportamental: perfil eco-consciente identificado",
+                    "🌱 Recomendando produtos com melhor score ESG",
+                    "⚡ Otimizando experiência baseada no seu comportamento",
+                    "🔮 Predizendo preferências para próxima compra"
+                ];
+
+                let index = 0;
+                const interval = setInterval(() => {
+                    if (index < insights.length) {
+                        this.showCustomInsight(insights[index]);
+                        index++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 3000);
+            }
+
+            showCustomInsight(message) {
+                const insightText = document.getElementById('aiInsightText');
+                if (insightText) {
+                    insightText.textContent = message;
+                    document.getElementById('aiInsights').classList.add('active');
+                    
+                    setTimeout(() => {
+                        document.getElementById('aiInsights').classList.remove('active');
+                    }, 4000);
+                }
+            }
+        }
+
+        // Inicializar sistema de IA quando a página carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            window.agilizeAI = new AgilizeAI();
+            
+            // Demonstrar capacidades da IA após 10 segundos
+            setTimeout(() => {
+                window.agilizeAI.demonstrateAI();
+            }, 10000);
+        });
+
+        // Função para demonstrar IA (pode ser chamada externamente)
+        function demonstrateAI() {
+            if (window.agilizeAI) {
+                window.agilizeAI.demonstrateAI();
+            }
+        }
+    </script>
 </body>
 </html>
