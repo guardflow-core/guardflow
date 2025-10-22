@@ -26,6 +26,7 @@ import {
   People,
   Store,
   Speed,
+  Psychology,
   CheckCircle,
   Error,
   Refresh,
@@ -555,6 +556,18 @@ const Dashboard: React.FC = () => {
               }}
             >
               Performance
+            </Button>
+            <Button
+              variant="outlined"
+              startIcon={<Psychology />}
+              onClick={() => window.open('/symbiotic-agent', '_blank')}
+              sx={{ 
+                borderColor: 'rgba(255,255,255,0.5)', 
+                color: 'white',
+                '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.1)' }
+              }}
+            >
+              Agente Simbiótico
             </Button>
           </Box>
         </CardContent>

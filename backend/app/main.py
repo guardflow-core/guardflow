@@ -20,6 +20,8 @@ from app.api.qr_checkout import router as qr_checkout_router
 from app.api.seve_personalization import router as seve_router
 from app.api.symbeon_advanced import router as symbeon_advanced_router
 from app.api.performance import router as performance_router
+from app.api.symbiotic_agent import router as symbiotic_agent_router
+from app.api.checkout_symbiotic_agent import router as checkout_symbiotic_agent_router
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
@@ -60,6 +62,8 @@ app.include_router(qr_checkout_router, prefix="/api/v1", tags=["QR Checkout"])
 app.include_router(seve_router, prefix="/api/v1", tags=["SEVE Personalization"])
 app.include_router(symbeon_advanced_router, prefix="/api/v1", tags=["SYMBEON Advanced"])
 app.include_router(performance_router, prefix="/api/v1/performance", tags=["Performance"])
+app.include_router(symbiotic_agent_router, prefix="/api/v1/symbiotic-agent", tags=["Agente Simbiótico"])
+app.include_router(checkout_symbiotic_agent_router, prefix="/api/v1/checkout-symbiotic-agent", tags=["Agente Simbiótico de Checkout"])
 
 @app.get("/")
 async def root():
