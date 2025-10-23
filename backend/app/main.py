@@ -22,6 +22,9 @@ from app.api.symbeon_advanced import router as symbeon_advanced_router
 from app.api.performance import router as performance_router
 from app.api.symbiotic_agent import router as symbiotic_agent_router
 from app.api.checkout_symbiotic_agent import router as checkout_symbiotic_agent_router
+from app.api.oauth2 import router as oauth2_router
+from app.api.users import router as users_router
+from app.api.products import router as products_router
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
@@ -63,7 +66,10 @@ app.include_router(seve_router, prefix="/api/v1", tags=["SEVE Personalization"])
 app.include_router(symbeon_advanced_router, prefix="/api/v1", tags=["SYMBEON Advanced"])
 app.include_router(performance_router, prefix="/api/v1/performance", tags=["Performance"])
 app.include_router(symbiotic_agent_router, prefix="/api/v1/symbiotic-agent", tags=["Agente Simbiótico"])
-app.include_router(checkout_symbiotic_agent_router, prefix="/api/v1/checkout-symbiotic-agent", tags=["Agente Simbiótico de Checkout"])
+app.include_router(checkout_symbiotic_agent_router, prefix="/api/v1/care", tags=["SEVE-CARE"])
+app.include_router(oauth2_router, prefix="/api/v1/oauth2", tags=["OAuth2"])
+app.include_router(users_router, prefix="/api/v1/users", tags=["Usuários"])
+app.include_router(products_router, prefix="/api/v1/products", tags=["Produtos"])
 
 @app.get("/")
 async def root():

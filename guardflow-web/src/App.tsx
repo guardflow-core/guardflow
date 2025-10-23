@@ -13,6 +13,7 @@ import ESGDashboard from './pages/ESGDashboard';
 import UsersPage from './pages/UsersPage';
 import PerformancePage from './pages/PerformancePage';
 import SymbioticAgentPage from './pages/SymbioticAgentPage';
+import CheckoutSymbioticAgentPage from './pages/CheckoutSymbioticAgentPage';
 import './App.css';
 
 // Componente principal da aplicação
@@ -69,6 +70,7 @@ const AppContent: React.FC = () => {
           <Route path="/users" element={<UsersPage />} />
           <Route path="/performance" element={<PerformancePage />} />
           <Route path="/symbiotic-agent" element={<SymbioticAgentPage />} />
+          <Route path="/checkout-symbiotic-agent" element={<CheckoutSymbioticAgentPage />} />
           <Route path="/qr-checkout" element={<QRCheckoutDemo />} />
           <Route path="/seve" element={<SEVEPersonalization />} />
           </Routes>

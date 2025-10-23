@@ -569,6 +569,18 @@ const Dashboard: React.FC = () => {
             >
               Agente Simbiótico
             </Button>
+            <Button
+              variant="outlined"
+              startIcon={<QrCodeScanner />}
+              onClick={() => window.open('/checkout-symbiotic-agent', '_blank')}
+              sx={{ 
+                borderColor: 'rgba(255,255,255,0.5)', 
+                color: 'white',
+                '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.1)' }
+              }}
+            >
+              Agente de Checkout
+            </Button>
           </Box>
         </CardContent>
       </Card>

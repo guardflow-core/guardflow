@@ -1,6 +1,7 @@
 """
-API do Agente Simbiótico Especializado para Checkout
-Endpoints específicos para checkout com integração SYMBEON
+SEVE-CARE API: Checkout Adaptive Responsive Engine
+API do agente simbiótico especializado para checkout com integração SYMBEON
+C.A.R.E. cuida da sua experiência de checkout com inteligência, empatia e adaptação contínua
 """
 
 from fastapi import APIRouter, HTTPException, Depends
@@ -9,14 +10,14 @@ from typing import Dict, List, Any, Optional
 from datetime import datetime
 import logging
 
-from app.agents.checkout_symbiotic_agent import CheckoutSymbioticAgent, CheckoutStage, CheckoutEmotion
+from app.agents.checkout_symbiotic_agent import SEVECARE, CheckoutStage, CheckoutEmotion
 from app.core.auth import get_current_user
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
-# Instância global do agente simbiótico de checkout
-checkout_agent = CheckoutSymbioticAgent()
+# Instância global do SEVE-CARE
+seve_care = SEVECARE()
 
 class CheckoutInteraction(BaseModel):
     text: str
@@ -47,7 +48,7 @@ class CheckoutSummary(BaseModel):
     symbeon_integration: Dict[str, Any]
 
 @router.post("/checkout-chat", response_model=CheckoutResponse)
-async def chat_with_checkout_agent(
+async def chat_with_seve_care(
     interaction: CheckoutInteraction,
     current_user: dict = Depends(get_current_user)
 ):
@@ -55,8 +56,8 @@ async def chat_with_checkout_agent(
     Chat com o agente simbiótico especializado em checkout
     """
     try:
-        # Processar interação de checkout
-        result = await checkout_agent.process_checkout_interaction(
+        # Processar interação de checkout com SEVE-CARE
+        result = await seve_care.process_checkout_interaction(
             interaction.user_id,
             {
                 "text": interaction.text,
@@ -106,10 +107,10 @@ async def get_checkout_context(
     Obtém contexto atual do checkout
     """
     try:
-        if user_id not in checkout_agent.checkout_contexts:
+        if user_id not in seve_care.checkout_contexts:
             raise HTTPException(status_code=404, detail="Contexto de checkout não encontrado")
         
-        context = checkout_agent.checkout_contexts[user_id]
+        context = seve_care.checkout_contexts[user_id]
         
         return {
             "user_id": context.user_id,
@@ -140,7 +141,7 @@ async def get_checkout_symbiotic_summary(
     Obtém resumo simbiótico completo do checkout
     """
     try:
-        summary = await checkout_agent.get_checkout_symbiotic_summary(user_id)
+        summary = await seve_care.get_checkout_symbiotic_summary(user_id)
         
         return CheckoutSummary(
             checkout_context=summary["checkout_context"],
@@ -163,10 +164,10 @@ async def update_checkout_stage(
     Atualiza estágio do checkout
     """
     try:
-        if user_id not in checkout_agent.checkout_contexts:
+        if user_id not in seve_care.checkout_contexts:
             raise HTTPException(status_code=404, detail="Contexto de checkout não encontrado")
         
-        context = checkout_agent.checkout_contexts[user_id]
+        context = seve_care.checkout_contexts[user_id]
         context.current_stage = CheckoutStage(stage)
         
         return {
@@ -194,10 +195,10 @@ async def update_checkout_emotion(
     Atualiza estado emocional do checkout
     """
     try:
-        if user_id not in checkout_agent.checkout_contexts:
+        if user_id not in seve_care.checkout_contexts:
             raise HTTPException(status_code=404, detail="Contexto de checkout não encontrado")
         
-        context = checkout_agent.checkout_contexts[user_id]
+        context = seve_care.checkout_contexts[user_id]
         context.emotional_state = CheckoutEmotion(emotion)
         
         return {
@@ -224,10 +225,10 @@ async def get_checkout_insights(
     Obtém insights específicos do checkout
     """
     try:
-        if user_id not in checkout_agent.checkout_contexts:
+        if user_id not in seve_care.checkout_contexts:
             raise HTTPException(status_code=404, detail="Usuário não encontrado")
         
-        context = checkout_agent.checkout_contexts[user_id]
+        context = seve_care.checkout_contexts[user_id]
         
         # Gerar insights baseados no contexto
         insights = []
@@ -294,10 +295,10 @@ async def request_checkout_optimization(
     Solicita otimização específica do checkout
     """
     try:
-        if user_id not in checkout_agent.checkout_contexts:
+        if user_id not in seve_care.checkout_contexts:
             raise HTTPException(status_code=404, detail="Usuário não encontrado")
         
-        context = checkout_agent.checkout_contexts[user_id]
+        context = seve_care.checkout_contexts[user_id]
         
         # Gerar otimizações baseadas no tipo
         optimizations = []
@@ -342,7 +343,7 @@ async def get_symbeon_tools(
     Lista ferramentas SYMBEON disponíveis para checkout
     """
     try:
-        tools = list(checkout_agent.symbeon_tools.keys())
+        tools = list(seve_care.symbeon_tools.keys())
         
         return {
             "available_tools": tools,
@@ -365,7 +366,7 @@ async def get_checkout_learning_data(
     Obtém dados de aprendizado do checkout
     """
     try:
-        if user_id not in checkout_agent.learning_patterns:
+        if user_id not in seve_care.learning_patterns:
             return {
                 "user_id": user_id,
                 "learning_data": [],
@@ -374,14 +375,14 @@ async def get_checkout_learning_data(
                 "preferred_stage": "entry"
             }
         
-        learning_data = checkout_agent.learning_patterns[user_id]
+        learning_data = seve_care.learning_patterns[user_id]
         
         return {
             "user_id": user_id,
             "learning_data": learning_data[-10:],  # Últimas 10 interações
             "total_interactions": len(learning_data),
-            "success_rate": checkout_agent._calculate_success_rate(user_id),
-            "preferred_stage": checkout_agent._get_preferred_stage(user_id),
+            "success_rate": seve_care._calculate_success_rate(user_id),
+            "preferred_stage": seve_care._get_preferred_stage(user_id),
             "learning_progress": min(len(learning_data) / 50, 1.0)
         }
         

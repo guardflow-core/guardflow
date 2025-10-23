@@ -1,6 +1,7 @@
 """
-Agente Simbiótico Especializado para Checkout - SYMBEON Integration
-Agente de IA especializado em checkout inteligente com integração SYMBEON
+SEVE-CARE: Checkout Adaptive Responsive Engine
+Agente simbiótico especializado em checkout inteligente com integração SYMBEON
+C.A.R.E. cuida da sua experiência de checkout com inteligência, empatia e adaptação contínua
 """
 
 from typing import Dict, List, Any, Optional
@@ -59,9 +60,11 @@ class SYMBEONInsight:
     priority: str
     emotional_impact: str
 
-class CheckoutSymbioticAgent:
+class SEVECARE:
     """
-    Agente Simbiótico Especializado para Checkout com SYMBEON
+    SEVE-CARE: Checkout Adaptive Responsive Engine
+    Agente simbiótico especializado em checkout inteligente com integração SYMBEON
+    C.A.R.E. cuida da sua experiência de checkout com inteligência, empatia e adaptação contínua
     """
     
     def __init__(self):
@@ -477,7 +480,7 @@ class CheckoutSymbioticAgent:
         
         # Insight de performance
         if context.checkout_speed > 3.0:
-            insights.append(SYBEONInsight(
+            insights.append(SYMBEONInsight(
                 insight_type="performance_optimization",
                 description="Checkout pode ser otimizado para maior velocidade",
                 confidence=0.9,
@@ -489,7 +492,7 @@ class CheckoutSymbioticAgent:
         
         # Insight ESG
         if context.esg_score > 0.7:
-            insights.append(SYBEONInsight(
+            insights.append(SYMBEONInsight(
                 insight_type="esg_achievement",
                 description="Excelente escolha de produtos sustentáveis",
                 confidence=0.8,
@@ -501,7 +504,7 @@ class CheckoutSymbioticAgent:
         
         # Insight de erro
         if context.error_count > 2:
-            insights.append(SYBEONInsight(
+            insights.append(SYMBEONInsight(
                 insight_type="error_prevention",
                 description="Muitos erros detectados, oferecer suporte adicional",
                 confidence=0.9,

@@ -57,7 +57,7 @@ interface CheckoutInsight {
   emotional_impact: string;
 }
 
-interface CheckoutSymbioticAgentProps {
+interface SEVECAREProps {
   userId: string;
   sessionId: string;
   onLearning?: (data: any) => void;
@@ -65,7 +65,7 @@ interface CheckoutSymbioticAgentProps {
   onStageChange?: (stage: string) => void;
 }
 
-const CheckoutSymbioticAgent: React.FC<CheckoutSymbioticAgentProps> = ({
+const SEVECARE: React.FC<SEVECAREProps> = ({
   userId,
   sessionId,
   onLearning,
@@ -114,7 +114,7 @@ const CheckoutSymbioticAgent: React.FC<CheckoutSymbioticAgentProps> = ({
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/v1/checkout-symbiotic-agent/checkout-chat', {
+      const response = await fetch('/api/v1/care/checkout-chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -248,10 +248,10 @@ const CheckoutSymbioticAgent: React.FC<CheckoutSymbioticAgentProps> = ({
           </Avatar>
           <Box>
             <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold' }}>
-              Agente Simbiótico de Checkout - SYMBEON
+              SEVE-CARE: Checkout Adaptive Responsive Engine
             </Typography>
             <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)' }}>
-              Aprendizado mútuo especializado em checkout inteligente
+              C.A.R.E. cuida da sua experiência de checkout com inteligência, empatia e adaptação contínua
             </Typography>
           </Box>
           <Box sx={{ ml: 'auto', display: 'flex', gap: 1 }}>
@@ -524,4 +524,4 @@ const CheckoutSymbioticAgent: React.FC<CheckoutSymbioticAgentProps> = ({
   );
 };
 
-export default CheckoutSymbioticAgent;
+export default SEVECARE;

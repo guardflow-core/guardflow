@@ -63,6 +63,12 @@ class Settings(BaseSettings):
     GUARDPASS_API_KEY: str = Field(default="guardpass-api-key-simulator", env="GUARDPASS_API_KEY")
     GUARDPASS_CLIENT_ID: str = Field(default="guardflow-client", env="GUARDPASS_CLIENT_ID")
     
+    # OAuth2 Configuration
+    GOOGLE_CLIENT_ID: str = Field(default="", env="GOOGLE_CLIENT_ID")
+    GOOGLE_CLIENT_SECRET: str = Field(default="", env="GOOGLE_CLIENT_SECRET")
+    MICROSOFT_CLIENT_ID: str = Field(default="", env="MICROSOFT_CLIENT_ID")
+    MICROSOFT_CLIENT_SECRET: str = Field(default="", env="MICROSOFT_CLIENT_SECRET")
+    
     # File Upload
     MAX_FILE_SIZE: int = 10 * 1024 * 1024  # 10MB
     UPLOAD_DIR: str = "uploads"
