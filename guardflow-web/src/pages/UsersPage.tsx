@@ -93,7 +93,7 @@ interface UserFormData {
   name: string;
   email: string;
   phone: string;
-  role: string;
+  role: 'admin' | 'manager' | 'cashier' | 'customer';
   status: string;
   store: string;
   permissions: string[];
@@ -356,7 +356,7 @@ const UsersPage: React.FC = () => {
 
   const paginatedUsers = filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
-  const getRoleInfo = (role: string) => roles.find(r => r.value === role) || roles[3];
+  const getRoleInfo = (role: 'admin' | 'manager' | 'cashier' | 'customer') => roles.find(r => r.value === role) || roles[3];
   const getStatusInfo = (status: string) => statuses.find(s => s.value === status) || statuses[0];
 
   const handleMenuClick = (event: React.MouseEvent<HTMLElement>, user: User) => {

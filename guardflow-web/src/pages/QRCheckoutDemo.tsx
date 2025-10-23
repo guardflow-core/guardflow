@@ -29,7 +29,7 @@ import {
   ShoppingCart,
   Scale,
   Security,
-  Eco,
+  // Eco,
   Timer,
   CheckCircle,
   Warning,
@@ -266,7 +266,7 @@ const QRCheckoutDemo: React.FC = () => {
                 <Button
                   variant="outlined"
                   onClick={() => setGuardpassEnabled(!guardpassEnabled)}
-                  color={guardpassEnabled ? 'primary' : 'default'}
+                  color={guardpassEnabled ? 'primary' : 'inherit'}
                   fullWidth
                 >
                   {guardpassEnabled ? '🔓 GuardPass Premium' : '🔒 GuardPass Básico'}
@@ -310,7 +310,7 @@ const QRCheckoutDemo: React.FC = () => {
                             {item.esg_score && (
                               <Chip
                                 size="small"
-                                icon={<Eco />}
+                                icon={<Nature />}
                                 label={`ESG: ${item.esg_score}`}
                                 color={item.esg_score > 7 ? 'success' : item.esg_score > 5 ? 'warning' : 'default'}
                               />
@@ -479,7 +479,7 @@ const QRCheckoutDemo: React.FC = () => {
               {sealResponse.esg_impact_score && (
                 <Box sx={{ mt: 2 }}>
                   <Chip
-                    icon={<Eco />}
+                    icon={<Nature />}
                     label={`ESG Score: ${sealResponse.esg_impact_score.toFixed(1)}`}
                     color="success"
                     size="medium"

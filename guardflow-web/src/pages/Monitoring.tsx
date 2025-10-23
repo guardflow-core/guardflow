@@ -43,7 +43,7 @@ import {
   NetworkCheck,
   Security,
   Api,
-  Database,
+  Storage,
   Cloud,
 } from '@mui/icons-material';
 
@@ -119,7 +119,7 @@ const Monitoring: React.FC = () => {
         responseTime: 12,
         lastCheck: '2024-01-20T10:30:00Z',
         description: 'Banco de dados PostgreSQL',
-        icon: <Database />,
+        icon: <Storage />,
       },
       {
         id: '3',

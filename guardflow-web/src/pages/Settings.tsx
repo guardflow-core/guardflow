@@ -36,9 +36,9 @@ import {
   Edit,
   Delete,
   Security,
-  Integration,
+  // Integration,
   Notifications,
-  Theme,
+  // Theme,
   Language,
   Storage,
   Api,
@@ -164,7 +164,7 @@ const Settings: React.FC = () => {
     setSettings(prev => ({
       ...prev,
       [parent]: {
-        ...prev[parent as keyof typeof prev],
+        ...(prev[parent] || {}),
         [key]: value,
       },
     }));

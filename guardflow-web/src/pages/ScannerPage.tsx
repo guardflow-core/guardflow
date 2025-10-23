@@ -38,7 +38,7 @@ import {
   Close,
   Search,
   Inventory,
-  EcoIcon,
+  // EcoIcon,
   LocalOffer,
   Speed,
 } from '@mui/icons-material';
@@ -441,7 +441,7 @@ const ScannerPage: React.FC = () => {
                               </Typography>
                               {product.esg_score && product.esg_score > 7 && (
                                 <Chip
-                                  icon={<EcoIcon />}
+                                  icon={<Nature />}
                                   label={`ESG ${product.esg_score}`}
                                   size="small"
                                   color="success"
@@ -551,7 +551,7 @@ const ScannerPage: React.FC = () => {
                       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                         <Typography variant="body2">Score ESG Médio:</Typography>
                         <Chip
-                          icon={<EcoIcon />}
+                          icon={<Nature />}
                           label={avgEsgScore.toFixed(1)}
                           size="small"
                           color={avgEsgScore > 7 ? "success" : "warning"}
