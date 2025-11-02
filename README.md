@@ -18,6 +18,11 @@ O **GuardFlow** é um sistema revolucionário de checkout inteligente que combin
 - ✅ **ESG Engine**: Processando em tempo real
 - ✅ **Deploy**: Produção local operacional
 
+## 🆕 Atualizações (02/11/2025)
+- 📚 Pacote de documentação **SEVE Universal** versionado (EAP, desenvolvimento, sessões, apresentações e análises realistas).
+- 🛠️ Scripts PowerShell de análise/correção e `backend_simples` FastAPI adicionados para validações rápidas.
+- 🔗 Submódulos `guardflow-sdk`, `guardflow-saas` e `symbeon-integration` sincronizados com commits recentes.
+
 ## 🧠 **TECNOLOGIAS PRINCIPAIS**
 
 ### **Backend (FastAPI)**

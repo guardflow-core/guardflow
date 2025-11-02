@@ -1,5 +1,11 @@
 # GuardFlow - Lista de Tarefas e Bugs
 
+## ✅ Atualização 02/11/2025
+- [x] Organizar commits e normalizar finais de arquivo existentes.
+- [x] Registrar pacote de documentação SEVE Universal.
+- [x] Adicionar scripts de automação e backend FastAPI simplificado.
+- [x] Atualizar ponteiros dos submódulos guardflow-sdk, guardflow-saas e symbeon-integration.
+
 ## 🎯 Tarefas Prioritárias
 
 ### 🔥 Críticas (Fazer Agora)
