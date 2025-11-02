@@ -151,3 +151,6 @@ if ($percentage -ge 90) {
 }
 
 Write-Host "`n🎪 TESTE SIMPLES FINALIZADO!" -ForegroundColor Green
+
+
+

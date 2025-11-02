@@ -105,3 +105,6 @@ cd ..
 
 Write-Host "`n🎉 CORREÇÃO DE ERROS TYPESCRIPT FINALIZADA!" -ForegroundColor Green
 Write-Host "Execute 'cd guardflow-web && npm start' para testar" -ForegroundColor Cyan
+
+
+

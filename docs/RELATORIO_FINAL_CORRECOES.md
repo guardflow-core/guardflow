@@ -98,3 +98,6 @@
 **🎯 GUARDFLOW - REVOLUCIONANDO O CHECKOUT DOS MERCADOS! 🚀**
 
 **Sistema completo, funcionando e pronto para impressionar investidores!**
+
+
+
